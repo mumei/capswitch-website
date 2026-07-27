@@ -70,14 +70,14 @@ export default function Home() {
           <div className="signal-line" aria-hidden="true"><span /></div>
           <div className="tour-step"><span className="step-index">02</span><div><h3>Caps Lockを押す</h3><p>標準動作は無効化。必要なら3〜5回の連打で、通常のCaps Lockも切り替えられます。</p></div></div>
           <div className="signal-line" aria-hidden="true"><span /></div>
-          <div className="tour-step"><span className="step-index">03</span><div><h3>結果を確認する</h3><p>LEDとHUDに現在の状態を表示します。</p></div></div>
+          <div className="tour-step"><span className="step-index">03</span><div><h3>状態が切り替わる</h3><p>選んだモードに合わせて機能が動作し、LEDとHUDにも状態を表示します。</p></div></div>
         </div>
       </section>
 
       <section className="modes-section" id="modes" aria-labelledby="modes-title">
         <div className="section-intro">
           <p className="kicker">10 modes</p>
-          <h2 id="modes-title">使いたいモードを、1つ選ぶ。</h2>
+          <h2 id="modes-title">モードを、1つ選ぶ。</h2>
         </div>
         <div className="mode-list" role="list">
           {modes.map(([name, description, type], index) => (
