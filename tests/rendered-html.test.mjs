@@ -26,7 +26,7 @@ test("server-renders the Capswitch official homepage", async () => {
   assert.match(html, /10 modes/);
   assert.match(html, /14日間試す/);
   assert.match(html, /https:\/\/github\.com\/mumei\/capswitch-releases\/releases/);
-  assert.match(html, /https:\/\/capswitch\.openai\.site\/og\.png/);
+  assert.match(html, /https:\/\/capswitch-app\.donpok\.chatgpt\.site\/og\.png/);
   assert.match(html, /aria-live="polite"/);
   assert.doesNotMatch(html, /Your site is taking shape|Building your site/);
 });
