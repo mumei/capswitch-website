@@ -8,17 +8,113 @@ export const metadata: Metadata = {
 };
 
 const modes = [
-  ["Functionキー切替", "F1〜F12の動作を切り替える", "2状態"],
-  ["マイクミュート", "マイクをミュート／解除する", "2状態"],
-  ["外観切替", "ライト／ダークを切り替える", "2状態"],
-  ["スリープ防止", "スリープ防止を開始／停止する", "2状態"],
-  ["スピーカーミュート", "音声出力をミュート／解除する", "2状態"],
-  ["音量コントローラー", "連打で上げ、長押しで下げる", "連続値"],
-  ["オーディオ出力", "出力先を順番に切り替える", "複数状態"],
-  ["入力ソース", "日本語・英語などを切り替える", "複数状態"],
-  ["タイマー", "開始・停止と時間調整を行う", "時間"],
-  ["ショートカット", "押し方ごとに操作を割り当てる", "カスタム"],
+  {
+    name: "Functionキー切替",
+    description: "F1〜F12の動作を切り替える",
+    type: "2状態",
+    states: ["メディア操作", "Functionキー入力"],
+    actions: ["単押し"],
+    loop: true,
+  },
+  {
+    name: "マイクミュート",
+    description: "マイクをミュート／解除する",
+    type: "2状態",
+    states: ["使用中", "ミュート"],
+    actions: ["単押し"],
+    loop: true,
+  },
+  {
+    name: "外観切替",
+    description: "ライト／ダークを切り替える",
+    type: "2状態",
+    states: ["ライト", "ダーク"],
+    actions: ["単押し"],
+    loop: true,
+  },
+  {
+    name: "スリープ防止",
+    description: "スリープ防止を開始／停止する",
+    type: "2状態",
+    states: ["標準設定", "スリープ防止"],
+    actions: ["単押し"],
+    loop: true,
+  },
+  {
+    name: "スピーカーミュート",
+    description: "音声出力をミュート／解除する",
+    type: "2状態",
+    states: ["再生中", "ミュート"],
+    actions: ["単押し"],
+    loop: true,
+  },
+  {
+    name: "音量コントローラー",
+    description: "連打で上げ、長押しで下げる",
+    type: "連続値",
+    states: ["現在の音量", "＋5%"],
+    actions: ["連打"],
+    note: "長押し中は−5%ずつ調整",
+  },
+  {
+    name: "オーディオ出力",
+    description: "出力先を順番に切り替える",
+    type: "複数状態",
+    states: ["出力先 1", "出力先 2", "次の出力先"],
+    actions: ["単押し", "単押し"],
+    loop: true,
+  },
+  {
+    name: "入力ソース",
+    description: "日本語・英語などを切り替える",
+    type: "複数状態",
+    states: ["入力 1", "入力 2", "次の入力"],
+    actions: ["単押し", "単押し"],
+    loop: true,
+  },
+  {
+    name: "タイマー",
+    description: "開始・停止と時間調整を行う",
+    type: "時間",
+    states: ["停止中", "カウント中", "一時停止", "完了"],
+    actions: ["単押し", "単押し", "時間終了"],
+    note: "停止中は連打＋1分／長押し−1分",
+  },
+  {
+    name: "ショートカット",
+    description: "押し方ごとに操作を割り当てる",
+    type: "カスタム",
+    states: ["押し方を判定", "設定した操作を実行"],
+    actions: ["単押し・連打・長押し"],
+    note: "長押しは1回／連続を選択",
+  },
 ] as const;
+
+function ModeTransition({ mode }: { mode: (typeof modes)[number] }) {
+  const accessibleFlow = mode.states
+    .map((state, index) => index === 0 ? state : `${mode.actions[index - 1]}で${state}`)
+    .join("、") + ("loop" in mode && mode.loop ? "、その後は最初の状態へ戻る" : "");
+
+  return (
+    <div className="mode-transition" role="img" aria-label={`状態遷移: ${accessibleFlow}`}>
+      <div className="transition-track" aria-hidden="true">
+        {mode.states.map((state, index) => (
+          <div className="transition-part" key={`${mode.name}-${state}`}>
+            {index > 0 && (
+              <span className="transition-action">
+                <small>{mode.actions[index - 1]}</small>
+                <i>→</i>
+              </span>
+            )}
+            <span className="transition-state">{state}</span>
+          </div>
+        ))}
+        {"loop" in mode && mode.loop && <span className="transition-loop">↺</span>}
+      </div>
+      {"note" in mode && <span className="transition-note">{mode.note}</span>}
+    </div>
+  );
+}
 
 const ledPatterns = [
   ["2状態", "点灯／消灯", "Functionキー、ミュート、外観など"],
@@ -75,17 +171,20 @@ export default function Home() {
       </section>
 
       <section className="modes-section" id="modes" aria-labelledby="modes-title">
-        <div className="section-intro">
-          <p className="kicker">10 modes</p>
-          <h2 id="modes-title">モードを、1つ選ぶ。</h2>
-        </div>
-        <div className="mode-list" role="list">
-          {modes.map(([name, description, type], index) => (
-            <article className="mode-row" role="listitem" key={name}>
-              <span className="mode-number">{String(index + 1).padStart(2, "0")}</span>
-              <h3>{name}</h3><p>{description}</p><span className="mode-type">{type}</span>
-            </article>
-          ))}
+        <div className="modes-inner">
+          <div className="section-intro">
+            <p className="kicker">10 modes</p>
+            <h2 id="modes-title">モードを、1つ選ぶ。</h2>
+          </div>
+          <div className="mode-list" role="list">
+            {modes.map((mode, index) => (
+              <article className="mode-row" role="listitem" key={mode.name}>
+                <span className="mode-number">{String(index + 1).padStart(2, "0")}</span>
+                <h3>{mode.name}</h3><p>{mode.description}</p><span className="mode-type">{mode.type}</span>
+                <ModeTransition mode={mode} />
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
