@@ -68,7 +68,7 @@ export default function Home() {
         <div className="tour-frame">
           <div className="tour-step"><span className="step-index">01</span><div><h3>モードを選ぶ</h3><p>設定から使いたい操作を1つ選びます。</p></div></div>
           <div className="signal-line" aria-hidden="true"><span /></div>
-          <div className="tour-step"><span className="step-index">02</span><div><h3>Caps Lockを押す</h3><p>通常のCaps Lock動作は無効になります。</p></div></div>
+          <div className="tour-step"><span className="step-index">02</span><div><h3>Caps Lockを押す</h3><p>標準動作は無効化。必要なら3〜5回の連打で、通常のCaps Lockも切り替えられます。</p></div></div>
           <div className="signal-line" aria-hidden="true"><span /></div>
           <div className="tour-step"><span className="step-index">03</span><div><h3>結果を確認する</h3><p>LEDとHUDに現在の状態を表示します。</p></div></div>
         </div>
