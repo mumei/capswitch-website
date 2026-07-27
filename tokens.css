@@ -1,0 +1,32 @@
+/* Hallmark · macrostructure: workbench · genre: modern-minimal · tone: technical-quiet · theme: cobalt · anchor: 259 · enrichment: Tier A CSS art · nav: N9 · footer: Ft2 · contrast: pass (40–41) · slop: pass (42–49) · mobile: pass (34, 49, 50–57) */
+/* Hallmark · pre-emit critique: P5 H5 E4 S5 R5 V5 */
+:root {
+  --font-display: var(--font-geist), "Hiragino Sans", "Yu Gothic", sans-serif;
+  --font-body: var(--font-geist), "Hiragino Sans", "Yu Gothic", sans-serif;
+  --font-mono: var(--font-geist-mono), "SFMono-Regular", monospace;
+  --color-paper: oklch(97.5% 0.008 252); --color-paper-2: oklch(94.5% 0.012 252);
+  --color-panel: oklch(99% 0.005 252); --color-ink: oklch(18% 0.02 252);
+  --color-ink-2: oklch(29% 0.025 252); --color-muted: oklch(47% 0.025 252);
+  --color-rule: oklch(85% 0.018 252); --color-rule-strong: oklch(70% 0.03 252);
+  --color-accent: oklch(56% 0.22 259); --color-accent-dark: oklch(44% 0.19 259);
+  --color-accent-ink: oklch(98% 0.006 252); --color-focus: oklch(50% 0.2 259);
+  --color-graphite: oklch(19% 0.025 252); --color-graphite-2: oklch(25% 0.03 252);
+  --color-graphite-3: oklch(26% 0.025 252); --color-key-edge: oklch(42% 0.03 252);
+  --color-key-led-off: oklch(34% 0.02 252);
+  --color-led: oklch(73% 0.2 145);
+  --shadow-panel: oklch(20% 0.02 252 / 0.08);
+  --shadow-key: oklch(8% 0.02 252 / 0.3);
+  --shadow-led: oklch(73% 0.2 145 / 0.55);
+  --text-xs: .72rem; --text-sm: .84rem; --text-base: 1rem; --text-md: 1.25rem;
+  --text-lg: 1.56rem; --text-xl: 1.95rem; --text-2xl: 2.44rem;
+  --text-display: clamp(2.7rem, 6vw + .2rem, 5.1rem);
+  --space-3xs: .125rem; --space-2xs: .25rem; --space-xs: .5rem; --space-sm: .75rem;
+  --space-md: 1rem; --space-lg: 1.5rem; --space-xl: 2.5rem; --space-2xl: 4rem;
+  --space-3xl: 6rem; --space-4xl: 9rem;
+  --page-gutter: clamp(1rem, 4vw, 4rem); --content-max: 78rem;
+  --radius-sm: .38rem; --radius-md: .65rem; --radius-lg: 1rem; --rule: 1px;
+  --ease-out: cubic-bezier(.16,1,.3,1); --ease-in: cubic-bezier(.7,0,.84,0);
+  --ease-in-out: cubic-bezier(.65,0,.35,1);
+  --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms;
+  --z-base: 1; --z-raised: 10; --z-sticky: 200;
+}

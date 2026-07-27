@@ -1,0 +1,52 @@
+import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
+import test from "node:test";
+
+async function render() {
+  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
+  const { default: worker } = await import(workerUrl.href);
+
+  return worker.fetch(
+    new Request("http://localhost/", { headers: { accept: "text/html" } }),
+    { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } },
+    { waitUntil() {}, passThroughOnException() {} },
+  );
+}
+
+test("server-renders the Capswitch official homepage", async () => {
+  const response = await render();
+  assert.equal(response.status, 200);
+  assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
+
+  const html = await response.text();
+  assert.match(html, /<html lang="ja">/);
+  assert.match(html, /Caps Lockを、/);
+  assert.match(html, /LIVE DEMO/);
+  assert.match(html, /10 modes/);
+  assert.match(html, /14日間試す/);
+  assert.match(html, /https:\/\/github\.com\/mumei\/capswitch-releases\/releases/);
+  assert.match(html, /https:\/\/capswitch\.openai\.site\/og\.png/);
+  assert.match(html, /aria-live="polite"/);
+  assert.doesNotMatch(html, /Your site is taking shape|Building your site/);
+});
+
+test("keeps the Hallmark and responsive contracts in source", async () => {
+  const [page, demo, css, tokens, layout] = await Promise.all([
+    readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/capswitch-demo.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
+    readFile(new URL("../tokens.css", import.meta.url), "utf8"),
+    readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
+  ]);
+
+  assert.match(tokens, /^\/\* Hallmark · genre: modern-minimal/);
+  assert.match(css, /overflow-x:\s*clip/);
+  assert.match(css, /prefers-reduced-motion:\s*reduce/);
+  assert.match(css, /minmax\(0,\s*1fr\)/);
+  assert.match(css, /white-space:\s*nowrap/);
+  assert.match(css, /:focus-visible/);
+  assert.match(page, /CapswitchDemo/);
+  assert.match(demo, /aria-pressed/);
+  assert.match(layout, /lang="ja"/);
+});

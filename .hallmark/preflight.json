@@ -1,0 +1,12 @@
+{
+  "audience": "Mac power users who want one-key control without leaving the keyboard",
+  "use_case": "Understand Capswitch, try the interaction, and download the 14-day trial",
+  "tone": "Technical, quiet, precise, compatible with the macOS product context",
+  "genre": "modern-minimal",
+  "macrostructure": "workbench",
+  "theme": "cobalt",
+  "nav": "N9",
+  "footer": "Ft2",
+  "enrichment": "Tier A CSS art",
+  "assets": "No product screenshots supplied; the hero uses a custom CSS Caps Lock key demo"
+}

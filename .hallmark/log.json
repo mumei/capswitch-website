@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "outputs": [
+    {
+      "date": "2026-07-28",
+      "genre": "modern-minimal",
+      "macrostructure": "workbench",
+      "theme": "cobalt",
+      "nav": "N9",
+      "footer": "Ft2",
+      "enrichment": "Tier A CSS art",
+      "notes": "Official Capswitch homepage with an interactive Caps Lock, LED, and HUD demonstration."
+    }
+  ]
+}
