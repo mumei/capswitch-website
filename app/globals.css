@@ -22,7 +22,7 @@ main { min-width: 0; }
   color: var(--color-ink); font-family: var(--font-mono); font-size: var(--text-md);
   font-weight: 700; letter-spacing: -.04em; white-space: nowrap;
 }
-.wordmark-dot { width: .48rem; aspect-ratio: 1; border-radius: 50%; background: var(--color-accent); }
+.wordmark-dot { width: .48rem; aspect-ratio: 1; border-radius: 50%; background: var(--color-led); }
 .nav-download, .button {
   min-height: 44px; display: inline-flex; align-items: center; justify-content: center;
   padding-inline: var(--space-lg); border: var(--rule) solid var(--color-rule-strong);
