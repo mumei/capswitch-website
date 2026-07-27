@@ -40,7 +40,7 @@ test("keeps the Hallmark and responsive contracts in source", async () => {
     readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
   ]);
 
-  assert.match(tokens, /^\/\* Hallmark · genre: modern-minimal/);
+  assert.match(tokens, /^\/\* Hallmark · macrostructure: workbench · genre: modern-minimal/);
   assert.match(css, /overflow-x:\s*clip/);
   assert.match(css, /prefers-reduced-motion:\s*reduce/);
   assert.match(css, /minmax\(0,\s*1fr\)/);
