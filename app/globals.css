@@ -217,8 +217,7 @@ h1 { max-width: 12ch; font-size: clamp(2.7rem, 4vw + .5rem, 4.5rem); font-weight
 @media (min-width: 40rem) {
   .hero { grid-template-columns: minmax(0, 1.05fr) minmax(20rem, .95fr); }
   .tour-chapter { grid-template-columns: minmax(12rem, .6fr) minmax(0, 1.4fr); align-items: center; }
-  .tour-chapter-menu { grid-template-columns: minmax(0, .7fr) minmax(12rem, 1.3fr); }
-  .tour-chapter-menu .tour-screenshot { order: -1; }
+  .tour-chapter-menu .tour-screenshot { width: min(100%, 32rem); justify-self: start; }
   .tour-action { grid-template-columns: minmax(12rem, .6fr) minmax(0, 1.4fr); align-items: center; }
   .caps-lock-flow { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; }
   .mode-row { grid-template-columns: 2.5rem minmax(11rem, .8fr) minmax(0, 1.4fr) auto; align-items: baseline; }
