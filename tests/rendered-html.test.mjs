@@ -26,7 +26,15 @@ test("server-renders the Capswitch official homepage", async () => {
   assert.match(html, /Caps Lockを他の操作に！/);
   assert.match(html, /Caps LockのLEDもフィードバックに活用！/);
   assert.match(html, /Caps Lockを他の操作に！<br\/>Caps LockのLEDもフィードバックに活用！/);
+  assert.match(html, /class="wordmark-icon"/);
+  assert.ok(
+    html.indexOf('class="hero-lede"') < html.indexOf("<h1>"),
+    "hero explanation should appear before the headline",
+  );
   assert.match(html, /LEDで状態を表示/);
+  assert.match(html, /状態の種類/);
+  assert.match(html, /LEDの表し方/);
+  assert.match(html, /対応するモード/);
   assert.match(html, /通常のCaps Lockも使えます/);
   assert.doesNotMatch(html, /通常のCaps Lockも使えます。/);
   assert.match(html, /3・4・5回から選ぶ/);
@@ -78,6 +86,10 @@ test("keeps the Hallmark and responsive contracts in source", async () => {
   assert.match(css, /minmax\(0,\s*1fr\)/);
   assert.match(css, /white-space:\s*nowrap/);
   assert.match(css, /:focus-visible/);
+  assert.match(css, /\.wordmark-icon \{[\s\S]*?width: 2rem; height: 2rem;[\s\S]*?favicon\.png/);
+  assert.match(css, /\.hero-lede \{[\s\S]*?margin-bottom: var\(--space-xl\)/);
+  assert.match(css, /\.led-table \{ display: grid; gap: var\(--space-sm\); \}/);
+  assert.match(css, /\.led-row \{[\s\S]*?border-radius: var\(--radius-md\)/);
   assert.match(css, /\.modes-section \.section-intro \{ max-width: 46rem; \}/);
   assert.match(css, /@media \(min-width: 40rem\)[\s\S]*?\.tour-chapter \{[\s\S]*?grid-template-columns: minmax\(12rem, \.6fr\) minmax\(0, 1\.4fr\)/);
   assert.match(css, /\.tour-chapter-menu \.tour-screenshot \{ width: min\(100%, 32rem\); justify-self: start; \}/);

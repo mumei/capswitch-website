@@ -133,6 +133,7 @@ export default function Home() {
     <main>
       <header className="site-nav">
         <a className="wordmark" href="#top" aria-label="Capswitch トップ">
+          <span className="wordmark-icon" aria-hidden="true" />
           Capswitch<span className="wordmark-dot" aria-hidden="true" />
         </a>
         <a className="nav-download" href="https://github.com/mumei/capswitch-releases/releases">
@@ -142,11 +143,11 @@ export default function Home() {
 
       <section className="hero" id="top">
         <div className="hero-copy reveal" style={{ "--i": 0 } as React.CSSProperties}>
-          <h1>あまり使わない<br />Caps Lockを活用</h1>
           <p className="hero-lede">
             Caps Lockを他の操作に！<br />
             Caps LockのLEDもフィードバックに活用！
           </p>
+          <h1>あまり使わない<br />Caps Lockを活用</h1>
           <div className="hero-actions">
             <a className="button button-primary" href="https://github.com/mumei/capswitch-releases/releases">
               14日間試す
@@ -278,9 +279,16 @@ export default function Home() {
           <p>点灯・消灯・点滅回数・点滅速度を使い分けます。</p>
         </div>
         <div className="led-table" role="table" aria-label="LED点滅パターン">
+          <div className="led-header" role="row">
+            <span role="columnheader">状態の種類</span>
+            <span role="columnheader">LEDの表し方</span>
+            <span role="columnheader">対応するモード</span>
+          </div>
           {ledPatterns.map(([state, pattern, examples]) => (
             <div className="led-row" role="row" key={state}>
-              <span role="cell">{state}</span><strong role="cell">{pattern}</strong><span role="cell">{examples}</span>
+              <span className="led-state" role="cell"><small>状態の種類</small>{state}</span>
+              <strong className="led-pattern" role="cell"><small>LEDの表し方</small>{pattern}</strong>
+              <span className="led-examples" role="cell"><small>対応するモード</small>{examples}</span>
             </div>
           ))}
         </div>
