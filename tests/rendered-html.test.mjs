@@ -58,9 +58,9 @@ test("server-renders the Capswitch official homepage", async () => {
   assert.doesNotMatch(html, /macOS menu bar app/);
   assert.doesNotMatch(html, /LIVE DEMO/);
   assert.doesNotMatch(html, /Caps Lockを押して切り替え/);
-  assert.match(html, /10 modes/);
-  assert.match(html, /状態遷移: メディア操作、単押しでFunctionキー入力/);
-  assert.match(html, /単押し(?:<!-- -->)? → 最初の状態へ/);
+  assert.match(html, /10モード/);
+  assert.match(html, /状態遷移: メディア操作, 単押し: Functionキー入力/);
+  assert.match(html, /単押し[\s\S]{0,80}最初の状態へ/);
   assert.doesNotMatch(html, /↺/);
   assert.match(html, /停止中は連打＋1分／長押し−1分/);
   assert.match(html, /14日間試す/);
@@ -73,8 +73,10 @@ test("server-renders the Capswitch official homepage", async () => {
 });
 
 test("keeps the Hallmark and responsive contracts in source", async () => {
-  const [page, demo, css, tokens, layout] = await Promise.all([
+  const [page, localizedHome, i18n, demo, css, tokens, layout] = await Promise.all([
     readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/localized-home.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/i18n.ts", import.meta.url), "utf8"),
     readFile(new URL("../app/capswitch-demo.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
     readFile(new URL("../tokens.css", import.meta.url), "utf8"),
@@ -88,10 +90,11 @@ test("keeps the Hallmark and responsive contracts in source", async () => {
   assert.match(css, /white-space:\s*nowrap/);
   assert.match(css, /:focus-visible/);
   assert.match(css, /\.wordmark-icon \{[\s\S]*?width: 2rem; height: 2rem;[\s\S]*?background-size: contain/);
-  assert.match(page, /backgroundImage: .*publicBasePath.*favicon\.png/);
+  assert.match(localizedHome, /backgroundImage: .*publicBasePath.*favicon\.png/);
   assert.match(css, /\.hero-lede \{[\s\S]*?margin-top: var\(--space-lg\)/);
   assert.match(css, /\.hero-title-line \{ display: block; white-space: nowrap; \}/);
-  assert.match(css, /@media \(max-width: 39\.99rem\)[\s\S]*?h1 \{ max-width: none; font-size: clamp\(2rem, 9\.4vw, 2\.75rem\); \}/);
+  assert.match(css, /@media \(max-width: 39\.99rem\)[\s\S]*?h1 \{ max-width: none; font-size: clamp\(1\.75rem, 8vw, 2\.75rem\); \}/);
+  assert.match(css, /html:lang\(ja\) h1[\s\S]*?font-size: clamp\(2rem, 9\.4vw, 2\.75rem\)/);
   assert.match(css, /\.led-table \{ display: grid; gap: var\(--space-sm\); \}/);
   assert.match(css, /\.led-row \{[\s\S]*?border-radius: var\(--radius-md\)/);
   assert.match(css, /\.modes-section \.section-intro \{ max-width: 46rem; \}/);
@@ -99,11 +102,19 @@ test("keeps the Hallmark and responsive contracts in source", async () => {
   assert.match(css, /\.tour-chapter-menu \.tour-screenshot \{ width: min\(100%, 32rem\); justify-self: start; \}/);
   assert.doesNotMatch(css, /\.tour-chapter-menu \.tour-screenshot \{ order: -1; \}/);
   assert.match(css, /\.tour-screenshot img \{[\s\S]*?width: 100%; height: auto/);
-  assert.match(css, /\.price-section h2 \{[\s\S]*?white-space: nowrap/);
+  assert.match(css, /html:lang\(ja\) \.price-section h2 \{ white-space: nowrap; \}/);
   assert.match(css, /\.mode-row:nth-child\(odd\) \{ background: var\(--color-panel\); \}/);
   assert.match(css, /\.mode-summary \{[\s\S]*?display: grid/);
   assert.doesNotMatch(css, /\.modes-section \.section-intro \{[\s\S]*?margin-inline-start:/);
-  assert.match(page, /CapswitchDemo/);
+  assert.match(page, /LocalizedHome/);
+  assert.match(localizedHome, /CapswitchDemo/);
+  assert.match(localizedHome, /localStorage\.setItem\(localeStorageKey/);
+  assert.match(localizedHome, /document\.documentElement\.lang = locale/);
+  assert.match(i18n, /zh-Hans/);
+  assert.match(i18n, /zh-Hant/);
+  for (const locale of ["ja", "en", "de", "fr", "ko", "es", "it", "vi", "th"]) {
+    assert.match(i18n, new RegExp(`(?:^|\\n)  ${locale}: \\{`));
+  }
   assert.match(demo, /getModifierState\("CapsLock"\)/);
   assert.match(demo, /addEventListener\("keydown", handleCapsLock\)/);
   assert.match(demo, /addEventListener\("keyup", handleCapsLock\)/);

@@ -2,12 +2,15 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 
-const demoStates = [
-  { label: "メディア操作", short: "Media", led: true },
-  { label: "Functionキー", short: "Function", led: false },
-] as const;
+type DemoCopy = {
+  media: string;
+  function: string;
+  mediaShort: string;
+  functionShort: string;
+  pressLabel: string;
+};
 
-export function CapswitchDemo() {
+export function CapswitchDemo({ copy }: { copy: DemoCopy }) {
   const [state, setState] = useState(0);
   const [hudKey, setHudKey] = useState(0);
   const [hudVisible, setHudVisible] = useState(false);
@@ -15,10 +18,12 @@ export function CapswitchDemo() {
   const hudTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pressTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const lastCapsLockState = useRef<boolean | null>(null);
-  const current = demoStates[state];
+  const current = state === 0
+    ? { label: copy.media, short: copy.mediaShort, led: true }
+    : { label: copy.function, short: copy.functionShort, led: false };
 
   const toggle = useCallback(() => {
-    setState((value) => (value + 1) % demoStates.length);
+    setState((value) => (value + 1) % 2);
     setHudKey((value) => value + 1);
     setHudVisible(true);
     if (hudTimer.current) clearTimeout(hudTimer.current);
@@ -72,7 +77,7 @@ export function CapswitchDemo() {
         <button className={`caps-key ${current.led ? "is-on" : ""} ${pressed ? "is-pressed" : ""}`} type="button"
           onClick={toggle} onPointerDown={() => setPressed(true)} onPointerUp={() => setPressed(false)}
           onPointerCancel={() => setPressed(false)} onBlur={() => setPressed(false)}
-          aria-label={`Caps Lockを押す。現在は${current.label}`} aria-pressed={current.led}>
+          aria-label={`${copy.pressLabel} ${current.label}`} aria-pressed={current.led}>
           <span className="key-led" aria-hidden="true" /><span className="caps-symbol" aria-hidden="true">⇪</span><span>caps lock</span>
         </button>
       </div>
