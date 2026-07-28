@@ -22,6 +22,7 @@ test("server-renders the Capswitch official homepage", async () => {
   const html = await response.text();
   assert.match(html, /<html lang="ja">/);
   assert.match(html, /Caps Lockを、/);
+  assert.doesNotMatch(html, /macOS menu bar app/);
   assert.match(html, /LIVE DEMO/);
   assert.match(html, /10 modes/);
   assert.match(html, /状態遷移: メディア操作、単押しでFunctionキー入力/);

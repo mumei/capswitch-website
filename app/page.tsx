@@ -137,7 +137,6 @@ export default function Home() {
 
       <section className="hero" id="top">
         <div className="hero-copy reveal" style={{ "--i": 0 } as React.CSSProperties}>
-          <p className="kicker">macOS menu bar app</p>
           <h1>Caps Lockを、<br />Macのコントロールキーへ。</h1>
           <p className="hero-lede">
             Caps Lockに、よく使う操作を1つ割り当てます。
