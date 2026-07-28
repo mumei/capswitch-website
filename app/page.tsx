@@ -163,24 +163,18 @@ export default function Home() {
       <section className="guided-tour" aria-labelledby="tour-title">
         <div className="section-intro">
           <p className="kicker">How it works</p>
-          <h2 id="tour-title">設定して、押すだけ。</h2>
+          <h2 id="tour-title">設定から、普段の操作まで</h2>
         </div>
-        <div className="tour-frame">
-          <div className="tour-step"><span className="step-index">01</span><div><h3>モードを選ぶ</h3><p>設定から使いたい操作を1つ選びます。</p></div></div>
-          <div className="signal-line" aria-hidden="true"><span /></div>
-          <div className="tour-step"><span className="step-index">02</span><div><h3>Caps Lockを押す</h3><p>単押しでは、選んだモードを操作します。</p></div></div>
-          <div className="signal-line" aria-hidden="true"><span /></div>
-          <div className="tour-step"><span className="step-index">03</span><div><h3>状態が切り替わる</h3><p>選んだモードに合わせて機能が動作し、LEDとHUDにも状態を表示します。</p></div></div>
-        </div>
-      </section>
-
-      <section className="product-screen-section" aria-labelledby="product-screen-title">
-        <div className="section-intro">
-          <h2 id="product-screen-title">実際の画面。</h2>
-          <p>設定は1つの画面にまとめ、普段の操作はメニューバーから行えます。</p>
-        </div>
-        <div className="product-shots">
-          <figure className="product-shot product-shot-settings">
+        <div className="tour-story">
+          <article className="tour-chapter tour-chapter-settings">
+            <div className="tour-step">
+              <span className="step-index">01</span>
+              <div>
+                <h3>設定でモードを選ぶ</h3>
+                <p>10種類から使いたい操作を1つ選び、必要な項目だけ調整します。</p>
+              </div>
+            </div>
+            <figure className="tour-screenshot">
             <Image
               src="/capswitch-settings.png"
               width="1936"
@@ -188,31 +182,51 @@ export default function Home() {
               loading="lazy"
               alt="Capswitchの設定画面。左側に一般、入力、モード、表示、ライセンス、診断のメニューが並ぶ"
             />
-            <figcaption>
-              <strong>設定画面</strong>
-              <span>モード、入力、表示、ライセンスをまとめて設定。</span>
-            </figcaption>
           </figure>
-          <figure className="product-shot product-shot-menu">
-            <Image
-              src="/capswitch-menu.png"
-              width="588"
-              height="370"
-              loading="lazy"
-              alt="Capswitchの常駐メニュー。稼働状態、一時停止、設定、終了を表示している"
-            />
-            <figcaption>
-              <strong>常駐メニュー</strong>
-              <span>稼働状態の確認、一時停止、設定をすぐに操作。</span>
-            </figcaption>
-          </figure>
+          </article>
+
+          <article className="tour-action">
+            <div className="tour-step">
+              <span className="step-index">02</span>
+              <div>
+                <h3>Caps Lockで操作する</h3>
+                <p>単押し、連打、長押しをモードに合わせて使います。</p>
+              </div>
+            </div>
+            <div className="action-flow" aria-label="Caps Lockの操作結果">
+              <strong>Caps Lock</strong>
+              <span aria-hidden="true">→</span>
+              <strong>モードが動作</strong>
+              <span aria-hidden="true">→</span>
+              <strong>LED・HUDに表示</strong>
+            </div>
+          </article>
+
+          <article className="tour-chapter tour-chapter-menu">
+            <div className="tour-step">
+              <span className="step-index">03</span>
+              <div>
+                <h3>メニューバーから管理する</h3>
+                <p>稼働状態の確認、一時停止、設定、終了をすぐに操作できます。</p>
+              </div>
+            </div>
+            <figure className="tour-screenshot">
+              <Image
+                src="/capswitch-menu.png"
+                width="588"
+                height="370"
+                loading="lazy"
+                alt="Capswitchの常駐メニュー。稼働状態、一時停止、設定、終了を表示している"
+              />
+            </figure>
+          </article>
         </div>
       </section>
 
       <section className="caps-lock-section" aria-labelledby="caps-lock-title">
         <div className="section-intro">
           <p className="kicker">Keep Caps Lock</p>
-          <h2 id="caps-lock-title">通常のCaps Lockも使えます。</h2>
+          <h2 id="caps-lock-title">通常のCaps Lockも使えます</h2>
           <p>設定した回数だけ連打したときは、選んだモードではなく通常のCaps Lockとして動作します。</p>
         </div>
         <div className="caps-lock-flow" aria-label="通常のCaps Lockを使う手順">
@@ -237,7 +251,7 @@ export default function Home() {
         <div className="modes-inner">
           <div className="section-intro">
             <p className="kicker">10 modes</p>
-            <h2 id="modes-title">モードを、1つ選ぶ。</h2>
+            <h2 id="modes-title">モードを、1つ選ぶ</h2>
           </div>
           <div className="mode-list" role="list">
             {modes.map((mode, index) => (
@@ -267,7 +281,7 @@ export default function Home() {
       </section>
 
       <section className="price-section" id="download" aria-labelledby="price-title">
-        <div><p className="kicker">Try first</p><h2 id="price-title">14日間、すべて試せます。</h2></div>
+        <div><p className="kicker">Try first</p><h2 id="price-title">14日間、すべて試せます</h2></div>
         <div className="price-copy">
           <p>登録なしで全機能を試せます。</p>
           <a className="button button-primary" href="https://github.com/mumei/capswitch-releases/releases">Capswitchをダウンロード</a>
