@@ -86,7 +86,8 @@ test("keeps the Hallmark and responsive contracts in source", async () => {
   assert.match(css, /minmax\(0,\s*1fr\)/);
   assert.match(css, /white-space:\s*nowrap/);
   assert.match(css, /:focus-visible/);
-  assert.match(css, /\.wordmark-icon \{[\s\S]*?width: 2rem; height: 2rem;[\s\S]*?favicon\.png/);
+  assert.match(css, /\.wordmark-icon \{[\s\S]*?width: 2rem; height: 2rem;[\s\S]*?background-size: contain/);
+  assert.match(page, /backgroundImage: .*publicBasePath.*favicon\.png/);
   assert.match(css, /\.hero-lede \{[\s\S]*?margin-bottom: var\(--space-xl\)/);
   assert.match(css, /\.led-table \{ display: grid; gap: var\(--space-sm\); \}/);
   assert.match(css, /\.led-row \{[\s\S]*?border-radius: var\(--radius-md\)/);

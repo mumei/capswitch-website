@@ -24,7 +24,7 @@ main { min-width: 0; }
 }
 .wordmark-icon {
   width: 2rem; height: 2rem; display: block; flex: none;
-  background: url("/favicon.png") center / contain no-repeat;
+  background-position: center; background-size: contain; background-repeat: no-repeat;
 }
 .wordmark-dot { width: .48rem; aspect-ratio: 1; border-radius: 50%; background: var(--color-led); }
 .nav-download, .button {

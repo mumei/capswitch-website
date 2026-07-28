@@ -2,6 +2,11 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { CapswitchDemo } from "./capswitch-demo";
 
+const repositoryName = process.env.GITHUB_REPOSITORY?.split("/")[1] ?? "capswitch-website";
+const publicBasePath =
+  process.env.NEXT_PUBLIC_BASE_PATH ??
+  (process.env.GITHUB_PAGES === "true" ? `/${repositoryName}` : "");
+
 export const metadata: Metadata = {
   title: "Capswitch — あまり使わないCaps Lockを活用",
   description:
@@ -133,7 +138,11 @@ export default function Home() {
     <main>
       <header className="site-nav">
         <a className="wordmark" href="#top" aria-label="Capswitch トップ">
-          <span className="wordmark-icon" aria-hidden="true" />
+          <span
+            className="wordmark-icon"
+            style={{ backgroundImage: `url("${publicBasePath}/favicon.png")` }}
+            aria-hidden="true"
+          />
           Capswitch<span className="wordmark-dot" aria-hidden="true" />
         </a>
         <a className="nav-download" href="https://github.com/mumei/capswitch-releases/releases">
@@ -177,7 +186,7 @@ export default function Home() {
             </div>
             <figure className="tour-screenshot">
               <Image
-                src="/capswitch-settings.png"
+                src={`${publicBasePath}/capswitch-settings.png`}
                 width="1012"
                 height="724"
               loading="lazy"
@@ -213,7 +222,7 @@ export default function Home() {
             </div>
             <figure className="tour-screenshot">
               <Image
-                src="/capswitch-menu.png"
+                src={`${publicBasePath}/capswitch-menu.png`}
                 width="588"
                 height="370"
                 loading="lazy"

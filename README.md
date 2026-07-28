@@ -16,7 +16,15 @@ npm run dev
 ```sh
 npm run lint
 npm test
+npm run test:pages
 ```
+
+## GitHub Pages
+
+`main` ブランチへのpushで静的サイトをビルドし、GitHub Pagesへ自動公開します。
+
+- 公開URL: https://mumei.github.io/capswitch-website/
+- ワークフロー: `.github/workflows/pages.yml`
 
 ## 関連リポジトリ
 
