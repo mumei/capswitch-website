@@ -152,7 +152,10 @@ export default function Home() {
 
       <section className="hero" id="top">
         <div className="hero-copy reveal" style={{ "--i": 0 } as React.CSSProperties}>
-          <h1>よく使う操作を、<br />Caps Lockに</h1>
+          <h1>
+            <span className="hero-title-line">よく使う操作を、</span>
+            <span className="hero-title-line">Caps Lockに</span>
+          </h1>
           <p className="hero-lede">LEDで状態も確認できます</p>
           <div className="hero-actions">
             <a className="button button-primary" href="https://github.com/mumei/capswitch-releases/releases">

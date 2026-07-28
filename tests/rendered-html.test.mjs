@@ -21,7 +21,8 @@ test("server-renders the Capswitch official homepage", async () => {
 
   const html = await response.text();
   assert.match(html, /<html lang="ja">/);
-  assert.match(html, /よく使う操作を、<br\/>Caps Lockに/);
+  assert.match(html, /class="hero-title-line">よく使う操作を、/);
+  assert.match(html, /class="hero-title-line">Caps Lockに/);
   assert.match(html, /LEDで状態も確認できます/);
   assert.doesNotMatch(html, /あまり使わない/);
   assert.doesNotMatch(html, /Caps Lockを他の操作に！/);
@@ -89,6 +90,8 @@ test("keeps the Hallmark and responsive contracts in source", async () => {
   assert.match(css, /\.wordmark-icon \{[\s\S]*?width: 2rem; height: 2rem;[\s\S]*?background-size: contain/);
   assert.match(page, /backgroundImage: .*publicBasePath.*favicon\.png/);
   assert.match(css, /\.hero-lede \{[\s\S]*?margin-top: var\(--space-lg\)/);
+  assert.match(css, /\.hero-title-line \{ display: block; white-space: nowrap; \}/);
+  assert.match(css, /@media \(max-width: 39\.99rem\)[\s\S]*?h1 \{ max-width: none; font-size: clamp\(2rem, 9\.4vw, 2\.75rem\); \}/);
   assert.match(css, /\.led-table \{ display: grid; gap: var\(--space-sm\); \}/);
   assert.match(css, /\.led-row \{[\s\S]*?border-radius: var\(--radius-md\)/);
   assert.match(css, /\.modes-section \.section-intro \{ max-width: 46rem; \}/);
