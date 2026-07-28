@@ -100,6 +100,10 @@ test("keeps the Hallmark and responsive contracts in source", async () => {
   assert.match(css, /\.mode-summary \{[\s\S]*?display: grid/);
   assert.doesNotMatch(css, /\.modes-section \.section-intro \{[\s\S]*?margin-inline-start:/);
   assert.match(page, /CapswitchDemo/);
+  assert.match(demo, /getModifierState\("CapsLock"\)/);
+  assert.match(demo, /addEventListener\("keydown", handleCapsLock\)/);
+  assert.match(demo, /addEventListener\("keyup", handleCapsLock\)/);
+  assert.match(demo, /event\.type === "keydown" \|\| lastCapsLockState\.current !== capsLockState/);
   assert.match(demo, /aria-pressed/);
   assert.match(demo, /event\.key !== "CapsLock"/);
   assert.match(demo, /hudVisible/);
