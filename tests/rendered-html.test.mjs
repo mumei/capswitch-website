@@ -36,7 +36,8 @@ test("server-renders the Capswitch official homepage", async () => {
   assert.match(html, /favicon\.png/);
   assert.doesNotMatch(html, /favicon\.svg/);
   assert.doesNotMatch(html, /macOS menu bar app/);
-  assert.match(html, /LIVE DEMO/);
+  assert.doesNotMatch(html, /LIVE DEMO/);
+  assert.doesNotMatch(html, /Caps Lockを押して切り替え/);
   assert.match(html, /10 modes/);
   assert.match(html, /状態遷移: メディア操作、単押しでFunctionキー入力/);
   assert.match(html, /単押し(?:<!-- -->)? → 最初の状態へ/);

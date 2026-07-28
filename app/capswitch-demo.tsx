@@ -19,7 +19,7 @@ export function CapswitchDemo() {
 
   return (
     <div className="demo-panel reveal" style={{ "--i": 1 } as React.CSSProperties}>
-      <div className="demo-status"><span>LIVE DEMO</span><strong>{current.label}</strong></div>
+      <div className="demo-status"><strong>{current.label}</strong></div>
       <div className="key-stage">
         <div className="hud-preview" key={hudKey} aria-live="polite">{current.short}</div>
         <button className={`caps-key ${current.led ? "is-on" : ""}`} type="button" onClick={toggle}
@@ -28,7 +28,6 @@ export function CapswitchDemo() {
         </button>
       </div>
       <div className="demo-caption">
-        <span>Caps Lockを押して切り替え</span>
         <span className="demo-led-label"><i className={current.led ? "active" : ""} aria-hidden="true" />LED {current.led ? "ON" : "OFF"}</span>
       </div>
     </div>
