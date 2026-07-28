@@ -175,10 +175,10 @@ export default function Home() {
               </div>
             </div>
             <figure className="tour-screenshot">
-            <Image
-              src="/capswitch-settings.png"
-              width="1936"
-              height="1360"
+              <Image
+                src="/capswitch-settings.png"
+                width="1012"
+                height="724"
               loading="lazy"
               alt="Capswitchの設定画面。左側に一般、入力、モード、表示、ライセンス、診断のメニューが並ぶ"
             />
@@ -257,7 +257,13 @@ export default function Home() {
             {modes.map((mode, index) => (
               <article className="mode-row" role="listitem" key={mode.name}>
                 <span className="mode-number">{String(index + 1).padStart(2, "0")}</span>
-                <h3>{mode.name}</h3><p>{mode.description}</p><span className="mode-type">{mode.type}</span>
+                <div className="mode-summary">
+                  <div className="mode-heading">
+                    <h3>{mode.name}</h3>
+                    <span className="mode-type">{mode.type}</span>
+                  </div>
+                  <p>{mode.description}</p>
+                </div>
                 <ModeTransition mode={mode} />
               </article>
             ))}

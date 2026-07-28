@@ -39,6 +39,8 @@ test("server-renders the Capswitch official homepage", async () => {
   assert.match(html, /メニューバーから管理する/);
   assert.match(html, /モードを、1つ選ぶ/);
   assert.doesNotMatch(html, /モードを、1つ選ぶ。/);
+  assert.match(html, /class="mode-summary"/);
+  assert.match(html, /class="mode-heading"/);
   assert.match(html, /capswitch-settings\.png/);
   assert.match(html, /capswitch-menu\.png/);
   assert.doesNotMatch(html, /通常のCaps Lockも使用可能/);
@@ -82,6 +84,8 @@ test("keeps the Hallmark and responsive contracts in source", async () => {
   assert.doesNotMatch(css, /\.tour-chapter-menu \.tour-screenshot \{ order: -1; \}/);
   assert.match(css, /\.tour-screenshot img \{[\s\S]*?width: 100%; height: auto/);
   assert.match(css, /\.price-section h2 \{[\s\S]*?white-space: nowrap/);
+  assert.match(css, /\.mode-row:nth-child\(odd\) \{ background: var\(--color-panel\); \}/);
+  assert.match(css, /\.mode-summary \{[\s\S]*?display: grid/);
   assert.doesNotMatch(css, /\.modes-section \.section-intro \{[\s\S]*?margin-inline-start:/);
   assert.match(page, /CapswitchDemo/);
   assert.match(demo, /aria-pressed/);
