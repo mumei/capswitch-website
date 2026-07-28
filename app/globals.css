@@ -184,15 +184,15 @@ h1 { max-width: 12ch; font-size: clamp(2.7rem, 4vw + .5rem, 4.5rem); font-weight
 }
 @media (min-width: 40rem) {
   .hero { grid-template-columns: minmax(0, 1.05fr) minmax(20rem, .95fr); }
-  .tour-frame { grid-template-columns: minmax(0, 1fr) 4rem minmax(0, 1fr) 4rem minmax(0, 1fr); align-items: center; }
-  .signal-line { display: block; height: var(--rule); background: var(--color-rule); position: relative; }
+  .tour-frame { grid-template-columns: minmax(0, 1fr) 4rem minmax(0, 1fr) 4rem minmax(0, 1fr); align-items: start; }
+  .signal-line {
+    display: block; align-self: start; height: var(--rule);
+    margin-top: calc(var(--space-lg) + var(--text-sm) + var(--text-md));
+    background: var(--color-rule); position: relative;
+  }
   .signal-line span { position: absolute; inset-block-start: -.2rem; inset-inline-end: 0; width: .45rem; aspect-ratio: 1; border-radius: 50%; background: var(--color-accent); }
   .tour-step { display: block; }
   .tour-step h3 { margin-top: var(--space-sm); }
-  .modes-section .section-intro {
-    max-width: calc(46rem - 2.5rem - var(--space-md));
-    margin-inline-start: calc(2.5rem + var(--space-md));
-  }
   .mode-row { grid-template-columns: 2.5rem minmax(11rem, .8fr) minmax(0, 1.4fr) auto; align-items: baseline; }
   .mode-row p, .mode-type { grid-column: auto; }
   .mode-transition { grid-column: 2 / -1; }

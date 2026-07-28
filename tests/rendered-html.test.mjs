@@ -26,6 +26,7 @@ test("server-renders the Capswitch official homepage", async () => {
   assert.match(html, /Caps Lockを他の操作に！/);
   assert.match(html, /Caps LockのLEDもフィードバックに活用！/);
   assert.match(html, /LEDで状態を表示/);
+  assert.match(html, /通常のCaps Lockも使用可能/);
   assert.doesNotMatch(html, /macOS menu bar app/);
   assert.match(html, /LIVE DEMO/);
   assert.match(html, /10 modes/);
@@ -56,7 +57,9 @@ test("keeps the Hallmark and responsive contracts in source", async () => {
   assert.match(css, /white-space:\s*nowrap/);
   assert.match(css, /:focus-visible/);
   assert.match(css, /\.modes-section \.section-intro \{ max-width: 46rem; \}/);
-  assert.match(css, /@media \(min-width: 40rem\)[\s\S]*?\.modes-section \.section-intro \{[\s\S]*?margin-inline-start: calc\(2\.5rem \+ var\(--space-md\)\)/);
+  assert.match(css, /@media \(min-width: 40rem\)[\s\S]*?\.tour-frame \{[\s\S]*?align-items: start/);
+  assert.match(css, /\.signal-line \{[\s\S]*?align-self: start;[\s\S]*?margin-top: calc\(var\(--space-lg\) \+ var\(--text-sm\) \+ var\(--text-md\)\)/);
+  assert.doesNotMatch(css, /\.modes-section \.section-intro \{[\s\S]*?margin-inline-start:/);
   assert.match(page, /CapswitchDemo/);
   assert.match(demo, /aria-pressed/);
   assert.match(layout, /lang="ja"/);
