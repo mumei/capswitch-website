@@ -143,7 +143,7 @@ export default function Home() {
         <div className="hero-copy reveal" style={{ "--i": 0 } as React.CSSProperties}>
           <h1>あまり使わない<br />Caps Lockを活用</h1>
           <p className="hero-lede">
-            Caps Lockを他の操作に！
+            Caps Lockを他の操作に！<br />
             Caps LockのLEDもフィードバックに活用！
           </p>
           <div className="hero-actions">

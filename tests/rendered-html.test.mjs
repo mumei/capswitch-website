@@ -25,6 +25,7 @@ test("server-renders the Capswitch official homepage", async () => {
   assert.match(html, /Caps Lockを活用/);
   assert.match(html, /Caps Lockを他の操作に！/);
   assert.match(html, /Caps LockのLEDもフィードバックに活用！/);
+  assert.match(html, /Caps Lockを他の操作に！<br\/>Caps LockのLEDもフィードバックに活用！/);
   assert.match(html, /LEDで状態を表示/);
   assert.match(html, /通常のCaps Lockも使えます。/);
   assert.match(html, /設定で回数を3〜5回から選び/);
