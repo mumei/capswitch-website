@@ -21,15 +21,15 @@ test("server-renders the Capswitch official homepage", async () => {
 
   const html = await response.text();
   assert.match(html, /<html lang="ja">/);
-  assert.match(html, /あまり使わない/);
-  assert.match(html, /Caps Lockを活用/);
-  assert.match(html, /Caps Lockを他の操作に！/);
-  assert.match(html, /Caps LockのLEDもフィードバックに活用！/);
-  assert.match(html, /Caps Lockを他の操作に！<br\/>Caps LockのLEDもフィードバックに活用！/);
+  assert.match(html, /よく使う操作を、<br\/>Caps Lockに/);
+  assert.match(html, /LEDで状態も確認できます/);
+  assert.doesNotMatch(html, /あまり使わない/);
+  assert.doesNotMatch(html, /Caps Lockを他の操作に！/);
+  assert.doesNotMatch(html, /Caps LockのLEDもフィードバックに活用！/);
   assert.match(html, /class="wordmark-icon"/);
   assert.ok(
-    html.indexOf('class="hero-lede"') < html.indexOf("<h1>"),
-    "hero explanation should appear before the headline",
+    html.indexOf("<h1>") < html.indexOf('class="hero-lede"'),
+    "hero headline should appear before its supporting copy",
   );
   assert.match(html, /LEDで状態を表示/);
   assert.match(html, /状態の種類/);
@@ -88,7 +88,7 @@ test("keeps the Hallmark and responsive contracts in source", async () => {
   assert.match(css, /:focus-visible/);
   assert.match(css, /\.wordmark-icon \{[\s\S]*?width: 2rem; height: 2rem;[\s\S]*?background-size: contain/);
   assert.match(page, /backgroundImage: .*publicBasePath.*favicon\.png/);
-  assert.match(css, /\.hero-lede \{[\s\S]*?margin-bottom: var\(--space-xl\)/);
+  assert.match(css, /\.hero-lede \{[\s\S]*?margin-top: var\(--space-lg\)/);
   assert.match(css, /\.led-table \{ display: grid; gap: var\(--space-sm\); \}/);
   assert.match(css, /\.led-row \{[\s\S]*?border-radius: var\(--radius-md\)/);
   assert.match(css, /\.modes-section \.section-intro \{ max-width: 46rem; \}/);

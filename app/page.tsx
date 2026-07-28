@@ -8,7 +8,7 @@ const publicBasePath =
   (process.env.GITHUB_PAGES === "true" ? `/${repositoryName}` : "");
 
 export const metadata: Metadata = {
-  title: "Capswitch — あまり使わないCaps Lockを活用",
+  title: "Capswitch — よく使う操作を、Caps Lockに",
   description:
     "Caps Lockを押すだけで、Functionキー、音量、オーディオ出力、入力ソース、タイマーなどを操作できるmacOSメニューバーアプリ。",
 };
@@ -152,11 +152,8 @@ export default function Home() {
 
       <section className="hero" id="top">
         <div className="hero-copy reveal" style={{ "--i": 0 } as React.CSSProperties}>
-          <p className="hero-lede">
-            Caps Lockを他の操作に！<br />
-            Caps LockのLEDもフィードバックに活用！
-          </p>
-          <h1>あまり使わない<br />Caps Lockを活用</h1>
+          <h1>よく使う操作を、<br />Caps Lockに</h1>
+          <p className="hero-lede">LEDで状態も確認できます</p>
           <div className="hero-actions">
             <a className="button button-primary" href="https://github.com/mumei/capswitch-releases/releases">
               14日間試す
