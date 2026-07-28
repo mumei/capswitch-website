@@ -41,7 +41,7 @@ main { min-width: 0; }
 }
 h1, h2, h3, p { margin-block: 0; }
 h1, h2, h3 { min-width: 0; color: var(--color-ink); font-family: var(--font-display); overflow-wrap: anywhere; }
-h1 { max-width: 12ch; font-size: var(--text-display); font-weight: 720; letter-spacing: -.055em; line-height: 1.05; }
+h1 { max-width: 12ch; font-size: clamp(2.7rem, 4vw + .5rem, 4.5rem); font-weight: 720; letter-spacing: -.055em; line-height: 1.05; }
 .hero-lede { max-width: 60ch; margin-top: var(--space-xl); color: var(--color-muted); font-size: var(--text-md); line-height: 1.7; }
 .hero-actions { margin-top: var(--space-xl); display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-lg); }
 .button-primary { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-accent-ink); }
@@ -154,6 +154,7 @@ h1 { max-width: 12ch; font-size: var(--text-display); font-weight: 720; letter-s
 .led-row strong { color: var(--color-ink); }
 .led-row > span:last-child { color: var(--color-muted); }
 .price-section { padding-block: var(--space-3xl); display: grid; gap: var(--space-xl); border-top: var(--rule) solid var(--color-rule); }
+.price-section h2 { max-width: 12ch; text-wrap: balance; }
 .price-copy { display: grid; gap: var(--space-lg); align-items: start; }
 .price-copy p { max-width: 42rem; color: var(--color-muted); font-size: var(--text-md); }
 .price-copy .button { width: fit-content; }
@@ -196,7 +197,7 @@ h1 { max-width: 12ch; font-size: var(--text-display); font-weight: 720; letter-s
   .mode-row p, .mode-type { grid-column: auto; }
   .mode-transition { grid-column: 2 / -1; }
   .led-row { grid-template-columns: .65fr 1.35fr 1fr; gap: var(--space-lg); }
-  .price-section { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); }
+  .price-section { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
 }
 @media (min-width: 60rem) {
   .hero { grid-template-columns: minmax(0, 1.15fr) minmax(27rem, .85fr); gap: var(--space-3xl); }

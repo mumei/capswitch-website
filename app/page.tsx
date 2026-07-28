@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { CapswitchDemo } from "./capswitch-demo";
 
 export const metadata: Metadata = {
-  title: "Capswitch — Caps Lockを、Macのコントロールキーへ",
+  title: "Capswitch — あまり使わないCaps Lockを活用",
   description:
     "Caps Lockを押すだけで、Functionキー、音量、オーディオ出力、入力ソース、タイマーなどを操作できるmacOSメニューバーアプリ。",
 };
@@ -141,10 +141,10 @@ export default function Home() {
 
       <section className="hero" id="top">
         <div className="hero-copy reveal" style={{ "--i": 0 } as React.CSSProperties}>
-          <h1>Caps Lockを、<br />Macのコントロールキーへ。</h1>
+          <h1>あまり使わない<br />Caps Lockを活用</h1>
           <p className="hero-lede">
-            Caps Lockに、よく使う操作を1つ割り当てます。
-            結果はキーのLEDとHUDで確認できます。
+            Caps Lockを他の操作に！
+            Caps LockのLEDもフィードバックに活用！
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href="https://github.com/mumei/capswitch-releases/releases">
@@ -194,7 +194,7 @@ export default function Home() {
       <section className="led-section" id="display" aria-labelledby="led-title">
         <div className="led-copy">
           <p className="kicker">Physical feedback</p>
-          <h2 id="led-title">LEDで現在の状態を確認。</h2>
+          <h2 id="led-title">LEDで状態を表示</h2>
           <p>点灯・消灯・点滅回数・点滅速度を使い分けます。</p>
         </div>
         <div className="led-table" role="table" aria-label="LED点滅パターン">
