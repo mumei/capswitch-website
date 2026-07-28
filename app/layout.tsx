@@ -15,7 +15,10 @@ export const metadata: Metadata = {
     type: "website", locale: "ja_JP",
     images: [{ url: "/og.png", width: 1200, height: 630, alt: "Capswitch" }],
   },
-  icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
+  icons: {
+    icon: [{ url: "/favicon.png", type: "image/png", sizes: "64x64" }],
+    shortcut: "/favicon.png",
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

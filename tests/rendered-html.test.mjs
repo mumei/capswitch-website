@@ -26,7 +26,12 @@ test("server-renders the Capswitch official homepage", async () => {
   assert.match(html, /Caps Lockを他の操作に！/);
   assert.match(html, /Caps LockのLEDもフィードバックに活用！/);
   assert.match(html, /LEDで状態を表示/);
-  assert.match(html, /通常のCaps Lockも使用可能/);
+  assert.match(html, /通常のCaps Lockも使えます。/);
+  assert.match(html, /設定で回数を3〜5回から選び/);
+  assert.match(html, /通常のCaps LockをON／OFFできます。/);
+  assert.doesNotMatch(html, /通常のCaps Lockも使用可能/);
+  assert.match(html, /favicon\.png/);
+  assert.doesNotMatch(html, /favicon\.svg/);
   assert.doesNotMatch(html, /macOS menu bar app/);
   assert.match(html, /LIVE DEMO/);
   assert.match(html, /10 modes/);

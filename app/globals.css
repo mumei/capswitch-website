@@ -53,6 +53,11 @@ h1 { max-width: 12ch; font-size: clamp(2.7rem, 4vw + .5rem, 4.5rem); font-weight
   margin-top: var(--space-lg); color: var(--color-muted); font-family: var(--font-mono);
   font-size: var(--text-xs); font-variant-numeric: tabular-nums;
 }
+.caps-lock-option {
+  max-width: 60ch; margin-top: var(--space-sm); color: var(--color-muted);
+  font-size: var(--text-sm); line-height: 1.6;
+}
+.caps-lock-option strong { color: var(--color-ink-2); }
 .demo-panel {
   min-width: 0; overflow: hidden; background: var(--color-graphite); color: var(--color-paper);
   border: var(--rule) solid var(--color-graphite-2); border-radius: var(--radius-lg);
