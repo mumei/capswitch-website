@@ -44,6 +44,8 @@ test("server-renders the Capswitch official homepage", async () => {
   assert.doesNotMatch(html, /↺/);
   assert.match(html, /停止中は連打＋1分／長押し−1分/);
   assert.match(html, /14日間試す/);
+  assert.match(html, /macOS 14以降/);
+  assert.doesNotMatch(html, /macOS 14以降 · 14日間無料/);
   assert.match(html, /https:\/\/github\.com\/mumei\/capswitch-releases\/releases/);
   assert.match(html, /https:\/\/capswitch-app\.donpok\.chatgpt\.site\/og\.png/);
   assert.match(html, /aria-live="polite"/);

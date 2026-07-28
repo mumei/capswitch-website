@@ -154,7 +154,7 @@ export default function Home() {
               公開Coreを見る <span aria-hidden="true">↗</span>
             </a>
           </div>
-          <p className="requirements">macOS 14以降 · 14日間無料</p>
+          <p className="requirements">macOS 14以降</p>
         </div>
         <CapswitchDemo />
       </section>
