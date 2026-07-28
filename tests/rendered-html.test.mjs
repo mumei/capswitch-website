@@ -32,6 +32,10 @@ test("server-renders the Capswitch official homepage", async () => {
   assert.match(html, /選んだ回数だけ連打/);
   assert.match(html, /Caps LockをON／OFF/);
   assert.match(html, /class="caps-lock-section"/);
+  assert.match(html, /実際の画面。/);
+  assert.match(html, /capswitch-settings\.png/);
+  assert.match(html, /capswitch-menu\.png/);
+  assert.match(html, /常駐メニュー/);
   assert.doesNotMatch(html, /通常のCaps Lockも使用可能/);
   assert.match(html, /favicon\.png/);
   assert.doesNotMatch(html, /favicon\.svg/);

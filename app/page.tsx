@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { CapswitchDemo } from "./capswitch-demo";
 
 export const metadata: Metadata = {
@@ -170,6 +171,41 @@ export default function Home() {
           <div className="tour-step"><span className="step-index">02</span><div><h3>Caps Lockを押す</h3><p>単押しでは、選んだモードを操作します。</p></div></div>
           <div className="signal-line" aria-hidden="true"><span /></div>
           <div className="tour-step"><span className="step-index">03</span><div><h3>状態が切り替わる</h3><p>選んだモードに合わせて機能が動作し、LEDとHUDにも状態を表示します。</p></div></div>
+        </div>
+      </section>
+
+      <section className="product-screen-section" aria-labelledby="product-screen-title">
+        <div className="section-intro">
+          <h2 id="product-screen-title">実際の画面。</h2>
+          <p>設定は1つの画面にまとめ、普段の操作はメニューバーから行えます。</p>
+        </div>
+        <div className="product-shots">
+          <figure className="product-shot product-shot-settings">
+            <Image
+              src="/capswitch-settings.png"
+              width="1936"
+              height="1360"
+              loading="lazy"
+              alt="Capswitchの設定画面。左側に一般、入力、モード、表示、ライセンス、診断のメニューが並ぶ"
+            />
+            <figcaption>
+              <strong>設定画面</strong>
+              <span>モード、入力、表示、ライセンスをまとめて設定。</span>
+            </figcaption>
+          </figure>
+          <figure className="product-shot product-shot-menu">
+            <Image
+              src="/capswitch-menu.png"
+              width="588"
+              height="370"
+              loading="lazy"
+              alt="Capswitchの常駐メニュー。稼働状態、一時停止、設定、終了を表示している"
+            />
+            <figcaption>
+              <strong>常駐メニュー</strong>
+              <span>稼働状態の確認、一時停止、設定をすぐに操作。</span>
+            </figcaption>
+          </figure>
         </div>
       </section>
 
