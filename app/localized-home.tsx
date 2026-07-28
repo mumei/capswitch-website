@@ -143,9 +143,9 @@ export function LocalizedHome({
             </div>
             <figure className="tour-screenshot">
               <Image
-                src={`${publicBasePath}/capswitch-settings.png`}
-                width="1012"
-                height="724"
+                src={`${publicBasePath}/screenshots/${locale}/capswitch-settings.png`}
+                width="968"
+                height="680"
                 loading="lazy"
                 alt={copy.tour.settingsAlt}
               />
@@ -177,8 +177,8 @@ export function LocalizedHome({
             </div>
             <figure className="tour-screenshot">
               <Image
-                src={`${publicBasePath}/capswitch-menu.png`}
-                width="588"
+                src={`${publicBasePath}/screenshots/${locale}/capswitch-menu.png`}
+                width="620"
                 height="370"
                 loading="lazy"
                 alt={copy.tour.menuAlt}

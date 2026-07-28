@@ -50,8 +50,8 @@ test("server-renders the Capswitch official homepage", async () => {
   assert.doesNotMatch(html, /モードを、1つ選ぶ。/);
   assert.match(html, /class="mode-summary"/);
   assert.match(html, /class="mode-heading"/);
-  assert.match(html, /capswitch-settings\.png/);
-  assert.match(html, /capswitch-menu\.png/);
+  assert.match(html, /screenshots%2Fja%2Fcapswitch-settings\.png/);
+  assert.match(html, /screenshots%2Fja%2Fcapswitch-menu\.png/);
   assert.doesNotMatch(html, /通常のCaps Lockも使用可能/);
   assert.match(html, /favicon\.png/);
   assert.doesNotMatch(html, /favicon\.svg/);
@@ -110,6 +110,8 @@ test("keeps the Hallmark and responsive contracts in source", async () => {
   assert.match(localizedHome, /CapswitchDemo/);
   assert.match(localizedHome, /localStorage\.setItem\(localeStorageKey/);
   assert.match(localizedHome, /document\.documentElement\.lang = locale/);
+  assert.match(localizedHome, /screenshots\/\$\{locale\}\/capswitch-settings\.png/);
+  assert.match(localizedHome, /screenshots\/\$\{locale\}\/capswitch-menu\.png/);
   assert.match(i18n, /zh-Hans/);
   assert.match(i18n, /zh-Hant/);
   for (const locale of ["ja", "en", "de", "fr", "ko", "es", "it", "vi", "th"]) {
