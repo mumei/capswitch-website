@@ -155,10 +155,6 @@ export default function Home() {
             </a>
           </div>
           <p className="requirements">macOS 14以降 · 14日間無料</p>
-          <p className="caps-lock-option">
-            <strong>通常のCaps Lockも使えます。</strong>
-            設定で回数を3〜5回から選び、Caps Lockをその回数だけ連打すると、通常のCaps LockをON／OFFできます。
-          </p>
         </div>
         <CapswitchDemo />
       </section>
@@ -171,9 +167,33 @@ export default function Home() {
         <div className="tour-frame">
           <div className="tour-step"><span className="step-index">01</span><div><h3>モードを選ぶ</h3><p>設定から使いたい操作を1つ選びます。</p></div></div>
           <div className="signal-line" aria-hidden="true"><span /></div>
-          <div className="tour-step"><span className="step-index">02</span><div><h3>Caps Lockを押す</h3><p>単押しでは選んだモードを操作。設定した回数（3〜5回）を連打すると、通常のCaps LockをON／OFFできます。</p></div></div>
+          <div className="tour-step"><span className="step-index">02</span><div><h3>Caps Lockを押す</h3><p>単押しでは、選んだモードを操作します。</p></div></div>
           <div className="signal-line" aria-hidden="true"><span /></div>
           <div className="tour-step"><span className="step-index">03</span><div><h3>状態が切り替わる</h3><p>選んだモードに合わせて機能が動作し、LEDとHUDにも状態を表示します。</p></div></div>
+        </div>
+      </section>
+
+      <section className="caps-lock-section" aria-labelledby="caps-lock-title">
+        <div className="section-intro">
+          <p className="kicker">Keep Caps Lock</p>
+          <h2 id="caps-lock-title">通常のCaps Lockも使えます。</h2>
+          <p>設定した回数だけ連打したときは、選んだモードではなく通常のCaps Lockとして動作します。</p>
+        </div>
+        <div className="caps-lock-flow" aria-label="通常のCaps Lockを使う手順">
+          <div>
+            <span>設定</span>
+            <strong>3・4・5回から選ぶ</strong>
+          </div>
+          <i aria-hidden="true">→</i>
+          <div>
+            <span>操作</span>
+            <strong>選んだ回数だけ連打</strong>
+          </div>
+          <i aria-hidden="true">→</i>
+          <div>
+            <span>結果</span>
+            <strong>Caps LockをON／OFF</strong>
+          </div>
         </div>
       </section>
 

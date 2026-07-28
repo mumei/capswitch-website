@@ -28,8 +28,10 @@ test("server-renders the Capswitch official homepage", async () => {
   assert.match(html, /Caps Lockを他の操作に！<br\/>Caps LockのLEDもフィードバックに活用！/);
   assert.match(html, /LEDで状態を表示/);
   assert.match(html, /通常のCaps Lockも使えます。/);
-  assert.match(html, /設定で回数を3〜5回から選び/);
-  assert.match(html, /通常のCaps LockをON／OFFできます。/);
+  assert.match(html, /3・4・5回から選ぶ/);
+  assert.match(html, /選んだ回数だけ連打/);
+  assert.match(html, /Caps LockをON／OFF/);
+  assert.match(html, /class="caps-lock-section"/);
   assert.doesNotMatch(html, /通常のCaps Lockも使用可能/);
   assert.match(html, /favicon\.png/);
   assert.doesNotMatch(html, /favicon\.svg/);
