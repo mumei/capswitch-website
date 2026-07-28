@@ -118,10 +118,7 @@ h1 { max-width: 12ch; font-size: var(--text-display); font-weight: 720; letter-s
 .signal-line { display: none; }
 .modes-section { padding-block: var(--space-3xl); background: var(--color-paper-2); max-width: none; }
 .modes-inner { width: min(100%, calc(var(--content-max) - 2 * var(--page-gutter))); margin-inline: auto; }
-.modes-section .section-intro {
-  max-width: calc(46rem - 2.5rem - var(--space-md));
-  margin-inline-start: calc(2.5rem + var(--space-md));
-}
+.modes-section .section-intro { max-width: 46rem; }
 .mode-list { margin-top: var(--space-2xl); }
 .mode-row {
   display: grid; grid-template-columns: 2.5rem minmax(0, 1fr); gap: var(--space-sm) var(--space-md);
@@ -188,6 +185,10 @@ h1 { max-width: 12ch; font-size: var(--text-display); font-weight: 720; letter-s
   .signal-line span { position: absolute; inset-block-start: -.2rem; inset-inline-end: 0; width: .45rem; aspect-ratio: 1; border-radius: 50%; background: var(--color-accent); }
   .tour-step { display: block; }
   .tour-step h3 { margin-top: var(--space-sm); }
+  .modes-section .section-intro {
+    max-width: calc(46rem - 2.5rem - var(--space-md));
+    margin-inline-start: calc(2.5rem + var(--space-md));
+  }
   .mode-row { grid-template-columns: 2.5rem minmax(11rem, .8fr) minmax(0, 1.4fr) auto; align-items: baseline; }
   .mode-row p, .mode-type { grid-column: auto; }
   .mode-transition { grid-column: 2 / -1; }

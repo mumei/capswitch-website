@@ -49,6 +49,8 @@ test("keeps the Hallmark and responsive contracts in source", async () => {
   assert.match(css, /minmax\(0,\s*1fr\)/);
   assert.match(css, /white-space:\s*nowrap/);
   assert.match(css, /:focus-visible/);
+  assert.match(css, /\.modes-section \.section-intro \{ max-width: 46rem; \}/);
+  assert.match(css, /@media \(min-width: 40rem\)[\s\S]*?\.modes-section \.section-intro \{[\s\S]*?margin-inline-start: calc\(2\.5rem \+ var\(--space-md\)\)/);
   assert.match(page, /CapswitchDemo/);
   assert.match(demo, /aria-pressed/);
   assert.match(layout, /lang="ja"/);
