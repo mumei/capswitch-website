@@ -26,6 +26,8 @@ test("server-renders the Capswitch official homepage", async () => {
   assert.match(html, /LIVE DEMO/);
   assert.match(html, /10 modes/);
   assert.match(html, /状態遷移: メディア操作、単押しでFunctionキー入力/);
+  assert.match(html, /単押し(?:<!-- -->)? → 最初の状態へ/);
+  assert.doesNotMatch(html, /↺/);
   assert.match(html, /停止中は連打＋1分／長押し−1分/);
   assert.match(html, /14日間試す/);
   assert.match(html, /https:\/\/github\.com\/mumei\/capswitch-releases\/releases/);

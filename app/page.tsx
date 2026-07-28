@@ -109,7 +109,11 @@ function ModeTransition({ mode }: { mode: (typeof modes)[number] }) {
             <span className="transition-state">{state}</span>
           </div>
         ))}
-        {"loop" in mode && mode.loop && <span className="transition-loop">↺</span>}
+        {"loop" in mode && mode.loop && (
+          <span className="transition-return">
+            {mode.actions[mode.actions.length - 1]} → 最初の状態へ
+          </span>
+        )}
       </div>
       {"note" in mode && <span className="transition-note">{mode.note}</span>}
     </div>
