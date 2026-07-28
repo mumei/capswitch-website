@@ -9,10 +9,11 @@
   --color-ink-2: oklch(29% 0.025 252); --color-muted: oklch(47% 0.025 252);
   --color-rule: oklch(85% 0.018 252); --color-rule-strong: oklch(70% 0.03 252);
   --color-accent: oklch(56% 0.22 259); --color-accent-dark: oklch(44% 0.19 259);
+  --color-accent-hover: oklch(44% 0.19 259);
   --color-accent-ink: oklch(98% 0.006 252); --color-focus: oklch(50% 0.2 259);
   --color-graphite: oklch(19% 0.025 252); --color-graphite-2: oklch(25% 0.03 252);
   --color-graphite-3: oklch(26% 0.025 252); --color-key-edge: oklch(42% 0.03 252);
-  --color-key-led-off: oklch(34% 0.02 252);
+  --color-key-led-off: oklch(34% 0.02 252); --color-on-graphite: oklch(97.5% 0.008 252);
   --color-led: oklch(73% 0.2 145);
   --shadow-panel: oklch(20% 0.02 252 / 0.08);
   --shadow-key: oklch(8% 0.02 252 / 0.3);
@@ -29,4 +30,22 @@
   --ease-in-out: cubic-bezier(.65,0,.35,1);
   --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms;
   --z-base: 1; --z-raised: 10; --z-sticky: 200;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-paper: oklch(15.5% 0.018 252); --color-paper-2: oklch(18.5% 0.02 252);
+    --color-panel: oklch(21.5% 0.022 252); --color-ink: oklch(95% 0.009 252);
+    --color-ink-2: oklch(84% 0.015 252); --color-muted: oklch(69% 0.022 252);
+    --color-rule: oklch(31% 0.025 252); --color-rule-strong: oklch(48% 0.035 252);
+    --color-accent: oklch(56% 0.2 259); --color-accent-dark: oklch(76% 0.14 259);
+    --color-accent-hover: oklch(52% 0.2 259);
+    --color-accent-ink: oklch(98% 0.006 252); --color-focus: oklch(76% 0.14 259);
+    --color-graphite: oklch(10.5% 0.018 252); --color-graphite-2: oklch(25% 0.03 252);
+    --color-graphite-3: oklch(23% 0.025 252); --color-key-edge: oklch(46% 0.035 252);
+    --color-key-led-off: oklch(35% 0.02 252); --color-on-graphite: oklch(97.5% 0.008 252);
+    --shadow-panel: oklch(4% 0.015 252 / 0.35);
+    --shadow-key: oklch(3% 0.015 252 / 0.58);
+    --shadow-led: oklch(73% 0.2 145 / 0.62);
+  }
 }

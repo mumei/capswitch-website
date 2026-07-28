@@ -84,7 +84,12 @@ test("keeps the Hallmark and responsive contracts in source", async () => {
   ]);
 
   assert.match(tokens, /^\/\* Hallmark · macrostructure: workbench · genre: modern-minimal/);
+  assert.match(tokens, /@media \(prefers-color-scheme: dark\)/);
+  assert.match(tokens, /--color-paper: oklch\(15\.5% 0\.018 252\)/);
+  assert.match(tokens, /--color-on-graphite:/);
   assert.match(css, /overflow-x:\s*clip/);
+  assert.match(css, /color-scheme:\s*light dark/);
+  assert.match(css, /\.demo-panel \{[\s\S]*?color: var\(--color-on-graphite\)/);
   assert.match(css, /prefers-reduced-motion:\s*reduce/);
   assert.match(css, /minmax\(0,\s*1fr\)/);
   assert.match(css, /white-space:\s*nowrap/);

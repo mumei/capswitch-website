@@ -2,6 +2,17 @@
   "version": 1,
   "outputs": [
     {
+      "date": "2026-07-29",
+      "genre": "modern-minimal",
+      "macrostructure": "workbench",
+      "theme": "cobalt",
+      "nav": "N9",
+      "footer": "Ft2",
+      "enrichment": "Tier A CSS art plus real product screenshots",
+      "variation": "appearance=automatic-light-dark",
+      "notes": "Extended the established Capswitch system with a dark palette that follows the operating-system color scheme; structure and content remain unchanged."
+    },
+    {
       "date": "2026-07-28",
       "genre": "modern-minimal",
       "macrostructure": "workbench",
