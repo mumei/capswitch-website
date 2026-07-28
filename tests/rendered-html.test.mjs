@@ -99,7 +99,7 @@ test("keeps the Hallmark and responsive contracts in source", async () => {
   assert.match(css, /\.led-row \{[\s\S]*?border-radius: var\(--radius-md\)/);
   assert.match(css, /\.modes-section \.section-intro \{ max-width: 46rem; \}/);
   assert.match(css, /@media \(min-width: 40rem\)[\s\S]*?\.tour-chapter \{[\s\S]*?grid-template-columns: minmax\(12rem, \.6fr\) minmax\(0, 1\.4fr\)/);
-  assert.match(css, /\.tour-chapter-menu \.tour-screenshot \{ width: min\(100%, 32rem\); justify-self: start; \}/);
+  assert.match(css, /\.tour-chapter-menu \.tour-screenshot \{ width: min\(100%, 21\.25rem\); justify-self: start; \}/);
   assert.doesNotMatch(css, /\.tour-chapter-menu \.tour-screenshot \{ order: -1; \}/);
   assert.match(css, /\.tour-screenshot img \{[\s\S]*?width: 100%; height: auto/);
   assert.match(css, /html:lang\(ja\) \.price-section h2 \{ white-space: nowrap; \}/);

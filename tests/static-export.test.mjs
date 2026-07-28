@@ -7,6 +7,14 @@ const locales = [
   "ja", "en", "de", "zh-Hans", "zh-Hant", "fr", "ko", "es", "it", "vi", "th",
 ];
 
+async function readPngSize(url) {
+  const png = await readFile(url);
+  return {
+    width: png.readUInt32BE(16),
+    height: png.readUInt32BE(20),
+  };
+}
+
 test("exports a GitHub Pages-ready static site", async () => {
   const html = await readFile(new URL("index.html", output), "utf8");
 
@@ -25,4 +33,15 @@ test("exports a GitHub Pages-ready static site", async () => {
     ]),
     access(new URL("404.html", output)),
   ]);
+
+  for (const locale of locales) {
+    assert.deepEqual(
+      await readPngSize(new URL(`screenshots/${locale}/capswitch-settings.png`, output)),
+      { width: 1936, height: 1360 },
+    );
+    assert.deepEqual(
+      await readPngSize(new URL(`screenshots/${locale}/capswitch-menu.png`, output)),
+      { width: 680, height: 370 },
+    );
+  }
 });
