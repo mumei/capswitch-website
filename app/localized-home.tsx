@@ -102,7 +102,7 @@ export function LocalizedHome({
               ))}
             </select>
           </label>
-          <a className="nav-download" href="https://github.com/mumei/capswitch-releases/releases">
+          <a className="nav-download" href="https://github.com/mumei/capswitch-releases/releases/latest">
             {copy.download}
           </a>
         </div>
@@ -116,7 +116,7 @@ export function LocalizedHome({
           </h1>
           <p className="hero-lede">{copy.heroLead}</p>
           <div className="hero-actions">
-            <a className="button button-primary" href="https://github.com/mumei/capswitch-releases/releases">
+            <a className="button button-primary" href="https://github.com/mumei/capswitch-releases/releases/latest">
               {copy.trial}
             </a>
             <a className="text-link" href="https://github.com/mumei/capswitch-core">
@@ -257,7 +257,7 @@ export function LocalizedHome({
         <div className="price-copy">
           <p>{copy.price.description}</p>
           <div className="price-actions">
-            <a className="button button-primary" href="https://github.com/mumei/capswitch-releases/releases">{copy.price.button}</a>
+            <a className="button button-primary" href="https://github.com/mumei/capswitch-releases/releases/latest">{copy.price.button}</a>
             <a className="button" href={checkoutUrl}>{copy.price.purchase}</a>
           </div>
         </div>
