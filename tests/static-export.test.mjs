@@ -18,12 +18,12 @@ async function readPngSize(url) {
 test("exports a GitHub Pages-ready static site", async () => {
   const html = await readFile(new URL("index.html", output), "utf8");
 
-  assert.match(html, /\/capswitch-website\/_next\//);
-  assert.match(html, /\/capswitch-website\/favicon\.png/);
-  assert.match(html, /\/capswitch-website\/screenshots\/ja\/capswitch-settings\.png/);
-  assert.match(html, /\/capswitch-website\/screenshots\/ja\/capswitch-menu\.png/);
-  assert.match(html, /https:\/\/mumei\.github\.io\/capswitch-website\/og\.png/);
-  assert.doesNotMatch(html, /(?:href|src)="\/_next\//);
+  assert.match(html, /(?:href|src)="\/_next\//);
+  assert.match(html, /\/favicon\.png/);
+  assert.match(html, /\/screenshots\/ja\/capswitch-settings\.png/);
+  assert.match(html, /\/screenshots\/ja\/capswitch-menu\.png/);
+  assert.match(html, /https:\/\/capswitch\.suruyatu\.com\/og\.png/);
+  assert.doesNotMatch(html, /\/capswitch-website\//);
 
   await Promise.all([
     access(new URL("favicon.png", output)),

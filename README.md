@@ -23,7 +23,7 @@ npm run test:pages
 
 `main` ブランチへのpushで静的サイトをビルドし、GitHub Pagesへ自動公開します。
 
-- 公開URL: https://mumei.github.io/capswitch-website/
+- 公開URL: https://capswitch.suruyatu.com/
 - ワークフロー: `.github/workflows/pages.yml`
 
 ## 関連リポジトリ

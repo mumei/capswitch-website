@@ -4,11 +4,10 @@ import "./globals.css";
 
 const geist = Geist({ variable: "--font-geist", subsets: ["latin"], display: "swap" });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"], display: "swap" });
-const repositoryName = process.env.GITHUB_REPOSITORY?.split("/")[1] ?? "capswitch-website";
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ??
   (process.env.GITHUB_PAGES === "true"
-    ? `https://mumei.github.io/${repositoryName}`
+    ? "https://capswitch.suruyatu.com"
     : "https://capswitch-app.donpok.chatgpt.site");
 
 export const metadata: Metadata = {
