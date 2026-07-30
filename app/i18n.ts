@@ -74,7 +74,7 @@ type Translation = {
     title: string;
     description: string;
     button: string;
-    note: string;
+    purchase: string;
   };
 };
 
@@ -148,7 +148,7 @@ export const translations: Record<Locale, Translation> = {
     price: {
       kicker: "まず試す", title: "14日間、すべて試せます",
       description: "登録なしで全機能を試せます。", button: "Capswitchをダウンロード",
-      note: "正式な購入リンクは公開準備中です。",
+      purchase: "Capswitchを購入 — $14.99",
     },
   },
   en: {
@@ -187,7 +187,7 @@ export const translations: Record<Locale, Translation> = {
       columns: ["State type", "LED pattern", "Used by"], aria: "LED patterns",
       rows: [["2 states", "On / off", "Function keys, mute, appearance"], ["Multiple states", "1–n short pulses → long pause", "Audio output, input source"], ["Continuous value", "Faster pulses for higher values", "Volume"], ["Time remaining", "Faster pulses near the end", "Timer"]],
     },
-    price: { kicker: "Try first", title: "Try everything for 14 days", description: "No registration. Every feature is available.", button: "Download Capswitch", note: "The purchase link is being prepared." },
+    price: { kicker: "Try first", title: "Try everything for 14 days", description: "No registration. Every feature is available.", button: "Download Capswitch", purchase: "Buy Capswitch — $14.99" },
   },
   de: {
     language: "Sprache", download: "Download",
@@ -225,7 +225,7 @@ export const translations: Record<Locale, Translation> = {
       columns: ["Statustyp", "LED-Muster", "Verwendet für"], aria: "LED-Muster",
       rows: [["2 Zustände", "Ein / Aus", "Funktionstasten, Stumm, Darstellung"], ["Mehrere Zustände", "1–n kurze Impulse → lange Pause", "Audioausgabe, Eingabequelle"], ["Stufenloser Wert", "Höherer Wert = schnellere Impulse", "Lautstärke"], ["Restzeit", "Zum Ende hin schnellere Impulse", "Timer"]],
     },
-    price: { kicker: "Zuerst testen", title: "14 Tage alles ausprobieren", description: "Ohne Registrierung stehen alle Funktionen bereit.", button: "Capswitch laden", note: "Der Kauflink wird vorbereitet." },
+    price: { kicker: "Zuerst testen", title: "14 Tage alles ausprobieren", description: "Ohne Registrierung stehen alle Funktionen bereit.", button: "Capswitch laden", purchase: "Capswitch kaufen — $14.99" },
   },
   "zh-Hans": {
     language: "语言", download: "下载",
@@ -263,7 +263,7 @@ export const translations: Record<Locale, Translation> = {
       columns: ["状态类型", "LED 表示方式", "对应模式"], aria: "LED 闪烁模式",
       rows: [["2 种状态", "亮 / 灭", "功能键、静音、外观等"], ["多种状态", "短闪 1–n 次 → 长时间熄灭", "音频输出、输入法"], ["连续值", "数值越高，闪烁越快", "音量"], ["剩余时间", "越接近结束，闪烁越快", "计时器"]],
     },
-    price: { kicker: "先试用", title: "14 天体验全部功能", description: "无需注册，即可使用全部功能。", button: "下载 Capswitch", note: "正式购买链接正在准备中。" },
+    price: { kicker: "先试用", title: "14 天体验全部功能", description: "无需注册，即可使用全部功能。", button: "下载 Capswitch", purchase: "购买 Capswitch — $14.99" },
   },
   "zh-Hant": {
     language: "語言", download: "下載",
@@ -301,7 +301,7 @@ export const translations: Record<Locale, Translation> = {
       columns: ["狀態類型", "LED 表示方式", "對應模式"], aria: "LED 閃爍模式",
       rows: [["2 種狀態", "亮 / 滅", "功能鍵、靜音、外觀等"], ["多種狀態", "短閃 1–n 次 → 長時間熄滅", "音訊輸出、輸入來源"], ["連續值", "數值越高，閃爍越快", "音量"], ["剩餘時間", "越接近結束，閃爍越快", "計時器"]],
     },
-    price: { kicker: "先試用", title: "14 天體驗所有功能", description: "無需註冊，即可使用全部功能。", button: "下載 Capswitch", note: "正式購買連結正在準備中。" },
+    price: { kicker: "先試用", title: "14 天體驗所有功能", description: "無需註冊，即可使用全部功能。", button: "下載 Capswitch", purchase: "購買 Capswitch — $14.99" },
   },
   fr: {
     language: "Langue", download: "Télécharger",
@@ -339,7 +339,7 @@ export const translations: Record<Locale, Translation> = {
       columns: ["Type d’état", "Motif LED", "Modes concernés"], aria: "Motifs de clignotement LED",
       rows: [["2 états", "Allumé / éteint", "Fonction, sourdine, apparence"], ["États multiples", "1–n impulsions courtes → longue pause", "Sortie audio, source d’entrée"], ["Valeur continue", "Plus la valeur monte, plus ça clignote vite", "Volume"], ["Temps restant", "Plus la fin approche, plus ça clignote vite", "Minuteur"]],
     },
-    price: { kicker: "Essayer d’abord", title: "Tout essayer pendant 14 jours", description: "Aucune inscription. Toutes les fonctions sont disponibles.", button: "Télécharger Capswitch", note: "Le lien d’achat est en préparation." },
+    price: { kicker: "Essayer d’abord", title: "Tout essayer pendant 14 jours", description: "Aucune inscription. Toutes les fonctions sont disponibles.", button: "Télécharger Capswitch", purchase: "Acheter Capswitch — $14.99" },
   },
   ko: {
     language: "언어", download: "다운로드",
@@ -377,7 +377,7 @@ export const translations: Record<Locale, Translation> = {
       columns: ["상태 유형", "LED 표현", "해당 모드"], aria: "LED 점멸 패턴",
       rows: [["2상태", "켜짐 / 꺼짐", "Function 키, 음소거, 화면 모드"], ["다중 상태", "짧게 1–n회 점멸 → 긴 소등", "오디오 출력, 입력 소스"], ["연속값", "값이 높을수록 빠르게 점멸", "음량"], ["남은 시간", "종료에 가까울수록 빠르게 점멸", "타이머"]],
     },
-    price: { kicker: "먼저 체험", title: "14일 동안 모든 기능 체험", description: "가입 없이 모든 기능을 사용할 수 있습니다.", button: "Capswitch 다운로드", note: "정식 구매 링크를 준비 중입니다." },
+    price: { kicker: "먼저 체험", title: "14일 동안 모든 기능 체험", description: "가입 없이 모든 기능을 사용할 수 있습니다.", button: "Capswitch 다운로드", purchase: "Capswitch 구매 — $14.99" },
   },
   es: {
     language: "Idioma", download: "Descargar",
@@ -415,7 +415,7 @@ export const translations: Record<Locale, Translation> = {
       columns: ["Tipo de estado", "Patrón LED", "Modos"], aria: "Patrones LED",
       rows: [["2 estados", "Encendido / apagado", "Función, silencio, apariencia"], ["Varios estados", "1–n pulsos cortos → pausa larga", "Salida de audio, entrada"], ["Valor continuo", "Más valor, pulsos más rápidos", "Volumen"], ["Tiempo restante", "Más rápido al acercarse el final", "Temporizador"]],
     },
-    price: { kicker: "Pruébalo", title: "Prueba todo durante 14 días", description: "Sin registro. Todas las funciones disponibles.", button: "Descargar Capswitch", note: "El enlace de compra se está preparando." },
+    price: { kicker: "Pruébalo", title: "Prueba todo durante 14 días", description: "Sin registro. Todas las funciones disponibles.", button: "Descargar Capswitch", purchase: "Comprar Capswitch — $14.99" },
   },
   it: {
     language: "Lingua", download: "Scarica",
@@ -453,7 +453,7 @@ export const translations: Record<Locale, Translation> = {
       columns: ["Tipo di stato", "Schema LED", "Modalità"], aria: "Schemi LED",
       rows: [["2 stati", "Acceso / spento", "Funzione, muto, aspetto"], ["Più stati", "1–n impulsi brevi → pausa lunga", "Uscita audio, input"], ["Valore continuo", "Valore più alto, impulsi più rapidi", "Volume"], ["Tempo restante", "Più rapido vicino alla fine", "Timer"]],
     },
-    price: { kicker: "Prova prima", title: "Prova tutto per 14 giorni", description: "Nessuna registrazione. Tutte le funzioni disponibili.", button: "Scarica Capswitch", note: "Il link per l’acquisto è in preparazione." },
+    price: { kicker: "Prova prima", title: "Prova tutto per 14 giorni", description: "Nessuna registrazione. Tutte le funzioni disponibili.", button: "Scarica Capswitch", purchase: "Acquista Capswitch — $14.99" },
   },
   vi: {
     language: "Ngôn ngữ", download: "Tải xuống",
@@ -491,7 +491,7 @@ export const translations: Record<Locale, Translation> = {
       columns: ["Loại trạng thái", "Kiểu LED", "Chế độ"], aria: "Các kiểu nháy LED",
       rows: [["2 trạng thái", "Bật / tắt", "Function, tắt tiếng, giao diện"], ["Nhiều trạng thái", "1–n nháy ngắn → nghỉ dài", "Đầu ra âm thanh, nguồn nhập"], ["Giá trị liên tục", "Giá trị càng cao, nháy càng nhanh", "Âm lượng"], ["Thời gian còn lại", "Càng gần kết thúc, nháy càng nhanh", "Hẹn giờ"]],
     },
-    price: { kicker: "Dùng thử trước", title: "Dùng mọi tính năng trong 14 ngày", description: "Không cần đăng ký. Mọi tính năng đều khả dụng.", button: "Tải Capswitch", note: "Liên kết mua chính thức đang được chuẩn bị." },
+    price: { kicker: "Dùng thử trước", title: "Dùng mọi tính năng trong 14 ngày", description: "Không cần đăng ký. Mọi tính năng đều khả dụng.", button: "Tải Capswitch", purchase: "Mua Capswitch — $14.99" },
   },
   th: {
     language: "ภาษา", download: "ดาวน์โหลด",
@@ -529,7 +529,7 @@ export const translations: Record<Locale, Translation> = {
       columns: ["ประเภทสถานะ", "รูปแบบ LED", "โหมดที่ใช้"], aria: "รูปแบบการกะพริบ LED",
       rows: [["2 สถานะ", "เปิด / ปิด", "ฟังก์ชัน ปิดเสียง รูปแบบหน้าจอ"], ["หลายสถานะ", "กะพริบสั้น 1–n ครั้ง → พักนาน", "เอาต์พุตเสียง แหล่งอินพุต"], ["ค่าต่อเนื่อง", "ค่ายิ่งสูง ยิ่งกะพริบเร็ว", "ระดับเสียง"], ["เวลาที่เหลือ", "ใกล้จบยิ่งกะพริบเร็ว", "ตัวจับเวลา"]],
     },
-    price: { kicker: "ทดลองก่อน", title: "ทดลองทุกฟีเจอร์ 14 วัน", description: "ไม่ต้องลงทะเบียน ใช้ได้ทุกฟีเจอร์", button: "ดาวน์โหลด Capswitch", note: "กำลังเตรียมลิงก์ซื้ออย่างเป็นทางการ" },
+    price: { kicker: "ทดลองก่อน", title: "ทดลองทุกฟีเจอร์ 14 วัน", description: "ไม่ต้องลงทะเบียน ใช้ได้ทุกฟีเจอร์", button: "ดาวน์โหลด Capswitch", purchase: "ซื้อ Capswitch — $14.99" },
   },
 };
 

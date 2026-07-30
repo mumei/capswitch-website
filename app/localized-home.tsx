@@ -6,6 +6,7 @@ import { CapswitchDemo } from "./capswitch-demo";
 import { languages, resolveLocale, translations, type Locale } from "./i18n";
 
 const localeStorageKey = "capswitch-site-language";
+const checkoutUrl = "https://buy.polar.sh/polar_cl_UScYXNp1h6aIsYMRZ9aBBZagKU1JAxn0gSxpo3n24fE";
 
 function ModeTransition({
   mode,
@@ -255,8 +256,10 @@ export function LocalizedHome({
         <div><p className="kicker">{copy.price.kicker}</p><h2 id="price-title">{copy.price.title}</h2></div>
         <div className="price-copy">
           <p>{copy.price.description}</p>
-          <a className="button button-primary" href="https://github.com/mumei/capswitch-releases/releases">{copy.price.button}</a>
-          <span className="release-note">{copy.price.note}</span>
+          <div className="price-actions">
+            <a className="button button-primary" href="https://github.com/mumei/capswitch-releases/releases">{copy.price.button}</a>
+            <a className="button" href={checkoutUrl}>{copy.price.purchase}</a>
+          </div>
         </div>
       </section>
 

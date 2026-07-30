@@ -23,6 +23,7 @@ test("exports a GitHub Pages-ready static site", async () => {
   assert.match(html, /\/screenshots\/ja\/capswitch-settings\.png/);
   assert.match(html, /\/screenshots\/ja\/capswitch-menu\.png/);
   assert.match(html, /https:\/\/capswitch\.suruyatu\.com\/og\.png/);
+  assert.match(html, /https:\/\/buy\.polar\.sh\/polar_cl_UScYXNp1h6aIsYMRZ9aBBZagKU1JAxn0gSxpo3n24fE/);
   assert.doesNotMatch(html, /\/capswitch-website\//);
 
   await Promise.all([

@@ -67,6 +67,9 @@ test("server-renders the Capswitch official homepage", async () => {
   assert.match(html, /macOS 14以降/);
   assert.doesNotMatch(html, /macOS 14以降 · 14日間無料/);
   assert.match(html, /https:\/\/github\.com\/mumei\/capswitch-releases\/releases/);
+  assert.match(html, /https:\/\/buy\.polar\.sh\/polar_cl_UScYXNp1h6aIsYMRZ9aBBZagKU1JAxn0gSxpo3n24fE/);
+  assert.match(html, /Capswitchを購入 — \$14\.99/);
+  assert.doesNotMatch(html, /正式な購入リンクは公開準備中/);
   assert.match(html, /https:\/\/capswitch-app\.donpok\.chatgpt\.site\/og\.png/);
   assert.match(html, /aria-live="polite"/);
   assert.doesNotMatch(html, /Your site is taking shape|Building your site/);
