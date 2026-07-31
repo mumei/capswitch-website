@@ -83,10 +83,6 @@ h1 { max-width: 12ch; font-size: clamp(2.7rem, 4vw + .5rem, 4.5rem); font-weight
 .hero-lede { max-width: 60ch; margin-top: var(--space-lg); color: var(--color-muted); font-size: var(--text-md); line-height: 1.7; }
 .hero-actions { margin-top: var(--space-xl); display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-lg); }
 .button-primary { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-accent-ink); }
-.text-link {
-  min-height: 44px; display: inline-flex; align-items: center; gap: var(--space-xs);
-  border-bottom: var(--rule) solid var(--color-rule-strong); color: var(--color-ink); font-weight: 620; white-space: nowrap;
-}
 .requirements {
   margin-top: var(--space-lg); color: var(--color-muted); font-family: var(--font-mono);
   font-size: var(--text-xs); font-variant-numeric: tabular-nums;
@@ -294,7 +290,7 @@ html:lang(ja) .price-section h2 { white-space: nowrap; }
   opacity: 0; transform: translateY(8px); animation: reveal var(--dur-long) var(--ease-out) forwards;
   animation-delay: calc(var(--i, 0) * 70ms);
 }
-.nav-download:active, .button:active, .text-link:active, .site-footer a:active { transform: translateY(1px); }
+.nav-download:active, .button:active, .site-footer a:active { transform: translateY(1px); }
 .button:disabled, .caps-key:disabled {
   opacity: .55; cursor: not-allowed; transform: none;
 }
@@ -303,7 +299,6 @@ html:lang(ja) .price-section h2 { white-space: nowrap; }
 @media (hover: hover) and (pointer: fine) {
   .nav-download:hover, .button:hover { transform: translateY(-1px); border-color: var(--color-accent); }
   .button-primary:hover { background: var(--color-accent-hover); }
-  .text-link:hover { border-color: var(--color-accent); color: var(--color-accent-dark); }
   .caps-key:hover { transform: translateY(-1px); }
   .site-footer a:hover { color: var(--color-accent-dark); }
 }

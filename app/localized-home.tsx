@@ -108,10 +108,7 @@ export function LocalizedHome({
           <p className="hero-lede">{copy.heroLead}</p>
           <div className="hero-actions">
             <a className="button button-primary" href="https://github.com/mumei/capswitch-releases/releases/latest">
-              {copy.trial}
-            </a>
-            <a className="text-link" href="https://github.com/mumei/capswitch-core">
-              {copy.viewCore} <span aria-hidden="true">↗</span>
+              {copy.download}
             </a>
           </div>
           <p className="requirements">{copy.requirements}</p>

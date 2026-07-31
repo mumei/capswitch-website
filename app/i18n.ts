@@ -29,8 +29,6 @@ type Translation = {
   download: string;
   hero: [string, string];
   heroLead: string;
-  trial: string;
-  viewCore: string;
   requirements: string;
   demo: {
     media: string;
@@ -94,8 +92,6 @@ export const translations: Record<Locale, Translation> = {
     download: "ダウンロード",
     hero: ["使っていないキーで", "面倒を減らす"],
     heroLead: "Caps Lockを Media／Function切替のスイッチへ",
-    trial: "14日間試す",
-    viewCore: "公開Coreを見る",
     requirements: "macOS 14以降",
     demo: {
       media: "メディア操作", function: "Functionキー",
@@ -156,7 +152,7 @@ export const translations: Record<Locale, Translation> = {
   en: {
     language: "Language", download: "Download",
     hero: ["One unused key", "Fewer daily hassles"], heroLead: "Turn Caps Lock into your Media / Function switch",
-    trial: "Try for 14 days", viewCore: "View open Core", requirements: "macOS 14 or later",
+    requirements: "macOS 14 or later",
     demo: { media: "Media controls", function: "Function keys", mediaShort: "Media", functionShort: "Function", pressLabel: "Press Caps Lock. Current state:" },
     tour: {
       kicker: "Why Capswitch", title: "How Caps Lock became a switch",
@@ -195,7 +191,7 @@ export const translations: Record<Locale, Translation> = {
   de: {
     language: "Sprache", download: "Download",
     hero: ["Eine ungenutzte Taste", "Weniger tägliche Mühe"], heroLead: "Caps Lock wird zum Medien-/Funktionstasten-Schalter",
-    trial: "14 Tage testen", viewCore: "Open Core ansehen", requirements: "macOS 14 oder neuer",
+    requirements: "macOS 14 oder neuer",
     demo: { media: "Mediensteuerung", function: "Funktionstasten", mediaShort: "Medien", functionShort: "Funktion", pressLabel: "Caps Lock drücken. Aktueller Status:" },
     tour: {
       kicker: "Die Idee hinter Capswitch", title: "Wie Caps Lock zum Schalter wurde",
@@ -234,7 +230,7 @@ export const translations: Record<Locale, Translation> = {
   "zh-Hans": {
     language: "语言", download: "下载",
     hero: ["用闲置按键", "减少日常麻烦"], heroLead: "把 Caps Lock 变成媒体键／功能键切换开关",
-    trial: "免费试用 14 天", viewCore: "查看开源 Core", requirements: "需要 macOS 14 或更高版本",
+    requirements: "需要 macOS 14 或更高版本",
     demo: { media: "媒体控制", function: "功能键", mediaShort: "媒体", functionShort: "功能键", pressLabel: "按下 Caps Lock。当前状态：" },
     tour: {
       kicker: "Capswitch 的起点", title: "Caps Lock 如何变成切换开关",
@@ -273,7 +269,7 @@ export const translations: Record<Locale, Translation> = {
   "zh-Hant": {
     language: "語言", download: "下載",
     hero: ["用閒置按鍵", "減少日常麻煩"], heroLead: "把 Caps Lock 變成媒體鍵／功能鍵切換開關",
-    trial: "免費試用 14 天", viewCore: "查看開源 Core", requirements: "需要 macOS 14 或以上版本",
+    requirements: "需要 macOS 14 或以上版本",
     demo: { media: "媒體控制", function: "功能鍵", mediaShort: "媒體", functionShort: "功能鍵", pressLabel: "按下 Caps Lock。目前狀態：" },
     tour: {
       kicker: "Capswitch 的起點", title: "Caps Lock 如何變成切換開關",
@@ -312,7 +308,7 @@ export const translations: Record<Locale, Translation> = {
   fr: {
     language: "Langue", download: "Télécharger",
     hero: ["Une touche inutilisée", "Moins de gêne au quotidien"], heroLead: "Transformez Caps Lock en commutateur Média / Fonction",
-    trial: "Essayer 14 jours", viewCore: "Voir le Core ouvert", requirements: "macOS 14 ou version ultérieure",
+    requirements: "macOS 14 ou version ultérieure",
     demo: { media: "Commandes multimédia", function: "Touches de fonction", mediaShort: "Média", functionShort: "Fonction", pressLabel: "Appuyez sur Caps Lock. État actuel :" },
     tour: {
       kicker: "L’origine de Capswitch", title: "Comment Caps Lock est devenue un commutateur",
@@ -351,7 +347,7 @@ export const translations: Record<Locale, Translation> = {
   ko: {
     language: "언어", download: "다운로드",
     hero: ["쓰지 않던 키로", "매일의 번거로움을 줄이다"], heroLead: "Caps Lock을 미디어／Function 전환 스위치로",
-    trial: "14일 동안 사용", viewCore: "오픈 Core 보기", requirements: "macOS 14 이상",
+    requirements: "macOS 14 이상",
     demo: { media: "미디어 조작", function: "Function 키", mediaShort: "미디어", functionShort: "Function", pressLabel: "Caps Lock을 누릅니다. 현재 상태:" },
     tour: {
       kicker: "Capswitch의 시작", title: "Caps Lock이 스위치가 되기까지",
@@ -390,7 +386,7 @@ export const translations: Record<Locale, Translation> = {
   es: {
     language: "Idioma", download: "Descargar",
     hero: ["Una tecla sin uso", "Menos molestias diarias"], heroLead: "Convierte Caps Lock en el selector Multimedia / Función",
-    trial: "Probar 14 días", viewCore: "Ver Core abierto", requirements: "macOS 14 o posterior",
+    requirements: "macOS 14 o posterior",
     demo: { media: "Controles multimedia", function: "Teclas de función", mediaShort: "Media", functionShort: "Función", pressLabel: "Pulsa Caps Lock. Estado actual:" },
     tour: {
       kicker: "El origen de Capswitch", title: "Cómo Caps Lock se convirtió en un selector",
@@ -429,7 +425,7 @@ export const translations: Record<Locale, Translation> = {
   it: {
     language: "Lingua", download: "Scarica",
     hero: ["Un tasto inutilizzato", "Meno fastidi ogni giorno"], heroLead: "Trasforma Caps Lock nel selettore Media / Funzione",
-    trial: "Prova per 14 giorni", viewCore: "Vedi il Core aperto", requirements: "macOS 14 o successivo",
+    requirements: "macOS 14 o successivo",
     demo: { media: "Controlli multimediali", function: "Tasti funzione", mediaShort: "Media", functionShort: "Funzione", pressLabel: "Premi Caps Lock. Stato attuale:" },
     tour: {
       kicker: "L’origine di Capswitch", title: "Come Caps Lock è diventato un selettore",
@@ -468,7 +464,7 @@ export const translations: Record<Locale, Translation> = {
   vi: {
     language: "Ngôn ngữ", download: "Tải xuống",
     hero: ["Một phím bỏ trống", "Bớt phiền toái mỗi ngày"], heroLead: "Biến Caps Lock thành công tắc Media / Function",
-    trial: "Dùng thử 14 ngày", viewCore: "Xem Core công khai", requirements: "macOS 14 trở lên",
+    requirements: "macOS 14 trở lên",
     demo: { media: "Điều khiển media", function: "Phím chức năng", mediaShort: "Media", functionShort: "Function", pressLabel: "Nhấn Caps Lock. Trạng thái hiện tại:" },
     tour: {
       kicker: "Khởi nguồn của Capswitch", title: "Caps Lock đã trở thành công tắc như thế nào",
@@ -507,7 +503,7 @@ export const translations: Record<Locale, Translation> = {
   th: {
     language: "ภาษา", download: "ดาวน์โหลด",
     hero: ["ปุ่มหนึ่งที่ไม่ได้ใช้", "ลดความยุ่งยากในทุกวัน"], heroLead: "เปลี่ยน Caps Lock ให้เป็นสวิตช์ Media / Function",
-    trial: "ทดลองใช้ 14 วัน", viewCore: "ดู Core แบบเปิด", requirements: "macOS 14 ขึ้นไป",
+    requirements: "macOS 14 ขึ้นไป",
     demo: { media: "ควบคุมสื่อ", function: "ปุ่มฟังก์ชัน", mediaShort: "Media", functionShort: "Function", pressLabel: "กด Caps Lock สถานะปัจจุบัน:" },
     tour: {
       kicker: "จุดเริ่มต้นของ Capswitch", title: "Caps Lock กลายเป็นสวิตช์ได้อย่างไร",
