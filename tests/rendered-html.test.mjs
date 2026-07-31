@@ -57,8 +57,9 @@ test("server-renders the Capswitch official homepage", async () => {
   assert.match(html, /Media／Function切替が面倒だった/);
   assert.match(html, /Caps Lockをスイッチにした/);
   assert.match(html, /Caps Lockが スイッチになるまで/);
-  assert.match(html, /モードを、1つ選ぶ/);
-  assert.doesNotMatch(html, /モードを、1つ選ぶ。/);
+  assert.match(html, /Functionキー切替だけじゃない/);
+  assert.match(html, /10の役割から、1つ選べます/);
+  assert.doesNotMatch(html, /モードを、1つ選ぶ/);
   assert.match(html, /class="mode-summary"/);
   assert.match(html, /class="mode-heading"/);
   assert.match(html, /class="origin-story"/);
@@ -70,7 +71,6 @@ test("server-renders the Capswitch official homepage", async () => {
   assert.doesNotMatch(html, /macOS menu bar app/);
   assert.doesNotMatch(html, /LIVE DEMO/);
   assert.doesNotMatch(html, /Caps Lockを押して切り替え/);
-  assert.match(html, /10モード/);
   assert.match(html, /状態遷移: メディア操作, 単押し: Functionキー入力/);
   assert.match(html, /単押し[\s\S]{0,80}最初の状態へ/);
   assert.doesNotMatch(html, /↺/);

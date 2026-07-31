@@ -117,7 +117,7 @@ export const translations: Record<Locale, Translation> = {
       values: ["3・4・5回から選ぶ", "選んだ回数だけ連打", "Caps LockをON／OFF"],
       aria: "通常のCaps Lockを使う手順",
     },
-    modesKicker: "10モード", modesTitle: "モードを、1つ選ぶ",
+    modesKicker: "Functionキー切替だけじゃない", modesTitle: "10の役割から、1つ選べます",
     stateFlow: "状態遷移", backToStart: "最初の状態へ",
     modes: [
       mode("Functionキー切替", "F1〜F12の動作を切り替える", "2状態", ["メディア操作", "Functionキー入力"], ["単押し"], { loop: true }),
@@ -167,7 +167,7 @@ export const translations: Record<Locale, Translation> = {
       description: "Tap the key the configured number of times to toggle Caps Lock instead of running the selected mode.",
       labels: ["Set", "Do", "Result"], values: ["Choose 3, 4, or 5 taps", "Tap that many times", "Caps Lock ON / OFF"], aria: "How to use the regular Caps Lock function",
     },
-    modesKicker: "10 modes", modesTitle: "Choose one mode", stateFlow: "State flow", backToStart: "back to start",
+    modesKicker: "More than Function switching", modesTitle: "Choose one of 10 roles", stateFlow: "State flow", backToStart: "back to start",
     modes: [
       mode("Function key switching", "Switch F1–F12 between media and function keys", "2 states", ["Media controls", "Function keys"], ["Tap"], { loop: true }),
       mode("Microphone mute", "Mute or unmute the microphone", "2 states", ["Live", "Muted"], ["Tap"], { loop: true }),
@@ -206,7 +206,7 @@ export const translations: Record<Locale, Translation> = {
       description: "Bei der festgelegten Anzahl schneller Tastendrücke wird Caps Lock statt des gewählten Modus umgeschaltet.",
       labels: ["Einstellung", "Aktion", "Ergebnis"], values: ["3, 4 oder 5 wählen", "So oft tippen", "Caps Lock EIN / AUS"], aria: "Normales Caps Lock verwenden",
     },
-    modesKicker: "10 Modi", modesTitle: "Einen Modus auswählen", stateFlow: "Statusfolge", backToStart: "zurück zum Anfang",
+    modesKicker: "Mehr als Funktionstasten-Umschaltung", modesTitle: "Eine von 10 Funktionen auswählen", stateFlow: "Statusfolge", backToStart: "zurück zum Anfang",
     modes: [
       mode("Funktionstasten", "F1–F12 zwischen Medien- und Funktionstasten umschalten", "2 Zustände", ["Medien", "Funktion"], ["Tippen"], { loop: true }),
       mode("Mikrofon stummschalten", "Mikrofon stummschalten oder aktivieren", "2 Zustände", ["Aktiv", "Stumm"], ["Tippen"], { loop: true }),
@@ -245,7 +245,7 @@ export const translations: Record<Locale, Translation> = {
       description: "按设定次数连续敲击时，不执行所选模式，而是切换 Caps Lock。",
       labels: ["设置", "操作", "结果"], values: ["选择 3、4 或 5 次", "连续敲击所选次数", "Caps Lock 开 / 关"], aria: "使用原本 Caps Lock 的步骤",
     },
-    modesKicker: "10 种模式", modesTitle: "选择一种模式", stateFlow: "状态变化", backToStart: "返回初始状态",
+    modesKicker: "不止功能键切换", modesTitle: "可从 10 种用途中选择一种", stateFlow: "状态变化", backToStart: "返回初始状态",
     modes: [
       mode("功能键切换", "切换 F1–F12 的媒体与功能键操作", "2 种状态", ["媒体控制", "功能键"], ["单击"], { loop: true }),
       mode("麦克风静音", "静音或恢复麦克风", "2 种状态", ["使用中", "静音"], ["单击"], { loop: true }),
@@ -284,7 +284,7 @@ export const translations: Record<Locale, Translation> = {
       description: "依設定次數連按時，不執行所選模式，而是切換 Caps Lock。",
       labels: ["設定", "操作", "結果"], values: ["選擇 3、4 或 5 次", "連按所選次數", "Caps Lock 開 / 關"], aria: "使用原本 Caps Lock 的步驟",
     },
-    modesKicker: "10 種模式", modesTitle: "選擇一種模式", stateFlow: "狀態變化", backToStart: "回到初始狀態",
+    modesKicker: "不只功能鍵切換", modesTitle: "可從 10 種用途選擇一種", stateFlow: "狀態變化", backToStart: "回到初始狀態",
     modes: [
       mode("功能鍵切換", "切換 F1–F12 的媒體與功能鍵操作", "2 種狀態", ["媒體控制", "功能鍵"], ["單按"], { loop: true }),
       mode("麥克風靜音", "將麥克風靜音或恢復", "2 種狀態", ["使用中", "靜音"], ["單按"], { loop: true }),
@@ -323,7 +323,7 @@ export const translations: Record<Locale, Translation> = {
       description: "Appuyez le nombre de fois défini pour activer Caps Lock au lieu du mode sélectionné.",
       labels: ["Réglage", "Action", "Résultat"], values: ["Choisir 3, 4 ou 5 appuis", "Appuyer autant de fois", "Caps Lock activé / désactivé"], aria: "Utiliser la fonction Caps Lock normale",
     },
-    modesKicker: "10 modes", modesTitle: "Choisissez un mode", stateFlow: "États", backToStart: "retour au début",
+    modesKicker: "Bien plus que les touches Fonction", modesTitle: "Choisissez un rôle parmi 10", stateFlow: "États", backToStart: "retour au début",
     modes: [
       mode("Touches de fonction", "Basculer F1–F12 entre média et fonction", "2 états", ["Média", "Fonction"], ["Appui"], { loop: true }),
       mode("Micro en sourdine", "Couper ou rétablir le microphone", "2 états", ["Actif", "Muet"], ["Appui"], { loop: true }),
@@ -362,7 +362,7 @@ export const translations: Record<Locale, Translation> = {
       description: "설정한 횟수만큼 연타하면 선택한 모드 대신 기존 Caps Lock이 전환됩니다.",
       labels: ["설정", "조작", "결과"], values: ["3·4·5회 중 선택", "선택한 횟수만큼 연타", "Caps Lock 켜기 / 끄기"], aria: "기존 Caps Lock 사용 방법",
     },
-    modesKicker: "10가지 모드", modesTitle: "모드 하나 선택", stateFlow: "상태 전환", backToStart: "처음 상태로",
+    modesKicker: "Function 키 전환만이 아닙니다", modesTitle: "10가지 역할 중 하나를 선택하세요", stateFlow: "상태 전환", backToStart: "처음 상태로",
     modes: [
       mode("Function 키 전환", "F1–F12의 미디어/Function 동작 전환", "2상태", ["미디어", "Function"], ["한 번"], { loop: true }),
       mode("마이크 음소거", "마이크 음소거/해제", "2상태", ["사용 중", "음소거"], ["한 번"], { loop: true }),
@@ -401,7 +401,7 @@ export const translations: Record<Locale, Translation> = {
       description: "Pulsa el número configurado de veces para cambiar Caps Lock en lugar de ejecutar el modo.",
       labels: ["Ajuste", "Acción", "Resultado"], values: ["Elegir 3, 4 o 5 pulsaciones", "Pulsar ese número", "Caps Lock activado / desactivado"], aria: "Usar Caps Lock normalmente",
     },
-    modesKicker: "10 modos", modesTitle: "Elige un modo", stateFlow: "Flujo de estados", backToStart: "volver al inicio",
+    modesKicker: "Más que cambiar las teclas de función", modesTitle: "Elige una de 10 funciones", stateFlow: "Flujo de estados", backToStart: "volver al inicio",
     modes: [
       mode("Teclas de función", "Alternar F1–F12 entre multimedia y función", "2 estados", ["Multimedia", "Función"], ["Pulsar"], { loop: true }),
       mode("Silenciar micrófono", "Silenciar o activar el micrófono", "2 estados", ["Activo", "Silenciado"], ["Pulsar"], { loop: true }),
@@ -440,7 +440,7 @@ export const translations: Record<Locale, Translation> = {
       description: "Premi il numero configurato di volte per attivare Caps Lock invece della modalità scelta.",
       labels: ["Imposta", "Azione", "Risultato"], values: ["Scegli 3, 4 o 5 pressioni", "Premi quel numero di volte", "Caps Lock ON / OFF"], aria: "Usare la funzione Caps Lock normale",
     },
-    modesKicker: "10 modalità", modesTitle: "Scegli una modalità", stateFlow: "Stati", backToStart: "torna all’inizio",
+    modesKicker: "Non solo tasti Funzione", modesTitle: "Scegli uno dei 10 ruoli", stateFlow: "Stati", backToStart: "torna all’inizio",
     modes: [
       mode("Tasti funzione", "Alterna F1–F12 tra media e funzione", "2 stati", ["Media", "Funzione"], ["Premi"], { loop: true }),
       mode("Microfono muto", "Disattiva o riattiva il microfono", "2 stati", ["Attivo", "Muto"], ["Premi"], { loop: true }),
@@ -479,7 +479,7 @@ export const translations: Record<Locale, Translation> = {
       description: "Nhấn liên tiếp đúng số lần đã đặt để bật hoặc tắt Caps Lock thay vì chạy chế độ.",
       labels: ["Đặt", "Thao tác", "Kết quả"], values: ["Chọn 3, 4 hoặc 5 lần", "Nhấn đúng số lần đó", "Caps Lock BẬT / TẮT"], aria: "Cách dùng Caps Lock thông thường",
     },
-    modesKicker: "10 chế độ", modesTitle: "Chọn một chế độ", stateFlow: "Chuyển trạng thái", backToStart: "về trạng thái đầu",
+    modesKicker: "Không chỉ chuyển đổi phím Function", modesTitle: "Chọn một trong 10 vai trò", stateFlow: "Chuyển trạng thái", backToStart: "về trạng thái đầu",
     modes: [
       mode("Phím chức năng", "Chuyển F1–F12 giữa media và chức năng", "2 trạng thái", ["Media", "Function"], ["Nhấn"], { loop: true }),
       mode("Tắt mic", "Tắt hoặc bật lại micrô", "2 trạng thái", ["Đang dùng", "Đã tắt"], ["Nhấn"], { loop: true }),
@@ -518,7 +518,7 @@ export const translations: Record<Locale, Translation> = {
       description: "กดซ้ำตามจำนวนที่ตั้งไว้เพื่อเปิดหรือปิด Caps Lock แทนการใช้โหมดที่เลือก",
       labels: ["ตั้งค่า", "การกด", "ผลลัพธ์"], values: ["เลือก 3, 4 หรือ 5 ครั้ง", "กดตามจำนวนที่เลือก", "Caps Lock เปิด / ปิด"], aria: "วิธีใช้ Caps Lock แบบเดิม",
     },
-    modesKicker: "10 โหมด", modesTitle: "เลือกหนึ่งโหมด", stateFlow: "ลำดับสถานะ", backToStart: "กลับสถานะแรก",
+    modesKicker: "ไม่ได้มีแค่การสลับปุ่ม Function", modesTitle: "เลือกหนึ่งบทบาทจาก 10 แบบ", stateFlow: "ลำดับสถานะ", backToStart: "กลับสถานะแรก",
     modes: [
       mode("สลับปุ่มฟังก์ชัน", "สลับ F1–F12 ระหว่างสื่อและฟังก์ชัน", "2 สถานะ", ["สื่อ", "ฟังก์ชัน"], ["กด"], { loop: true }),
       mode("ปิดไมโครโฟน", "ปิดหรือเปิดเสียงไมโครโฟน", "2 สถานะ", ["ใช้งาน", "ปิดเสียง"], ["กด"], { loop: true }),
