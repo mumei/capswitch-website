@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { Fragment, useEffect } from "react";
 import { CapswitchDemo } from "./capswitch-demo";
 import { GoogleAnalytics } from "./google-analytics";
@@ -125,8 +124,8 @@ export function LocalizedHome({
           <p className="kicker">{copy.tour.kicker}</p>
           <h2 id="tour-title">{copy.tour.title}</h2>
         </div>
-        <div className="tour-story">
-          <article className="tour-chapter tour-chapter-settings">
+        <div className="origin-story">
+          <article className="origin-card">
             <div className="tour-step">
               <span className="step-index">01</span>
               <div>
@@ -134,18 +133,15 @@ export function LocalizedHome({
                 <p>{copy.tour.descriptions[0]}</p>
               </div>
             </div>
-            <figure className="tour-screenshot">
-              <Image
-                src={`${publicBasePath}/screenshots/${locale}/capswitch-settings.png`}
-                width="1936"
-                height="1360"
-                loading="lazy"
-                alt={copy.tour.settingsAlt}
-              />
-            </figure>
+            <div className="origin-visual origin-visual-unused" role="img" aria-label={copy.tour.steps[0]}>
+              <div className="origin-key origin-key-muted" aria-hidden="true">
+                <i />
+                <strong>caps lock</strong>
+              </div>
+            </div>
           </article>
 
-          <article className="tour-action">
+          <article className="origin-card">
             <div className="tour-step">
               <span className="step-index">02</span>
               <div>
@@ -153,14 +149,17 @@ export function LocalizedHome({
                 <p>{copy.tour.descriptions[1]}</p>
               </div>
             </div>
-            <div className="action-flow" aria-label={copy.tour.steps[1]}>
-              <strong>{copy.tour.flow[0]}</strong><span aria-hidden="true">→</span>
-              <strong>{copy.tour.flow[1]}</strong><span aria-hidden="true">→</span>
-              <strong>{copy.tour.flow[2]}</strong>
+            <div className="origin-visual origin-visual-friction" role="img" aria-label={copy.tour.steps[1]}>
+              <div className="origin-switch" aria-hidden="true">
+                <strong>Media</strong>
+                <span>⇄</span>
+                <strong>Function</strong>
+              </div>
+              <small aria-hidden="true">F1–F12</small>
             </div>
           </article>
 
-          <article className="tour-chapter tour-chapter-menu">
+          <article className="origin-card origin-card-solution">
             <div className="tour-step">
               <span className="step-index">03</span>
               <div>
@@ -168,15 +167,17 @@ export function LocalizedHome({
                 <p>{copy.tour.descriptions[2]}</p>
               </div>
             </div>
-            <figure className="tour-screenshot">
-              <Image
-                src={`${publicBasePath}/screenshots/${locale}/capswitch-menu.png`}
-                width="680"
-                height="370"
-                loading="lazy"
-                alt={copy.tour.menuAlt}
-              />
-            </figure>
+            <div className="origin-visual origin-visual-solution" role="img" aria-label={copy.tour.steps[2]}>
+              <div className="origin-key" aria-hidden="true">
+                <i />
+                <strong>caps lock</strong>
+              </div>
+              <span className="origin-arrow" aria-hidden="true">→</span>
+              <div className="origin-result" aria-hidden="true">
+                <strong>Media</strong><span>⇄</span><strong>Function</strong>
+                <small>{copy.tour.flow[2]}</small>
+              </div>
+            </div>
           </article>
         </div>
       </section>

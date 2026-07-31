@@ -36,8 +36,9 @@ test("exports a GitHub Pages-ready static site", async () => {
 
   for (const locale of locales) {
     const localizedHtml = await readFile(new URL(`${locale}/index.html`, output), "utf8");
-    assert.match(localizedHtml, new RegExp(`/screenshots/${locale}/capswitch-settings\\.png`));
     assert.match(localizedHtml, new RegExp(`https://capswitch\\.suruyatu\\.com/${locale}/`));
+    assert.match(localizedHtml, /class="origin-story"/);
+    assert.match(localizedHtml, /class="origin-visual origin-visual-solution"/);
     assert.match(localizedHtml, /https:\/\/buy\.polar\.sh\/polar_cl_UScYXNp1h6aIsYMRZ9aBBZagKU1JAxn0gSxpo3n24fE/);
     assert.match(localizedHtml, /property="og:locale"/);
     assert.match(localizedHtml, /property="og:locale:alternate"/);

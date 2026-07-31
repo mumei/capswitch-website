@@ -58,8 +58,9 @@ test("server-renders the Capswitch official homepage", async () => {
   assert.doesNotMatch(html, /モードを、1つ選ぶ。/);
   assert.match(html, /class="mode-summary"/);
   assert.match(html, /class="mode-heading"/);
-  assert.match(html, /screenshots%2Fja%2Fcapswitch-settings\.png/);
-  assert.match(html, /screenshots%2Fja%2Fcapswitch-menu\.png/);
+  assert.match(html, /class="origin-story"/);
+  assert.match(html, /class="origin-visual origin-visual-unused"/);
+  assert.match(html, /class="origin-visual origin-visual-solution"/);
   assert.doesNotMatch(html, /通常のCaps Lockも使用可能/);
   assert.match(html, /favicon\.png/);
   assert.doesNotMatch(html, /favicon\.svg/);
@@ -133,10 +134,10 @@ test("keeps the Hallmark and responsive contracts in source", async () => {
   assert.match(css, /\.led-table \{ display: grid; gap: var\(--space-sm\); \}/);
   assert.match(css, /\.led-row \{[\s\S]*?border-radius: var\(--radius-md\)/);
   assert.match(css, /\.modes-section \.section-intro \{ max-width: 46rem; \}/);
-  assert.match(css, /@media \(min-width: 40rem\)[\s\S]*?\.tour-chapter \{[\s\S]*?grid-template-columns: minmax\(12rem, \.6fr\) minmax\(0, 1\.4fr\)/);
-  assert.match(css, /\.tour-chapter-menu \.tour-screenshot \{ width: min\(100%, 21\.25rem\); justify-self: start; \}/);
-  assert.doesNotMatch(css, /\.tour-chapter-menu \.tour-screenshot \{ order: -1; \}/);
-  assert.match(css, /\.tour-screenshot img \{[\s\S]*?width: 100%; height: auto/);
+  assert.match(css, /\.origin-story \{[\s\S]*?display: grid/);
+  assert.match(css, /\.origin-card \{[\s\S]*?grid-template-rows: auto 1fr/);
+  assert.match(css, /\.origin-key-muted::after/);
+  assert.match(css, /@media \(min-width: 60rem\)[\s\S]*?\.origin-story \{ grid-template-columns: repeat\(3, minmax\(0, 1fr\)\)/);
   assert.match(css, /html:lang\(ja\) \.price-section h2 \{ white-space: nowrap; \}/);
   assert.match(css, /\.mode-row:nth-child\(odd\) \{ background: var\(--color-panel\); \}/);
   assert.match(css, /\.mode-summary \{[\s\S]*?display: grid/);
@@ -152,8 +153,9 @@ test("keeps the Hallmark and responsive contracts in source", async () => {
   assert.match(analytics, /consent === "granted"/);
   assert.match(analytics, /capswitch-analytics-consent/);
   assert.match(localizedHome, /document\.documentElement\.lang = locale/);
-  assert.match(localizedHome, /screenshots\/\$\{locale\}\/capswitch-settings\.png/);
-  assert.match(localizedHome, /screenshots\/\$\{locale\}\/capswitch-menu\.png/);
+  assert.match(localizedHome, /origin-visual-unused/);
+  assert.match(localizedHome, /origin-visual-friction/);
+  assert.match(localizedHome, /origin-visual-solution/);
   assert.match(i18n, /zh-Hans/);
   assert.match(i18n, /zh-Hant/);
   for (const locale of ["ja", "en", "de", "fr", "ko", "es", "it", "vi", "th"]) {
