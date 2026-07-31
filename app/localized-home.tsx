@@ -152,7 +152,7 @@ export function LocalizedHome({
                 <span>⇄</span>
                 <strong>Function</strong>
               </div>
-              <small aria-hidden="true">F1–F12</small>
+              <small aria-hidden="true">Fn + F1–F12</small>
             </div>
           </article>
 
