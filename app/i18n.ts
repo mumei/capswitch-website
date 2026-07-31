@@ -92,8 +92,8 @@ export const translations: Record<Locale, Translation> = {
   ja: {
     language: "言語",
     download: "ダウンロード",
-    hero: ["そのCaps Lock", "使っていますか？"],
-    heroLead: "使っていないキーを Media／Function切替のスイッチへ",
+    hero: ["使っていないキーで", "面倒を減らす"],
+    heroLead: "Caps Lockを Media／Function切替のスイッチへ",
     trial: "14日間試す",
     viewCore: "公開Coreを見る",
     requirements: "macOS 14以降",
@@ -103,7 +103,7 @@ export const translations: Record<Locale, Translation> = {
       pressLabel: "Caps Lockを押す。現在は",
     },
     tour: {
-      kicker: "Capswitchの原点", title: "使っていないキーで 面倒を減らす",
+      kicker: "Capswitchの原点", title: "Caps Lockが スイッチになるまで",
       steps: ["Caps Lockを使っていなかった", "Media／Function切替が面倒だった", "Caps Lockをスイッチにした"],
       descriptions: [
         "出番のないキーとLEDを 有効活用したいと考えました",
@@ -155,11 +155,11 @@ export const translations: Record<Locale, Translation> = {
   },
   en: {
     language: "Language", download: "Download",
-    hero: ["Do you use", "Caps Lock?"], heroLead: "Turn an unused key into a Media / Function switch",
+    hero: ["One unused key", "Fewer daily hassles"], heroLead: "Turn Caps Lock into your Media / Function switch",
     trial: "Try for 14 days", viewCore: "View open Core", requirements: "macOS 14 or later",
     demo: { media: "Media controls", function: "Function keys", mediaShort: "Media", functionShort: "Function", pressLabel: "Press Caps Lock. Current state:" },
     tour: {
-      kicker: "Why Capswitch", title: "Use an ignored key to remove a daily annoyance",
+      kicker: "Why Capswitch", title: "How Caps Lock became a switch",
       steps: ["Caps Lock went unused", "Media / Function switching was tedious", "Caps Lock became the switch"],
       descriptions: ["I wanted to put the unused key and its LED to work.", "Switching F1–F12 every time interrupted the flow.", "Now one press switches them and the LED shows the current state."],
       flow: ["Caps Lock", "Mode runs", "LED and HUD update"],
@@ -194,11 +194,11 @@ export const translations: Record<Locale, Translation> = {
   },
   de: {
     language: "Sprache", download: "Download",
-    hero: ["Nutzen Sie", "Caps Lock?"], heroLead: "Die ungenutzte Taste wird zum Medien-/Funktionstasten-Schalter",
+    hero: ["Eine ungenutzte Taste", "Weniger tägliche Mühe"], heroLead: "Caps Lock wird zum Medien-/Funktionstasten-Schalter",
     trial: "14 Tage testen", viewCore: "Open Core ansehen", requirements: "macOS 14 oder neuer",
     demo: { media: "Mediensteuerung", function: "Funktionstasten", mediaShort: "Medien", functionShort: "Funktion", pressLabel: "Caps Lock drücken. Aktueller Status:" },
     tour: {
-      kicker: "Die Idee hinter Capswitch", title: "Eine ungenutzte Taste beseitigt eine tägliche Mühe",
+      kicker: "Die Idee hinter Capswitch", title: "Wie Caps Lock zum Schalter wurde",
       steps: ["Caps Lock blieb ungenutzt", "Der Medien-/Funktionstasten-Wechsel war lästig", "Caps Lock wurde zum Schalter"],
       descriptions: ["Die ungenutzte Taste und ihre LED sollten endlich sinnvoll eingesetzt werden.", "Das Umschalten von F1–F12 unterbrach jedes Mal den Arbeitsfluss.", "Jetzt genügt ein Tastendruck und die LED zeigt den aktuellen Zustand."],
       flow: ["Caps Lock", "Modus wird ausgeführt", "LED und HUD zeigen den Status"],
@@ -233,11 +233,11 @@ export const translations: Record<Locale, Translation> = {
   },
   "zh-Hans": {
     language: "语言", download: "下载",
-    hero: ["你会使用", "Caps Lock 吗？"], heroLead: "把闲置按键变成媒体键／功能键切换开关",
+    hero: ["用闲置按键", "减少日常麻烦"], heroLead: "把 Caps Lock 变成媒体键／功能键切换开关",
     trial: "免费试用 14 天", viewCore: "查看开源 Core", requirements: "需要 macOS 14 或更高版本",
     demo: { media: "媒体控制", function: "功能键", mediaShort: "媒体", functionShort: "功能键", pressLabel: "按下 Caps Lock。当前状态：" },
     tour: {
-      kicker: "Capswitch 的起点", title: "用闲置按键减少日常麻烦",
+      kicker: "Capswitch 的起点", title: "Caps Lock 如何变成切换开关",
       steps: ["Caps Lock 一直闲置", "切换媒体键／功能键很麻烦", "让 Caps Lock 成为切换开关"],
       descriptions: ["我想让闲置的按键和 LED 真正派上用场。", "每次使用 F1–F12 都要切换会打断操作。", "现在按一下即可切换，LED 还能显示当前状态。"],
       flow: ["Caps Lock", "执行模式", "LED 与 HUD 显示状态"],
@@ -272,11 +272,11 @@ export const translations: Record<Locale, Translation> = {
   },
   "zh-Hant": {
     language: "語言", download: "下載",
-    hero: ["你會使用", "Caps Lock 嗎？"], heroLead: "把閒置按鍵變成媒體鍵／功能鍵切換開關",
+    hero: ["用閒置按鍵", "減少日常麻煩"], heroLead: "把 Caps Lock 變成媒體鍵／功能鍵切換開關",
     trial: "免費試用 14 天", viewCore: "查看開源 Core", requirements: "需要 macOS 14 或以上版本",
     demo: { media: "媒體控制", function: "功能鍵", mediaShort: "媒體", functionShort: "功能鍵", pressLabel: "按下 Caps Lock。目前狀態：" },
     tour: {
-      kicker: "Capswitch 的起點", title: "用閒置按鍵減少日常麻煩",
+      kicker: "Capswitch 的起點", title: "Caps Lock 如何變成切換開關",
       steps: ["Caps Lock 一直閒置", "切換媒體鍵／功能鍵很麻煩", "讓 Caps Lock 成為切換開關"],
       descriptions: ["我想讓閒置的按鍵和 LED 真正派上用場。", "每次使用 F1–F12 都要切換會打斷操作。", "現在按一下即可切換，LED 還能顯示目前狀態。"],
       flow: ["Caps Lock", "執行模式", "LED 與 HUD 顯示狀態"],
@@ -311,11 +311,11 @@ export const translations: Record<Locale, Translation> = {
   },
   fr: {
     language: "Langue", download: "Télécharger",
-    hero: ["Utilisez-vous", "Caps Lock ?"], heroLead: "Transformez une touche inutilisée en commutateur Média / Fonction",
+    hero: ["Une touche inutilisée", "Moins de gêne au quotidien"], heroLead: "Transformez Caps Lock en commutateur Média / Fonction",
     trial: "Essayer 14 jours", viewCore: "Voir le Core ouvert", requirements: "macOS 14 ou version ultérieure",
     demo: { media: "Commandes multimédia", function: "Touches de fonction", mediaShort: "Média", functionShort: "Fonction", pressLabel: "Appuyez sur Caps Lock. État actuel :" },
     tour: {
-      kicker: "L’origine de Capswitch", title: "Une touche inutilisée supprime une gêne quotidienne",
+      kicker: "L’origine de Capswitch", title: "Comment Caps Lock est devenue un commutateur",
       steps: ["Caps Lock restait inutilisée", "Basculer Média / Fonction était pénible", "Caps Lock est devenue le commutateur"],
       descriptions: ["Je voulais enfin utiliser cette touche et sa LED.", "Basculer F1–F12 à chaque fois interrompait le travail.", "Un appui suffit désormais et la LED indique l’état actuel."],
       flow: ["Caps Lock", "Le mode s’exécute", "LED et HUD mis à jour"],
@@ -350,11 +350,11 @@ export const translations: Record<Locale, Translation> = {
   },
   ko: {
     language: "언어", download: "다운로드",
-    hero: ["Caps Lock을", "사용하고 있나요?"], heroLead: "쓰지 않던 키를 미디어／Function 전환 스위치로",
+    hero: ["쓰지 않던 키로", "매일의 번거로움을 줄이다"], heroLead: "Caps Lock을 미디어／Function 전환 스위치로",
     trial: "14일 동안 사용", viewCore: "오픈 Core 보기", requirements: "macOS 14 이상",
     demo: { media: "미디어 조작", function: "Function 키", mediaShort: "미디어", functionShort: "Function", pressLabel: "Caps Lock을 누릅니다. 현재 상태:" },
     tour: {
-      kicker: "Capswitch의 시작", title: "쓰지 않던 키로 매일의 번거로움을 줄이다",
+      kicker: "Capswitch의 시작", title: "Caps Lock이 스위치가 되기까지",
       steps: ["Caps Lock을 쓰지 않았다", "미디어／Function 전환이 번거로웠다", "Caps Lock을 스위치로 만들었다"],
       descriptions: ["놀고 있던 키와 LED를 제대로 활용하고 싶었습니다.", "F1–F12를 쓸 때마다 전환하는 과정이 흐름을 끊었습니다.", "이제 한 번 누르면 전환되고 LED로 현재 상태를 확인할 수 있습니다."],
       flow: ["Caps Lock", "모드 실행", "LED와 HUD에 표시"],
@@ -389,11 +389,11 @@ export const translations: Record<Locale, Translation> = {
   },
   es: {
     language: "Idioma", download: "Descargar",
-    hero: ["¿Usas", "Caps Lock?"], heroLead: "Convierte una tecla sin uso en el selector Multimedia / Función",
+    hero: ["Una tecla sin uso", "Menos molestias diarias"], heroLead: "Convierte Caps Lock en el selector Multimedia / Función",
     trial: "Probar 14 días", viewCore: "Ver Core abierto", requirements: "macOS 14 o posterior",
     demo: { media: "Controles multimedia", function: "Teclas de función", mediaShort: "Media", functionShort: "Función", pressLabel: "Pulsa Caps Lock. Estado actual:" },
     tour: {
-      kicker: "El origen de Capswitch", title: "Una tecla sin uso elimina una molestia diaria",
+      kicker: "El origen de Capswitch", title: "Cómo Caps Lock se convirtió en un selector",
       steps: ["Caps Lock no se usaba", "Cambiar Multimedia / Función era molesto", "Caps Lock se convirtió en el selector"],
       descriptions: ["Quería aprovechar la tecla y su LED.", "Cambiar F1–F12 cada vez interrumpía el flujo.", "Ahora basta una pulsación y el LED muestra el estado actual."],
       flow: ["Caps Lock", "El modo actúa", "LED y HUD se actualizan"],
@@ -428,11 +428,11 @@ export const translations: Record<Locale, Translation> = {
   },
   it: {
     language: "Lingua", download: "Scarica",
-    hero: ["Usi davvero", "Caps Lock?"], heroLead: "Trasforma un tasto inutilizzato nel selettore Media / Funzione",
+    hero: ["Un tasto inutilizzato", "Meno fastidi ogni giorno"], heroLead: "Trasforma Caps Lock nel selettore Media / Funzione",
     trial: "Prova per 14 giorni", viewCore: "Vedi il Core aperto", requirements: "macOS 14 o successivo",
     demo: { media: "Controlli multimediali", function: "Tasti funzione", mediaShort: "Media", functionShort: "Funzione", pressLabel: "Premi Caps Lock. Stato attuale:" },
     tour: {
-      kicker: "L’origine di Capswitch", title: "Un tasto inutilizzato elimina un fastidio quotidiano",
+      kicker: "L’origine di Capswitch", title: "Come Caps Lock è diventato un selettore",
       steps: ["Caps Lock rimaneva inutilizzato", "Passare tra Media e Funzione era scomodo", "Caps Lock è diventato il selettore"],
       descriptions: ["Volevo finalmente usare quel tasto e il suo LED.", "Cambiare F1–F12 ogni volta interrompeva il lavoro.", "Ora basta una pressione e il LED mostra lo stato corrente."],
       flow: ["Caps Lock", "La modalità agisce", "LED e HUD si aggiornano"],
@@ -467,11 +467,11 @@ export const translations: Record<Locale, Translation> = {
   },
   vi: {
     language: "Ngôn ngữ", download: "Tải xuống",
-    hero: ["Bạn có dùng", "Caps Lock không?"], heroLead: "Biến phím ít dùng thành công tắc Media / Function",
+    hero: ["Một phím bỏ trống", "Bớt phiền toái mỗi ngày"], heroLead: "Biến Caps Lock thành công tắc Media / Function",
     trial: "Dùng thử 14 ngày", viewCore: "Xem Core công khai", requirements: "macOS 14 trở lên",
     demo: { media: "Điều khiển media", function: "Phím chức năng", mediaShort: "Media", functionShort: "Function", pressLabel: "Nhấn Caps Lock. Trạng thái hiện tại:" },
     tour: {
-      kicker: "Khởi nguồn của Capswitch", title: "Dùng phím bỏ trống để bớt một phiền toái mỗi ngày",
+      kicker: "Khởi nguồn của Capswitch", title: "Caps Lock đã trở thành công tắc như thế nào",
       steps: ["Caps Lock gần như không được dùng", "Chuyển Media / Function rất bất tiện", "Caps Lock trở thành công tắc"],
       descriptions: ["Tôi muốn tận dụng phím và đèn LED đang bị bỏ trống.", "Việc đổi F1–F12 mỗi lần làm gián đoạn thao tác.", "Giờ chỉ cần nhấn một lần và LED cho biết trạng thái hiện tại."],
       flow: ["Caps Lock", "Chế độ hoạt động", "LED và HUD cập nhật"],
@@ -506,11 +506,11 @@ export const translations: Record<Locale, Translation> = {
   },
   th: {
     language: "ภาษา", download: "ดาวน์โหลด",
-    hero: ["คุณได้ใช้", "Caps Lock ไหม?"], heroLead: "เปลี่ยนปุ่มที่ไม่ได้ใช้ให้เป็นสวิตช์ Media / Function",
+    hero: ["ปุ่มหนึ่งที่ไม่ได้ใช้", "ลดความยุ่งยากในทุกวัน"], heroLead: "เปลี่ยน Caps Lock ให้เป็นสวิตช์ Media / Function",
     trial: "ทดลองใช้ 14 วัน", viewCore: "ดู Core แบบเปิด", requirements: "macOS 14 ขึ้นไป",
     demo: { media: "ควบคุมสื่อ", function: "ปุ่มฟังก์ชัน", mediaShort: "Media", functionShort: "Function", pressLabel: "กด Caps Lock สถานะปัจจุบัน:" },
     tour: {
-      kicker: "จุดเริ่มต้นของ Capswitch", title: "ใช้ปุ่มที่ว่างอยู่เพื่อลดความยุ่งยากในทุกวัน",
+      kicker: "จุดเริ่มต้นของ Capswitch", title: "Caps Lock กลายเป็นสวิตช์ได้อย่างไร",
       steps: ["Caps Lock แทบไม่ได้ใช้", "การสลับ Media / Function ยุ่งยาก", "Caps Lock กลายเป็นสวิตช์"],
       descriptions: ["ผมอยากใช้ปุ่มและไฟ LED ที่ถูกปล่อยว่างให้มีประโยชน์", "การสลับ F1–F12 ทุกครั้งทำให้การทำงานสะดุด", "ตอนนี้กดครั้งเดียวก็สลับได้และไฟ LED แสดงสถานะปัจจุบัน"],
       flow: ["Caps Lock", "โหมดทำงาน", "LED และ HUD อัปเดต"],

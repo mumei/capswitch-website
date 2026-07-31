@@ -30,9 +30,11 @@ test("server-renders the Capswitch official homepage", async () => {
 
   const html = await response.text();
   assert.match(html, /<html lang="en">/);
-  assert.match(html, /class="hero-title-line">そのCaps Lock/);
-  assert.match(html, /class="hero-title-line">使っていますか？/);
-  assert.match(html, /使っていないキーを Media／Function切替のスイッチへ/);
+  assert.match(html, /class="hero-title-line">使っていないキーで/);
+  assert.match(html, /class="hero-title-line">面倒を減らす/);
+  assert.match(html, /Caps Lockを Media／Function切替のスイッチへ/);
+  assert.doesNotMatch(html, /そのCaps Lock/);
+  assert.doesNotMatch(html, /使っていますか？/);
   assert.doesNotMatch(html, /Caps Lockを他の操作に！/);
   assert.doesNotMatch(html, /Caps LockのLEDもフィードバックに活用！/);
   assert.match(html, /class="wordmark-icon"/);
@@ -54,6 +56,7 @@ test("server-renders the Capswitch official homepage", async () => {
   assert.match(html, /Caps Lockを使っていなかった/);
   assert.match(html, /Media／Function切替が面倒だった/);
   assert.match(html, /Caps Lockをスイッチにした/);
+  assert.match(html, /Caps Lockが スイッチになるまで/);
   assert.match(html, /モードを、1つ選ぶ/);
   assert.doesNotMatch(html, /モードを、1つ選ぶ。/);
   assert.match(html, /class="mode-summary"/);
