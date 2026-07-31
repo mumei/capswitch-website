@@ -9,8 +9,9 @@ export const metadata: Metadata = {
   title: { default: "Capswitch", template: "%s · Capswitch" },
   metadataBase: new URL(`${siteUrl.replace(/\/$/, "")}/`),
   icons: {
-    icon: [{ url: "favicon.png", type: "image/png", sizes: "64x64" }],
-    shortcut: "favicon.png",
+    icon: [{ url: "/favicon.png", type: "image/png", sizes: "64x64" }],
+    shortcut: [{ url: "/favicon.png", type: "image/png" }],
+    apple: [{ url: "/favicon.png", type: "image/png", sizes: "64x64" }],
   },
 };
 
