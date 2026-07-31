@@ -81,12 +81,11 @@ test("server-renders the Capswitch official homepage", async () => {
   assert.doesNotMatch(html, /正式な購入リンクは公開準備中/);
   assert.match(html, /https:\/\/capswitch-app\.donpok\.chatgpt\.site\/og\.png/);
   assert.match(html, /aria-live="polite"/);
-  assert.match(html, /G-M1WVYGYPPL/);
   assert.doesNotMatch(html, /Your site is taking shape|Building your site/);
 });
 
 test("keeps the Hallmark and responsive contracts in source", async () => {
-  const [page, localizedHome, i18n, demo, css, tokens, layout] = await Promise.all([
+  const [page, localizedHome, i18n, demo, css, tokens, layout, analytics] = await Promise.all([
     readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/localized-home.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/i18n.ts", import.meta.url), "utf8"),
@@ -94,6 +93,7 @@ test("keeps the Hallmark and responsive contracts in source", async () => {
     readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
     readFile(new URL("../tokens.css", import.meta.url), "utf8"),
     readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/google-analytics.tsx", import.meta.url), "utf8"),
   ]);
 
   assert.match(tokens, /^\/\* Hallmark · macrostructure: workbench · genre: modern-minimal/);
@@ -127,6 +127,9 @@ test("keeps the Hallmark and responsive contracts in source", async () => {
   assert.match(page, /LocalizedHome/);
   assert.match(localizedHome, /CapswitchDemo/);
   assert.match(localizedHome, /localStorage\.setItem\(localeStorageKey/);
+  assert.match(analytics, /G-M1WVYGYPPL/);
+  assert.match(analytics, /consent === "granted"/);
+  assert.match(analytics, /capswitch-analytics-consent/);
   assert.match(localizedHome, /document\.documentElement\.lang = locale/);
   assert.match(localizedHome, /screenshots\/\$\{locale\}\/capswitch-settings\.png/);
   assert.match(localizedHome, /screenshots\/\$\{locale\}\/capswitch-menu\.png/);

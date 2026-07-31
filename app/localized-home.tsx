@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Fragment, useEffect, useState } from "react";
 import { CapswitchDemo } from "./capswitch-demo";
+import { GoogleAnalytics } from "./google-analytics";
 import { languages, resolveLocale, translations, type Locale } from "./i18n";
 
 const localeStorageKey = "capswitch-site-language";
@@ -270,6 +271,7 @@ export function LocalizedHome({
         <span>© 2026 Capswitch</span>
         <a href="https://github.com/mumei/capswitch-core">Apache-2.0 Core ↗</a>
       </footer>
+      <GoogleAnalytics {...copy.analytics} />
     </main>
   );
 }

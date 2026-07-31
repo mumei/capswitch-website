@@ -76,6 +76,7 @@ type Translation = {
     button: string;
     purchase: string;
   };
+  analytics: { message: string; allow: string; decline: string };
 };
 
 const mode = (
@@ -150,6 +151,7 @@ export const translations: Record<Locale, Translation> = {
       description: "登録なしで全機能を試せます。", button: "Capswitchをダウンロード",
       purchase: "Capswitchを購入 — $14.99",
     },
+    analytics: { message: "サイト改善のため、同意後に匿名の利用状況を計測します", allow: "許可する", decline: "今はしない" },
   },
   en: {
     language: "Language", download: "Download",
@@ -188,6 +190,7 @@ export const translations: Record<Locale, Translation> = {
       rows: [["2 states", "On / off", "Function keys, mute, appearance"], ["Multiple states", "1–n short pulses → long pause", "Audio output, input source"], ["Continuous value", "Faster pulses for higher values", "Volume"], ["Time remaining", "Faster pulses near the end", "Timer"]],
     },
     price: { kicker: "Try first", title: "Try everything for 14 days", description: "No registration. Every feature is available.", button: "Download Capswitch", purchase: "Buy Capswitch — $14.99" },
+    analytics: { message: "With your consent, we use anonymous usage data to improve this site", allow: "Allow", decline: "Not now" },
   },
   de: {
     language: "Sprache", download: "Download",
@@ -226,6 +229,7 @@ export const translations: Record<Locale, Translation> = {
       rows: [["2 Zustände", "Ein / Aus", "Funktionstasten, Stumm, Darstellung"], ["Mehrere Zustände", "1–n kurze Impulse → lange Pause", "Audioausgabe, Eingabequelle"], ["Stufenloser Wert", "Höherer Wert = schnellere Impulse", "Lautstärke"], ["Restzeit", "Zum Ende hin schnellere Impulse", "Timer"]],
     },
     price: { kicker: "Zuerst testen", title: "14 Tage alles ausprobieren", description: "Ohne Registrierung stehen alle Funktionen bereit.", button: "Capswitch laden", purchase: "Capswitch kaufen — $14.99" },
+    analytics: { message: "Mit Ihrer Zustimmung nutzen wir anonyme Nutzungsdaten zur Verbesserung der Website", allow: "Zulassen", decline: "Nicht jetzt" },
   },
   "zh-Hans": {
     language: "语言", download: "下载",
@@ -264,6 +268,7 @@ export const translations: Record<Locale, Translation> = {
       rows: [["2 种状态", "亮 / 灭", "功能键、静音、外观等"], ["多种状态", "短闪 1–n 次 → 长时间熄灭", "音频输出、输入法"], ["连续值", "数值越高，闪烁越快", "音量"], ["剩余时间", "越接近结束，闪烁越快", "计时器"]],
     },
     price: { kicker: "先试用", title: "14 天体验全部功能", description: "无需注册，即可使用全部功能。", button: "下载 Capswitch", purchase: "购买 Capswitch — $14.99" },
+    analytics: { message: "经您同意后，我们会使用匿名使用数据来改进网站", allow: "允许", decline: "暂不" },
   },
   "zh-Hant": {
     language: "語言", download: "下載",
@@ -302,6 +307,7 @@ export const translations: Record<Locale, Translation> = {
       rows: [["2 種狀態", "亮 / 滅", "功能鍵、靜音、外觀等"], ["多種狀態", "短閃 1–n 次 → 長時間熄滅", "音訊輸出、輸入來源"], ["連續值", "數值越高，閃爍越快", "音量"], ["剩餘時間", "越接近結束，閃爍越快", "計時器"]],
     },
     price: { kicker: "先試用", title: "14 天體驗所有功能", description: "無需註冊，即可使用全部功能。", button: "下載 Capswitch", purchase: "購買 Capswitch — $14.99" },
+    analytics: { message: "經您同意後，我們會使用匿名使用資料來改善網站", allow: "允許", decline: "暫不" },
   },
   fr: {
     language: "Langue", download: "Télécharger",
@@ -340,6 +346,7 @@ export const translations: Record<Locale, Translation> = {
       rows: [["2 états", "Allumé / éteint", "Fonction, sourdine, apparence"], ["États multiples", "1–n impulsions courtes → longue pause", "Sortie audio, source d’entrée"], ["Valeur continue", "Plus la valeur monte, plus ça clignote vite", "Volume"], ["Temps restant", "Plus la fin approche, plus ça clignote vite", "Minuteur"]],
     },
     price: { kicker: "Essayer d’abord", title: "Tout essayer pendant 14 jours", description: "Aucune inscription. Toutes les fonctions sont disponibles.", button: "Télécharger Capswitch", purchase: "Acheter Capswitch — $14.99" },
+    analytics: { message: "Avec votre accord, nous utilisons des données anonymes pour améliorer le site", allow: "Autoriser", decline: "Pas maintenant" },
   },
   ko: {
     language: "언어", download: "다운로드",
@@ -378,6 +385,7 @@ export const translations: Record<Locale, Translation> = {
       rows: [["2상태", "켜짐 / 꺼짐", "Function 키, 음소거, 화면 모드"], ["다중 상태", "짧게 1–n회 점멸 → 긴 소등", "오디오 출력, 입력 소스"], ["연속값", "값이 높을수록 빠르게 점멸", "음량"], ["남은 시간", "종료에 가까울수록 빠르게 점멸", "타이머"]],
     },
     price: { kicker: "먼저 체험", title: "14일 동안 모든 기능 체험", description: "가입 없이 모든 기능을 사용할 수 있습니다.", button: "Capswitch 다운로드", purchase: "Capswitch 구매 — $14.99" },
+    analytics: { message: "동의하면 사이트 개선을 위해 익명의 이용 데이터를 측정합니다", allow: "허용", decline: "나중에" },
   },
   es: {
     language: "Idioma", download: "Descargar",
@@ -416,6 +424,7 @@ export const translations: Record<Locale, Translation> = {
       rows: [["2 estados", "Encendido / apagado", "Función, silencio, apariencia"], ["Varios estados", "1–n pulsos cortos → pausa larga", "Salida de audio, entrada"], ["Valor continuo", "Más valor, pulsos más rápidos", "Volumen"], ["Tiempo restante", "Más rápido al acercarse el final", "Temporizador"]],
     },
     price: { kicker: "Pruébalo", title: "Prueba todo durante 14 días", description: "Sin registro. Todas las funciones disponibles.", button: "Descargar Capswitch", purchase: "Comprar Capswitch — $14.99" },
+    analytics: { message: "Con tu permiso, usamos datos anónimos para mejorar el sitio", allow: "Permitir", decline: "Ahora no" },
   },
   it: {
     language: "Lingua", download: "Scarica",
@@ -454,6 +463,7 @@ export const translations: Record<Locale, Translation> = {
       rows: [["2 stati", "Acceso / spento", "Funzione, muto, aspetto"], ["Più stati", "1–n impulsi brevi → pausa lunga", "Uscita audio, input"], ["Valore continuo", "Valore più alto, impulsi più rapidi", "Volume"], ["Tempo restante", "Più rapido vicino alla fine", "Timer"]],
     },
     price: { kicker: "Prova prima", title: "Prova tutto per 14 giorni", description: "Nessuna registrazione. Tutte le funzioni disponibili.", button: "Scarica Capswitch", purchase: "Acquista Capswitch — $14.99" },
+    analytics: { message: "Con il tuo consenso usiamo dati anonimi per migliorare il sito", allow: "Consenti", decline: "Non ora" },
   },
   vi: {
     language: "Ngôn ngữ", download: "Tải xuống",
@@ -492,6 +502,7 @@ export const translations: Record<Locale, Translation> = {
       rows: [["2 trạng thái", "Bật / tắt", "Function, tắt tiếng, giao diện"], ["Nhiều trạng thái", "1–n nháy ngắn → nghỉ dài", "Đầu ra âm thanh, nguồn nhập"], ["Giá trị liên tục", "Giá trị càng cao, nháy càng nhanh", "Âm lượng"], ["Thời gian còn lại", "Càng gần kết thúc, nháy càng nhanh", "Hẹn giờ"]],
     },
     price: { kicker: "Dùng thử trước", title: "Dùng mọi tính năng trong 14 ngày", description: "Không cần đăng ký. Mọi tính năng đều khả dụng.", button: "Tải Capswitch", purchase: "Mua Capswitch — $14.99" },
+    analytics: { message: "Khi bạn đồng ý, chúng tôi dùng dữ liệu ẩn danh để cải thiện trang", allow: "Cho phép", decline: "Để sau" },
   },
   th: {
     language: "ภาษา", download: "ดาวน์โหลด",
@@ -530,6 +541,7 @@ export const translations: Record<Locale, Translation> = {
       rows: [["2 สถานะ", "เปิด / ปิด", "ฟังก์ชัน ปิดเสียง รูปแบบหน้าจอ"], ["หลายสถานะ", "กะพริบสั้น 1–n ครั้ง → พักนาน", "เอาต์พุตเสียง แหล่งอินพุต"], ["ค่าต่อเนื่อง", "ค่ายิ่งสูง ยิ่งกะพริบเร็ว", "ระดับเสียง"], ["เวลาที่เหลือ", "ใกล้จบยิ่งกะพริบเร็ว", "ตัวจับเวลา"]],
     },
     price: { kicker: "ทดลองก่อน", title: "ทดลองทุกฟีเจอร์ 14 วัน", description: "ไม่ต้องลงทะเบียน ใช้ได้ทุกฟีเจอร์", button: "ดาวน์โหลด Capswitch", purchase: "ซื้อ Capswitch — $14.99" },
+    analytics: { message: "เมื่อคุณยินยอม เราจะใช้ข้อมูลแบบไม่ระบุตัวตนเพื่อปรับปรุงเว็บไซต์", allow: "อนุญาต", decline: "ไว้ภายหลัง" },
   },
 };
 
