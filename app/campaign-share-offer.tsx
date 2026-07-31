@@ -10,7 +10,6 @@ import {
 } from "./i18n";
 
 const campaignCode = "SHARE5";
-const campaignStart = Date.parse("2026-08-07T15:00:00Z");
 
 type CopyShareMethod = "wechat" | "kakao" | "zalo";
 type IntentShareMethod = Exclude<CampaignShareMethod, "native" | CopyShareMethod>;
@@ -83,31 +82,16 @@ export function CampaignShareOffer({
   publicBasePath: string;
   checkoutUrl: string;
 }) {
-  const [campaignActive, setCampaignActive] = useState(false);
   const [canNativeShare, setCanNativeShare] = useState(false);
   const [copyState, setCopyState] = useState<CopyState>("default");
   const couponDialogRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
-    const localPreview = window.location.hostname === "localhost"
-      || window.location.hostname === "127.0.0.1";
-    const previewEnabled = process.env.NODE_ENV !== "production"
-      && (localPreview || new URLSearchParams(window.location.search).get("preview") === "share5");
-    const updateCampaignState = () => setCampaignActive(previewEnabled || Date.now() >= campaignStart);
-
-    const initialTimer = window.setTimeout(() => {
-      updateCampaignState();
+    const timer = window.setTimeout(() => {
       setCanNativeShare(typeof navigator.share === "function");
     }, 0);
-
-    const timer = window.setInterval(updateCampaignState, 60_000);
-    return () => {
-      window.clearTimeout(initialTimer);
-      window.clearInterval(timer);
-    };
+    return () => window.clearTimeout(timer);
   }, []);
-
-  if (!campaignActive) return null;
 
   function showCoupon() {
     couponDialogRef.current?.showModal();

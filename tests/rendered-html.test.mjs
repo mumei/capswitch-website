@@ -162,9 +162,8 @@ test("keeps the Hallmark and responsive contracts in source", async () => {
   assert.match(localizedHome, /CapswitchDemo/);
   assert.match(localizedHome, /CampaignShareOffer/);
   assert.match(campaignOffer, /const campaignCode = "SHARE5"/);
-  assert.match(campaignOffer, /Date\.parse\("2026-08-07T15:00:00Z"\)/);
-  assert.match(campaignOffer, /window\.location\.hostname === "localhost"/);
-  assert.match(campaignOffer, /window\.location\.hostname === "127\.0\.0\.1"/);
+  assert.doesNotMatch(campaignOffer, /campaignStart/);
+  assert.doesNotMatch(campaignOffer, /campaignActive/);
   assert.match(campaignOffer, /couponDialogRef\.current\?\.showModal\(\)/);
   assert.match(campaignOffer, /<dialog/);
   assert.match(campaignOffer, /https:\/\/x\.com\/intent\/post/);
