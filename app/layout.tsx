@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const geist = Geist({ variable: "--font-geist", subsets: ["latin"], display: "swap" });
@@ -9,6 +10,7 @@ const siteUrl =
   (process.env.GITHUB_PAGES === "true"
     ? "https://capswitch.suruyatu.com"
     : "https://capswitch-app.donpok.chatgpt.site");
+const googleAnalyticsId = "G-M1WVYGYPPL";
 
 export const metadata: Metadata = {
   title: { default: "Capswitch", template: "%s · Capswitch" },
@@ -27,5 +29,23 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="ja"><body className={`${geist.variable} ${geistMono.variable}`}>{children}</body></html>;
+  return (
+    <html lang="ja">
+      <body className={`${geist.variable} ${geistMono.variable}`}>
+        {children}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${googleAnalyticsId}');
+          `}
+        </Script>
+      </body>
+    </html>
+  );
 }

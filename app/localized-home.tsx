@@ -56,7 +56,10 @@ export function LocalizedHome({
 
   useEffect(() => {
     const saved = window.localStorage.getItem(localeStorageKey);
-    const detected = resolveLocale(saved ?? window.navigator.language);
+    const deviceLanguages = window.navigator.languages.length > 0
+      ? window.navigator.languages
+      : [window.navigator.language];
+    const detected = resolveLocale(saved ? [saved, ...deviceLanguages] : deviceLanguages);
     const timer = window.setTimeout(() => setLocale(detected), 0);
     return () => window.clearTimeout(timer);
   }, []);

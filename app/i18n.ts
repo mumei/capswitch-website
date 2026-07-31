@@ -533,10 +533,26 @@ export const translations: Record<Locale, Translation> = {
   },
 };
 
-export function resolveLocale(value: string | null | undefined): Locale {
-  if (!value) return "ja";
-  const normalized = value.toLowerCase();
-  if (normalized.startsWith("zh-tw") || normalized.startsWith("zh-hk") || normalized.startsWith("zh-hant")) return "zh-Hant";
-  if (normalized.startsWith("zh")) return "zh-Hans";
-  return languages.find(({ code }) => normalized === code.toLowerCase() || normalized.startsWith(`${code.toLowerCase()}-`))?.code ?? "ja";
+export function resolveLocale(preferredLanguages: readonly string[]): Locale {
+  for (const value of preferredLanguages) {
+    const normalized = value.replaceAll("_", "-").toLowerCase();
+    if (
+      normalized === "zh-hant"
+      || normalized.startsWith("zh-hant-")
+      || normalized === "zh-tw"
+      || normalized.startsWith("zh-tw-")
+      || normalized === "zh-hk"
+      || normalized.startsWith("zh-hk-")
+      || normalized === "zh-mo"
+      || normalized.startsWith("zh-mo-")
+    ) return "zh-Hant";
+    if (normalized === "zh" || normalized.startsWith("zh-")) return "zh-Hans";
+
+    const language = languages.find(({ code }) => (
+      normalized === code.toLowerCase()
+      || normalized.startsWith(`${code.toLowerCase()}-`)
+    ));
+    if (language) return language.code;
+  }
+  return "en";
 }

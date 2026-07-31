@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
+import { resolveLocale } from "../app/i18n.ts";
 
 async function render() {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
@@ -13,6 +14,14 @@ async function render() {
     { waitUntil() {}, passThroughOnException() {} },
   );
 }
+
+test("selects the first supported browser language", () => {
+  assert.equal(resolveLocale(["pt-BR", "fr-FR"]), "fr");
+  assert.equal(resolveLocale(["ja-JP", "en-US"]), "ja");
+  assert.equal(resolveLocale(["zh-TW"]), "zh-Hant");
+  assert.equal(resolveLocale(["zh-CN"]), "zh-Hans");
+  assert.equal(resolveLocale(["pt-BR"]), "en");
+});
 
 test("server-renders the Capswitch official homepage", async () => {
   const response = await render();
@@ -72,6 +81,7 @@ test("server-renders the Capswitch official homepage", async () => {
   assert.doesNotMatch(html, /正式な購入リンクは公開準備中/);
   assert.match(html, /https:\/\/capswitch-app\.donpok\.chatgpt\.site\/og\.png/);
   assert.match(html, /aria-live="polite"/);
+  assert.match(html, /G-M1WVYGYPPL/);
   assert.doesNotMatch(html, /Your site is taking shape|Building your site/);
 });
 
