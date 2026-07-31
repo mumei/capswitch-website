@@ -19,11 +19,10 @@ test("exports a GitHub Pages-ready static site", async () => {
   const html = await readFile(new URL("index.html", output), "utf8");
 
   assert.match(html, /(?:href|src)="\/_next\//);
-  assert.match(html, /\/favicon\.png/);
-  assert.match(html, /\/screenshots\/ja\/capswitch-settings\.png/);
-  assert.match(html, /\/screenshots\/ja\/capswitch-menu\.png/);
+  assert.match(html, /(?:\/|\")favicon\.png/);
   assert.match(html, /https:\/\/capswitch\.suruyatu\.com\/og\.png/);
-  assert.match(html, /https:\/\/buy\.polar\.sh\/polar_cl_UScYXNp1h6aIsYMRZ9aBBZagKU1JAxn0gSxpo3n24fE/);
+  assert.match(html, /href="\/ja\/"/);
+  assert.match(html, /href="\/en\/"/);
   assert.doesNotMatch(html, /\/capswitch-website\//);
 
   await Promise.all([
@@ -36,6 +35,14 @@ test("exports a GitHub Pages-ready static site", async () => {
   ]);
 
   for (const locale of locales) {
+    const localizedHtml = await readFile(new URL(`${locale}/index.html`, output), "utf8");
+    assert.match(localizedHtml, new RegExp(`/screenshots/${locale}/capswitch-settings\\.png`));
+    assert.match(localizedHtml, new RegExp(`https://capswitch\\.suruyatu\\.com/${locale}/`));
+    assert.match(localizedHtml, /https:\/\/buy\.polar\.sh\/polar_cl_UScYXNp1h6aIsYMRZ9aBBZagKU1JAxn0gSxpo3n24fE/);
+    assert.match(localizedHtml, /property="og:locale"/);
+    assert.match(localizedHtml, /property="og:locale:alternate"/);
+    assert.match(localizedHtml, /name="twitter:card" content="summary_large_image"/);
+
     assert.deepEqual(
       await readPngSize(new URL(`screenshots/${locale}/capswitch-settings.png`, output)),
       { width: 1936, height: 1360 },

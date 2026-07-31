@@ -1,25 +1,13 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { siteUrl } from "./site-metadata";
 import "./globals.css";
 
 const geist = Geist({ variable: "--font-geist", subsets: ["latin"], display: "swap" });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"], display: "swap" });
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  (process.env.GITHUB_PAGES === "true"
-    ? "https://capswitch.suruyatu.com"
-    : "https://capswitch-app.donpok.chatgpt.site");
-
 export const metadata: Metadata = {
   title: { default: "Capswitch", template: "%s · Capswitch" },
-  description: "使っていないCaps Lockを、面倒なMedia／Function切替のスイッチとして活用できるmacOSメニューバーアプリ。",
   metadataBase: new URL(`${siteUrl.replace(/\/$/, "")}/`),
-  openGraph: {
-    title: "Capswitch — そのCaps Lock 使っていますか？",
-    description: "使っていないキーをMedia／Function切替のスイッチへ。押すだけで切り替え、LEDで今の状態を確認できます。",
-    type: "website", locale: "ja_JP",
-    images: [{ url: "og.png", width: 1200, height: 630, alt: "Capswitch" }],
-  },
   icons: {
     icon: [{ url: "favicon.png", type: "image/png", sizes: "64x64" }],
     shortcut: "favicon.png",
@@ -28,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="ja">
+    <html lang="en">
       <body className={`${geist.variable} ${geistMono.variable}`}>
         {children}
       </body>

@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect } from "react";
 import { CapswitchDemo } from "./capswitch-demo";
 import { GoogleAnalytics } from "./google-analytics";
-import { languages, resolveLocale, translations, type Locale } from "./i18n";
+import { languages, translations, type Locale } from "./i18n";
 
 const localeStorageKey = "capswitch-site-language";
 const checkoutUrl = "https://buy.polar.sh/polar_cl_UScYXNp1h6aIsYMRZ9aBBZagKU1JAxn0gSxpo3n24fE";
@@ -49,33 +49,21 @@ function ModeTransition({
 
 export function LocalizedHome({
   publicBasePath,
+  initialLocale,
 }: {
   publicBasePath: string;
+  initialLocale: Locale;
 }) {
-  const [locale, setLocale] = useState<Locale>("ja");
+  const locale = initialLocale;
   const copy = translations[locale];
 
   useEffect(() => {
-    const saved = window.localStorage.getItem(localeStorageKey);
-    const deviceLanguages = window.navigator.languages.length > 0
-      ? window.navigator.languages
-      : [window.navigator.language];
-    const detected = resolveLocale(saved ? [saved, ...deviceLanguages] : deviceLanguages);
-    const timer = window.setTimeout(() => setLocale(detected), 0);
-    return () => window.clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
     document.documentElement.lang = locale;
-    const timer = window.setTimeout(() => {
-      document.title = `Capswitch — ${copy.hero.join(" ")}`;
-    }, 50);
-    return () => window.clearTimeout(timer);
-  }, [copy.hero, locale]);
+  }, [locale]);
 
   function changeLocale(nextLocale: Locale) {
-    setLocale(nextLocale);
     window.localStorage.setItem(localeStorageKey, nextLocale);
+    window.location.assign(`${publicBasePath}/${nextLocale}/`);
   }
 
   return (

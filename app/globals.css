@@ -7,6 +7,22 @@ body {
   font-family: var(--font-body); font-size: var(--text-base); line-height: 1.62;
   font-variant-numeric: oldstyle-nums; text-rendering: optimizeLegibility;
 }
+.language-gateway {
+  min-height: 100svh; display: grid; place-items: center; padding: var(--space-xl);
+}
+.language-gateway-card {
+  width: min(100%, 42rem); display: grid; gap: var(--space-lg);
+  padding: clamp(2rem, 6vw, 4rem); border: var(--rule) solid var(--color-rule-strong);
+  border-radius: var(--radius-lg); background: var(--color-panel);
+}
+.language-gateway-card h1, .language-gateway-card p { margin: 0; }
+.language-gateway-card nav {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr)); gap: var(--space-sm);
+}
+.language-gateway-card nav a {
+  padding: .75rem 1rem; border: var(--rule) solid var(--color-rule-strong);
+  border-radius: var(--radius-sm); text-decoration: none;
+}
 a { color: inherit; text-decoration: none; }
 button, a { -webkit-tap-highlight-color: transparent; }
 button { font: inherit; }

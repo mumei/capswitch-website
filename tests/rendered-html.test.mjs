@@ -3,13 +3,13 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 import { resolveLocale } from "../app/i18n.ts";
 
-async function render() {
+async function render(pathname = "/ja/") {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
   const { default: worker } = await import(workerUrl.href);
 
   return worker.fetch(
-    new Request("http://localhost/", { headers: { accept: "text/html" } }),
+    new Request(`http://localhost${pathname}`, { headers: { accept: "text/html" } }),
     { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } },
     { waitUntil() {}, passThroughOnException() {} },
   );
@@ -29,7 +29,7 @@ test("server-renders the Capswitch official homepage", async () => {
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /<html lang="ja">/);
+  assert.match(html, /<html lang="en">/);
   assert.match(html, /class="hero-title-line">そのCaps Lock/);
   assert.match(html, /class="hero-title-line">使っていますか？/);
   assert.match(html, /使っていないキーを Media／Function切替のスイッチへ/);
@@ -79,19 +79,37 @@ test("server-renders the Capswitch official homepage", async () => {
   assert.match(html, /Capswitchを購入 — \$14\.99/);
   assert.doesNotMatch(html, /正式な購入リンクは公開準備中/);
   assert.match(html, /https:\/\/capswitch-app\.donpok\.chatgpt\.site\/og\.png/);
+  assert.match(html, /property="og:locale" content="ja_JP"/);
+  assert.match(html, /rel="canonical" href="https:\/\/capswitch-app\.donpok\.chatgpt\.site\/ja\/"/);
+  assert.match(html, /hrefLang="en-US" href="https:\/\/capswitch-app\.donpok\.chatgpt\.site\/en\/"/);
+  assert.match(html, /name="twitter:card" content="summary_large_image"/);
   assert.match(html, /aria-live="polite"/);
   assert.doesNotMatch(html, /Your site is taking shape|Building your site/);
 });
 
+test("server-renders a language-aware root gateway", async () => {
+  const response = await render("/");
+  const html = await response.text();
+
+  assert.match(html, /Choose your language/);
+  assert.match(html, /href="\/ja\/"/);
+  assert.match(html, /href="\/en\/"/);
+  assert.match(html, /property="og:locale" content="en_US"/);
+  assert.match(html, /hrefLang="x-default" href="https:\/\/capswitch-app\.donpok\.chatgpt\.site\/"/);
+});
+
 test("keeps the Hallmark and responsive contracts in source", async () => {
-  const [page, localizedHome, i18n, demo, css, tokens, layout, analytics] = await Promise.all([
+  const [page, localePage, localizedHome, redirect, i18n, demo, css, tokens, layout, metadata, analytics] = await Promise.all([
     readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/[locale]/page.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/localized-home.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/language-redirect.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/i18n.ts", import.meta.url), "utf8"),
     readFile(new URL("../app/capswitch-demo.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
     readFile(new URL("../tokens.css", import.meta.url), "utf8"),
     readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/site-metadata.ts", import.meta.url), "utf8"),
     readFile(new URL("../app/google-analytics.tsx", import.meta.url), "utf8"),
   ]);
 
@@ -123,9 +141,13 @@ test("keeps the Hallmark and responsive contracts in source", async () => {
   assert.match(css, /\.mode-row:nth-child\(odd\) \{ background: var\(--color-panel\); \}/);
   assert.match(css, /\.mode-summary \{[\s\S]*?display: grid/);
   assert.doesNotMatch(css, /\.modes-section \.section-intro \{[\s\S]*?margin-inline-start:/);
-  assert.match(page, /LocalizedHome/);
+  assert.match(page, /LanguageRedirect/);
+  assert.match(localePage, /LocalizedHome/);
+  assert.match(localePage, /generateStaticParams/);
   assert.match(localizedHome, /CapswitchDemo/);
-  assert.match(localizedHome, /localStorage\.setItem\(localeStorageKey/);
+  assert.match(localizedHome, /window\.location\.assign/);
+  assert.match(redirect, /localStorage\.getItem\(localeStorageKey/);
+  assert.match(redirect, /window\.location\.replace/);
   assert.match(analytics, /G-M1WVYGYPPL/);
   assert.match(analytics, /consent === "granted"/);
   assert.match(analytics, /capswitch-analytics-consent/);
@@ -144,5 +166,7 @@ test("keeps the Hallmark and responsive contracts in source", async () => {
   assert.match(demo, /aria-pressed/);
   assert.match(demo, /event\.key !== "CapsLock"/);
   assert.match(demo, /hudVisible/);
-  assert.match(layout, /lang="ja"/);
+  assert.match(layout, /lang="en"/);
+  assert.match(metadata, /alternateLocale/);
+  assert.match(metadata, /"x-default"/);
 });
