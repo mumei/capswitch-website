@@ -12,11 +12,11 @@ const siteUrl =
 
 export const metadata: Metadata = {
   title: { default: "Capswitch", template: "%s · Capswitch" },
-  description: "Caps LockをFunctionキー、音量、入力ソース、タイマーなどの操作に変えるmacOSメニューバーアプリ。",
+  description: "使っていないCaps Lockを、面倒なMedia／Function切替のスイッチとして活用できるmacOSメニューバーアプリ。",
   metadataBase: new URL(`${siteUrl.replace(/\/$/, "")}/`),
   openGraph: {
-    title: "Capswitch — Caps Lockを、Macのコントロールキーへ",
-    description: "押した結果は物理LEDと短いHUDで。Caps Lockを毎日使う操作に変えます。",
+    title: "Capswitch — そのCaps Lock 使っていますか？",
+    description: "使っていないキーをMedia／Function切替のスイッチへ。押すだけで切り替え、LEDで今の状態を確認できます。",
     type: "website", locale: "ja_JP",
     images: [{ url: "og.png", width: 1200, height: 630, alt: "Capswitch" }],
   },
