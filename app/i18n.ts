@@ -102,9 +102,9 @@ export const translations: Record<Locale, Translation> = {
       kicker: "Capswitchの原点", title: "Caps Lockが スイッチになるまで",
       steps: ["Caps Lockを使っていなかった", "Media／Function切替が面倒だった", "Caps Lockをスイッチにした"],
       descriptions: [
-        "出番のないキーとLEDを 有効活用したいと考えました",
-        "F1〜F12を使うたびに切り替える手間を なくしたいと考えました",
-        "押すだけで切り替え LEDで今の状態を確認できます",
+        "出番のないキーとLEDを 有効活用したい",
+        "F1〜F12を使うたびの切替を なくしたい",
+        "押すだけで切替 LEDで状態を確認",
       ],
       flow: ["Caps Lock", "モードが動作", "LED・HUDに表示"],
       settingsAlt: "Capswitchの設定画面。左側に一般、入力、モード、表示、ライセンス、診断のメニューが並ぶ",
@@ -157,7 +157,7 @@ export const translations: Record<Locale, Translation> = {
     tour: {
       kicker: "Why Capswitch", title: "How Caps Lock became a switch",
       steps: ["Caps Lock went unused", "Media / Function switching was tedious", "Caps Lock became the switch"],
-      descriptions: ["I wanted to put the unused key and its LED to work.", "Switching F1–F12 every time interrupted the flow.", "Now one press switches them and the LED shows the current state."],
+      descriptions: ["Put the unused key and its LED to work", "Stop switching F1–F12 every time", "Switch with one press and see the state on the LED"],
       flow: ["Caps Lock", "Mode runs", "LED and HUD update"],
       settingsAlt: "Capswitch settings with General, Input, Mode, Display, License, and Diagnostics in the sidebar",
       menuAlt: "Capswitch menu bar menu showing status, pause, settings, and quit",
@@ -196,7 +196,7 @@ export const translations: Record<Locale, Translation> = {
     tour: {
       kicker: "Die Idee hinter Capswitch", title: "Wie Caps Lock zum Schalter wurde",
       steps: ["Caps Lock blieb ungenutzt", "Der Medien-/Funktionstasten-Wechsel war lästig", "Caps Lock wurde zum Schalter"],
-      descriptions: ["Die ungenutzte Taste und ihre LED sollten endlich sinnvoll eingesetzt werden.", "Das Umschalten von F1–F12 unterbrach jedes Mal den Arbeitsfluss.", "Jetzt genügt ein Tastendruck und die LED zeigt den aktuellen Zustand."],
+      descriptions: ["Ungenutzte Taste und LED sinnvoll einsetzen", "Das ständige Umschalten von F1–F12 vermeiden", "Mit einem Tastendruck wechseln und den Status an der LED sehen"],
       flow: ["Caps Lock", "Modus wird ausgeführt", "LED und HUD zeigen den Status"],
       settingsAlt: "Capswitch-Einstellungen mit den Bereichen Allgemein, Eingabe, Modus, Anzeige, Lizenz und Diagnose",
       menuAlt: "Capswitch-Menü mit Status, Pause, Einstellungen und Beenden",
@@ -235,7 +235,7 @@ export const translations: Record<Locale, Translation> = {
     tour: {
       kicker: "Capswitch 的起点", title: "Caps Lock 如何变成切换开关",
       steps: ["Caps Lock 一直闲置", "切换媒体键／功能键很麻烦", "让 Caps Lock 成为切换开关"],
-      descriptions: ["我想让闲置的按键和 LED 真正派上用场。", "每次使用 F1–F12 都要切换会打断操作。", "现在按一下即可切换，LED 还能显示当前状态。"],
+      descriptions: ["让闲置按键和 LED 派上用场", "省去每次使用 F1–F12 前的切换", "按一下即可切换并通过 LED 查看状态"],
       flow: ["Caps Lock", "执行模式", "LED 与 HUD 显示状态"],
       settingsAlt: "Capswitch 设置界面，侧边栏包含通用、输入、模式、显示、许可证和诊断",
       menuAlt: "Capswitch 菜单栏菜单，显示状态、暂停、设置和退出",
@@ -274,7 +274,7 @@ export const translations: Record<Locale, Translation> = {
     tour: {
       kicker: "Capswitch 的起點", title: "Caps Lock 如何變成切換開關",
       steps: ["Caps Lock 一直閒置", "切換媒體鍵／功能鍵很麻煩", "讓 Caps Lock 成為切換開關"],
-      descriptions: ["我想讓閒置的按鍵和 LED 真正派上用場。", "每次使用 F1–F12 都要切換會打斷操作。", "現在按一下即可切換，LED 還能顯示目前狀態。"],
+      descriptions: ["讓閒置按鍵和 LED 派上用場", "省去每次使用 F1–F12 前的切換", "按一下即可切換並透過 LED 查看狀態"],
       flow: ["Caps Lock", "執行模式", "LED 與 HUD 顯示狀態"],
       settingsAlt: "Capswitch 設定畫面，側邊欄包含一般、輸入、模式、顯示、授權與診斷",
       menuAlt: "Capswitch 選單列選單，顯示狀態、暫停、設定與結束",
@@ -313,7 +313,7 @@ export const translations: Record<Locale, Translation> = {
     tour: {
       kicker: "L’origine de Capswitch", title: "Comment Caps Lock est devenue un commutateur",
       steps: ["Caps Lock restait inutilisée", "Basculer Média / Fonction était pénible", "Caps Lock est devenue le commutateur"],
-      descriptions: ["Je voulais enfin utiliser cette touche et sa LED.", "Basculer F1–F12 à chaque fois interrompait le travail.", "Un appui suffit désormais et la LED indique l’état actuel."],
+      descriptions: ["Mettre la touche inutilisée et sa LED à profit", "Éviter de basculer F1–F12 à chaque utilisation", "Basculer d’un appui et voir l’état sur la LED"],
       flow: ["Caps Lock", "Le mode s’exécute", "LED et HUD mis à jour"],
       settingsAlt: "Réglages Capswitch avec Général, Entrée, Mode, Affichage, Licence et Diagnostic dans la barre latérale",
       menuAlt: "Menu Capswitch affichant l’état, la pause, les réglages et la fermeture",
@@ -352,7 +352,7 @@ export const translations: Record<Locale, Translation> = {
     tour: {
       kicker: "Capswitch의 시작", title: "Caps Lock이 스위치가 되기까지",
       steps: ["Caps Lock을 쓰지 않았다", "미디어／Function 전환이 번거로웠다", "Caps Lock을 스위치로 만들었다"],
-      descriptions: ["놀고 있던 키와 LED를 제대로 활용하고 싶었습니다.", "F1–F12를 쓸 때마다 전환하는 과정이 흐름을 끊었습니다.", "이제 한 번 누르면 전환되고 LED로 현재 상태를 확인할 수 있습니다."],
+      descriptions: ["놀고 있던 키와 LED를 제대로 활용하기", "F1–F12를 쓸 때마다 전환하는 과정 없애기", "한 번 눌러 전환하고 LED로 상태 확인하기"],
       flow: ["Caps Lock", "모드 실행", "LED와 HUD에 표시"],
       settingsAlt: "일반, 입력, 모드, 표시, 라이선스, 진단 메뉴가 있는 Capswitch 설정 화면",
       menuAlt: "상태, 일시 정지, 설정, 종료를 표시하는 Capswitch 메뉴",
@@ -391,7 +391,7 @@ export const translations: Record<Locale, Translation> = {
     tour: {
       kicker: "El origen de Capswitch", title: "Cómo Caps Lock se convirtió en un selector",
       steps: ["Caps Lock no se usaba", "Cambiar Multimedia / Función era molesto", "Caps Lock se convirtió en el selector"],
-      descriptions: ["Quería aprovechar la tecla y su LED.", "Cambiar F1–F12 cada vez interrumpía el flujo.", "Ahora basta una pulsación y el LED muestra el estado actual."],
+      descriptions: ["Aprovechar la tecla sin uso y su LED", "Evitar cambiar F1–F12 cada vez", "Cambiar con una pulsación y ver el estado en el LED"],
       flow: ["Caps Lock", "El modo actúa", "LED y HUD se actualizan"],
       settingsAlt: "Ajustes de Capswitch con General, Entrada, Modo, Pantalla, Licencia y Diagnóstico",
       menuAlt: "Menú de Capswitch con estado, pausa, ajustes y salir",
@@ -430,7 +430,7 @@ export const translations: Record<Locale, Translation> = {
     tour: {
       kicker: "L’origine di Capswitch", title: "Come Caps Lock è diventato un selettore",
       steps: ["Caps Lock rimaneva inutilizzato", "Passare tra Media e Funzione era scomodo", "Caps Lock è diventato il selettore"],
-      descriptions: ["Volevo finalmente usare quel tasto e il suo LED.", "Cambiare F1–F12 ogni volta interrompeva il lavoro.", "Ora basta una pressione e il LED mostra lo stato corrente."],
+      descriptions: ["Sfruttare il tasto inutilizzato e il suo LED", "Evitare di cambiare F1–F12 ogni volta", "Cambiare con una pressione e vedere lo stato sul LED"],
       flow: ["Caps Lock", "La modalità agisce", "LED e HUD si aggiornano"],
       settingsAlt: "Impostazioni Capswitch con Generali, Input, Modalità, Schermo, Licenza e Diagnostica",
       menuAlt: "Menu Capswitch con stato, pausa, impostazioni e uscita",
@@ -469,7 +469,7 @@ export const translations: Record<Locale, Translation> = {
     tour: {
       kicker: "Khởi nguồn của Capswitch", title: "Caps Lock đã trở thành công tắc như thế nào",
       steps: ["Caps Lock gần như không được dùng", "Chuyển Media / Function rất bất tiện", "Caps Lock trở thành công tắc"],
-      descriptions: ["Tôi muốn tận dụng phím và đèn LED đang bị bỏ trống.", "Việc đổi F1–F12 mỗi lần làm gián đoạn thao tác.", "Giờ chỉ cần nhấn một lần và LED cho biết trạng thái hiện tại."],
+      descriptions: ["Tận dụng phím và đèn LED đang bỏ trống", "Bỏ thao tác đổi F1–F12 mỗi lần sử dụng", "Nhấn một lần để chuyển và xem trạng thái trên LED"],
       flow: ["Caps Lock", "Chế độ hoạt động", "LED và HUD cập nhật"],
       settingsAlt: "Cài đặt Capswitch với Chung, Đầu vào, Chế độ, Hiển thị, Giấy phép và Chẩn đoán",
       menuAlt: "Menu Capswitch hiển thị trạng thái, tạm dừng, cài đặt và thoát",
@@ -508,7 +508,7 @@ export const translations: Record<Locale, Translation> = {
     tour: {
       kicker: "จุดเริ่มต้นของ Capswitch", title: "Caps Lock กลายเป็นสวิตช์ได้อย่างไร",
       steps: ["Caps Lock แทบไม่ได้ใช้", "การสลับ Media / Function ยุ่งยาก", "Caps Lock กลายเป็นสวิตช์"],
-      descriptions: ["ผมอยากใช้ปุ่มและไฟ LED ที่ถูกปล่อยว่างให้มีประโยชน์", "การสลับ F1–F12 ทุกครั้งทำให้การทำงานสะดุด", "ตอนนี้กดครั้งเดียวก็สลับได้และไฟ LED แสดงสถานะปัจจุบัน"],
+      descriptions: ["ใช้ปุ่มและไฟ LED ที่ว่างอยู่ให้เกิดประโยชน์", "ไม่ต้องสลับ F1–F12 ทุกครั้งที่ใช้งาน", "กดครั้งเดียวเพื่อสลับและดูสถานะจากไฟ LED"],
       flow: ["Caps Lock", "โหมดทำงาน", "LED และ HUD อัปเดต"],
       settingsAlt: "หน้าตั้งค่า Capswitch พร้อมเมนูทั่วไป อินพุต โหมด การแสดงผล ใบอนุญาต และการวินิจฉัย",
       menuAlt: "เมนู Capswitch ที่แสดงสถานะ หยุดชั่วคราว การตั้งค่า และออก",

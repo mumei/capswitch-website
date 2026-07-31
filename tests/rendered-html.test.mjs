@@ -56,6 +56,11 @@ test("server-renders the Capswitch official homepage", async () => {
   assert.match(html, /Caps Lockを使っていなかった/);
   assert.match(html, /Media／Function切替が面倒だった/);
   assert.match(html, /Caps Lockをスイッチにした/);
+  assert.match(html, /出番のないキーとLEDを 有効活用したい/);
+  assert.match(html, /F1〜F12を使うたびの切替を なくしたい/);
+  assert.match(html, /押すだけで切替 LEDで状態を確認/);
+  assert.doesNotMatch(html, /考えました/);
+  assert.doesNotMatch(html, /確認できます/);
   assert.match(html, /Caps Lockが スイッチになるまで/);
   assert.match(html, /Functionキー切替だけじゃない/);
   assert.match(html, /10の役割から、1つ選べます/);
