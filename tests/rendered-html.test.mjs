@@ -113,10 +113,11 @@ test("server-renders a language-aware root gateway", async () => {
 });
 
 test("keeps the Hallmark and responsive contracts in source", async () => {
-  const [page, localePage, localizedHome, redirect, i18n, demo, css, tokens, layout, metadata, analytics] = await Promise.all([
+  const [page, localePage, localizedHome, campaignOffer, redirect, i18n, demo, css, tokens, layout, metadata, analytics] = await Promise.all([
     readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/[locale]/page.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/localized-home.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/campaign-share-offer.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/language-redirect.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/i18n.ts", import.meta.url), "utf8"),
     readFile(new URL("../app/capswitch-demo.tsx", import.meta.url), "utf8"),
@@ -159,7 +160,40 @@ test("keeps the Hallmark and responsive contracts in source", async () => {
   assert.match(localePage, /LocalizedHome/);
   assert.match(localePage, /generateStaticParams/);
   assert.match(localizedHome, /CapswitchDemo/);
+  assert.match(localizedHome, /CampaignShareOffer/);
+  assert.match(campaignOffer, /const campaignCode = "SHARE5"/);
+  assert.match(campaignOffer, /Date\.parse\("2026-08-07T15:00:00Z"\)/);
+  assert.match(campaignOffer, /window\.location\.hostname === "localhost"/);
+  assert.match(campaignOffer, /window\.location\.hostname === "127\.0\.0\.1"/);
+  assert.match(campaignOffer, /couponDialogRef\.current\?\.showModal\(\)/);
+  assert.match(campaignOffer, /<dialog/);
+  assert.match(campaignOffer, /https:\/\/x\.com\/intent\/post/);
+  assert.match(campaignOffer, /https:\/\/www\.threads\.net\/intent\/post/);
+  assert.match(campaignOffer, /https:\/\/www\.facebook\.com\/sharer\/sharer\.php/);
+  assert.match(campaignOffer, /https:\/\/bsky\.app\/intent\/compose/);
+  assert.match(campaignOffer, /https:\/\/social-plugins\.line\.me\/lineit\/share/);
+  assert.match(campaignOffer, /https:\/\/wa\.me\/\?text=/);
+  assert.match(campaignOffer, /https:\/\/www\.linkedin\.com\/sharing\/share-offsite/);
+  assert.match(campaignOffer, /https:\/\/service\.weibo\.com\/share\/share\.php/);
+  assert.match(campaignOffer, /https:\/\/connect\.qq\.com\/widget\/shareqq\/index\.html/);
+  assert.match(campaignOffer, /https:\/\/share\.naver\.com\/web\/shareView/);
+  assert.match(campaignOffer, /copyForRegionalApp/);
+  assert.match(campaignOffer, /navigator\.share/);
+  assert.match(campaignOffer, /aria-live="polite"/);
+  assert.match(i18n, /共有して通常14\.99 USDから5 USD割引になるコードをゲットしよう/);
+  assert.match(i18n, /Capswitchをチェック！\\nMacの使っていないCaps Lockを\\n便利な切替キーに変えられるよ！\\n\\n#Capswitch/);
+  assert.doesNotMatch(i18n, /毎日の面倒な切り替えを、ひとつのキーでもっと簡単に/);
+  assert.match(i18n, /ja: \["x", "threads", "line", "facebook", "bluesky", "native"\]/);
+  assert.match(i18n, /"zh-Hans": \["wechat", "weibo", "qq", "native"\]/);
+  assert.match(i18n, /ko: \["kakao", "naver", "threads", "x", "facebook", "native"\]/);
+  assert.match(i18n, /vi: \["zalo", "facebook", "whatsapp", "threads", "x", "native"\]/);
+  assert.match(css, /\.campaign-offer \{/);
+  assert.match(css, /\.campaign-dialog::backdrop/);
+  assert.match(css, /\.campaign-copy-button\[data-state="success"\]/);
+  assert.match(css, /\.campaign-copy-button\[data-state="error"\]/);
   assert.match(localizedHome, /window\.location\.assign/);
+  assert.match(localizedHome, /new URLSearchParams\(window\.location\.search\)\.get\("preview"\)/);
+  assert.match(localizedHome, /nextUrl\.searchParams\.set\("preview", preview\)/);
   assert.match(redirect, /localStorage\.getItem\(localeStorageKey/);
   assert.match(redirect, /window\.location\.replace/);
   assert.match(analytics, /G-M1WVYGYPPL/);

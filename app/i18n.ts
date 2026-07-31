@@ -86,6 +86,167 @@ const mode = (
   extra: Pick<ModeCopy, "loop" | "note"> = {},
 ): ModeCopy => ({ name, description, type, states, actions, ...extra });
 
+export type CampaignCopy = {
+  kicker: string;
+  title: string;
+  description: string;
+  shareActionsLabel: string;
+  shareX: string;
+  shareThreads: string;
+  shareFacebook: string;
+  shareBluesky: string;
+  shareLine: string;
+  shareOther: string;
+  copyLink: string;
+  codeLabel: string;
+  codeHelp: string;
+  copyCode: string;
+  copying: string;
+  copied: string;
+  copyFailed: string;
+  checkout: string;
+  close: string;
+  shareText: string;
+};
+
+export const campaignTranslations: Record<Locale, CampaignCopy> = {
+  ja: {
+    kicker: "共有特典", title: "共有して、5 USD OFF",
+    description: "共有して通常14.99 USDから5 USD割引になるコードをゲットしよう。",
+    shareActionsLabel: "Capswitchを共有する方法", shareX: "Xで共有", shareThreads: "Threadsで共有", shareFacebook: "Facebookで共有", shareBluesky: "Blueskyで共有", shareLine: "LINEで共有", shareOther: "その他で共有", copyLink: "リンクをコピー",
+    codeLabel: "5 USD割引コード", codeHelp: "購入画面で入力すると、14.99 USDから9.99 USDになります。",
+    copyCode: "コードをコピー", copying: "コピー中", copied: "コピーしました", copyFailed: "コピーできませんでした", checkout: "9.99 USDで購入", close: "閉じる",
+    shareText: "Capswitchをチェック！\nMacの使っていないCaps Lockを\n便利な切替キーに変えられるよ！\n\n#Capswitch",
+  },
+  en: {
+    kicker: "Share offer", title: "Share and save USD 5",
+    description: "Choose a share action to reveal a code that takes USD 5 off the regular USD 14.99 price. Your price will be USD 9.99.",
+    shareActionsLabel: "Ways to share Capswitch", shareX: "Share on X", shareThreads: "Share on Threads", shareFacebook: "Share on Facebook", shareBluesky: "Share on Bluesky", shareLine: "Share on LINE", shareOther: "More ways to share", copyLink: "Copy share link",
+    codeLabel: "USD 5 discount code", codeHelp: "Enter it at checkout to reduce the price from USD 14.99 to USD 9.99.",
+    copyCode: "Copy code", copying: "Copying", copied: "Copied", copyFailed: "Could not copy", checkout: "Buy for USD 9.99", close: "Close",
+    shareText: "Check out Capswitch!\nTurn the Caps Lock key you don't use on your Mac into a handy switch!\n\n#Capswitch",
+  },
+  de: {
+    kicker: "Vorteil fürs Teilen", title: "Teilen und 5 USD sparen",
+    description: "Wähle eine Teilen-Aktion, um einen Code für 5 USD Rabatt auf den regulären Preis von 14,99 USD anzuzeigen. Du zahlst 9,99 USD.",
+    shareActionsLabel: "Capswitch teilen", shareX: "Auf X teilen", shareThreads: "Auf Threads teilen", shareFacebook: "Auf Facebook teilen", shareBluesky: "Auf Bluesky teilen", shareLine: "Auf LINE teilen", shareOther: "Anders teilen", copyLink: "Link kopieren",
+    codeLabel: "5-USD-Rabattcode", codeHelp: "Beim Bezahlen eingeben und statt 14,99 USD nur 9,99 USD zahlen.",
+    copyCode: "Code kopieren", copying: "Wird kopiert", copied: "Kopiert", copyFailed: "Kopieren fehlgeschlagen", checkout: "Für 9,99 USD kaufen", close: "Schließen",
+    shareText: "Schau dir Capswitch an!\nMach die ungenutzte Caps-Lock-Taste auf deinem Mac zu einem praktischen Schalter!\n\n#Capswitch",
+  },
+  "zh-Hans": {
+    kicker: "分享优惠", title: "分享立减 5 USD",
+    description: "点击任一分享按钮，即可显示优惠码。原价 14.99 USD，立减 5 USD 后为 9.99 USD。",
+    shareActionsLabel: "分享 Capswitch 的方式", shareX: "分享到 X", shareThreads: "分享到 Threads", shareFacebook: "分享到 Facebook", shareBluesky: "分享到 Bluesky", shareLine: "分享到 LINE", shareOther: "更多分享方式", copyLink: "复制分享链接",
+    codeLabel: "5 USD 优惠码", codeHelp: "在结账时输入，价格将从 14.99 USD 降至 9.99 USD。",
+    copyCode: "复制优惠码", copying: "正在复制", copied: "已复制", copyFailed: "无法复制", checkout: "以 9.99 USD 购买", close: "关闭",
+    shareText: "来看看 Capswitch！\n把 Mac 上闲置的 Caps Lock 变成实用的切换键！\n\n#Capswitch",
+  },
+  "zh-Hant": {
+    kicker: "分享優惠", title: "分享立減 5 USD",
+    description: "按下任一分享按鈕，即可顯示優惠碼。原價 14.99 USD，折抵 5 USD 後為 9.99 USD。",
+    shareActionsLabel: "分享 Capswitch 的方式", shareX: "分享到 X", shareThreads: "分享到 Threads", shareFacebook: "分享到 Facebook", shareBluesky: "分享到 Bluesky", shareLine: "分享到 LINE", shareOther: "更多分享方式", copyLink: "複製分享連結",
+    codeLabel: "5 USD 優惠碼", codeHelp: "結帳時輸入，價格將從 14.99 USD 降至 9.99 USD。",
+    copyCode: "複製優惠碼", copying: "正在複製", copied: "已複製", copyFailed: "無法複製", checkout: "以 9.99 USD 購買", close: "關閉",
+    shareText: "來看看 Capswitch！\n把 Mac 上閒置的 Caps Lock 變成實用的切換鍵！\n\n#Capswitch",
+  },
+  fr: {
+    kicker: "Avantage de partage", title: "Partagez et économisez 5 USD",
+    description: "Choisissez une action de partage pour afficher un code réduisant de 5 USD le prix normal de 14,99 USD. Vous paierez 9,99 USD.",
+    shareActionsLabel: "Façons de partager Capswitch", shareX: "Partager sur X", shareThreads: "Partager sur Threads", shareFacebook: "Partager sur Facebook", shareBluesky: "Partager sur Bluesky", shareLine: "Partager sur LINE", shareOther: "Autres options", copyLink: "Copier le lien",
+    codeLabel: "Code de réduction de 5 USD", codeHelp: "Saisissez-le au paiement pour passer de 14,99 USD à 9,99 USD.",
+    copyCode: "Copier le code", copying: "Copie", copied: "Copié", copyFailed: "Échec de la copie", checkout: "Acheter à 9,99 USD", close: "Fermer",
+    shareText: "Découvre Capswitch !\nTransforme la touche Caps Lock inutilisée de ton Mac en commutateur pratique !\n\n#Capswitch",
+  },
+  ko: {
+    kicker: "공유 혜택", title: "공유하고 5 USD 할인받기",
+    description: "공유 버튼 중 하나를 누르면 정상가 14.99 USD에서 5 USD 할인되는 코드를 표시합니다. 할인가는 9.99 USD입니다.",
+    shareActionsLabel: "Capswitch 공유 방법", shareX: "X에 공유", shareThreads: "Threads에 공유", shareFacebook: "Facebook에 공유", shareBluesky: "Bluesky에 공유", shareLine: "LINE에 공유", shareOther: "다른 방법으로 공유", copyLink: "공유 링크 복사",
+    codeLabel: "5 USD 할인 코드", codeHelp: "결제 화면에서 입력하면 14.99 USD에서 9.99 USD로 할인됩니다.",
+    copyCode: "코드 복사", copying: "복사 중", copied: "복사됨", copyFailed: "복사하지 못했습니다", checkout: "9.99 USD에 구매", close: "닫기",
+    shareText: "Capswitch를 확인해 보세요!\nMac에서 쓰지 않는 Caps Lock을 유용한 전환 키로 바꿀 수 있어요!\n\n#Capswitch",
+  },
+  es: {
+    kicker: "Ventaja por compartir", title: "Comparte y ahorra 5 USD",
+    description: "Elige una opción para compartir y mostraremos un código que descuenta 5 USD del precio normal de 14,99 USD. Pagarás 9,99 USD.",
+    shareActionsLabel: "Formas de compartir Capswitch", shareX: "Compartir en X", shareThreads: "Compartir en Threads", shareFacebook: "Compartir en Facebook", shareBluesky: "Compartir en Bluesky", shareLine: "Compartir en LINE", shareOther: "Más opciones", copyLink: "Copiar enlace",
+    codeLabel: "Código de descuento de 5 USD", codeHelp: "Introdúcelo al pagar para reducir el precio de 14,99 USD a 9,99 USD.",
+    copyCode: "Copiar código", copying: "Copiando", copied: "Copiado", copyFailed: "No se pudo copiar", checkout: "Comprar por 9,99 USD", close: "Cerrar",
+    shareText: "¡Descubre Capswitch!\n¡Convierte la tecla Caps Lock que no usas en tu Mac en un práctico selector!\n\n#Capswitch",
+  },
+  it: {
+    kicker: "Vantaggio condivisione", title: "Condividi e risparmia 5 USD",
+    description: "Scegli un’azione di condivisione per mostrare un codice che riduce di 5 USD il prezzo normale di 14,99 USD. Pagherai 9,99 USD.",
+    shareActionsLabel: "Modi per condividere Capswitch", shareX: "Condividi su X", shareThreads: "Condividi su Threads", shareFacebook: "Condividi su Facebook", shareBluesky: "Condividi su Bluesky", shareLine: "Condividi su LINE", shareOther: "Altre opzioni", copyLink: "Copia link",
+    codeLabel: "Codice sconto da 5 USD", codeHelp: "Inseriscilo al pagamento per passare da 14,99 USD a 9,99 USD.",
+    copyCode: "Copia codice", copying: "Copia in corso", copied: "Copiato", copyFailed: "Impossibile copiare", checkout: "Acquista a 9,99 USD", close: "Chiudi",
+    shareText: "Dai un'occhiata a Capswitch!\nTrasforma il tasto Caps Lock che non usi sul Mac in un pratico selettore!\n\n#Capswitch",
+  },
+  vi: {
+    kicker: "Ưu đãi chia sẻ", title: "Chia sẻ để giảm 5 USD",
+    description: "Chọn một cách chia sẻ để hiện mã giảm 5 USD từ giá thường 14,99 USD. Giá sau giảm là 9,99 USD.",
+    shareActionsLabel: "Cách chia sẻ Capswitch", shareX: "Chia sẻ lên X", shareThreads: "Chia sẻ lên Threads", shareFacebook: "Chia sẻ lên Facebook", shareBluesky: "Chia sẻ lên Bluesky", shareLine: "Chia sẻ lên LINE", shareOther: "Cách chia sẻ khác", copyLink: "Sao chép liên kết",
+    codeLabel: "Mã giảm 5 USD", codeHelp: "Nhập mã khi thanh toán để giảm từ 14,99 USD xuống 9,99 USD.",
+    copyCode: "Sao chép mã", copying: "Đang sao chép", copied: "Đã sao chép", copyFailed: "Không thể sao chép", checkout: "Mua với giá 9,99 USD", close: "Đóng",
+    shareText: "Hãy xem Capswitch!\nBiến phím Caps Lock không dùng đến trên máy Mac thành một công tắc tiện lợi!\n\n#Capswitch",
+  },
+  th: {
+    kicker: "สิทธิพิเศษจากการแชร์", title: "แชร์เพื่อรับส่วนลด 5 USD",
+    description: "เลือกการแชร์หนึ่งวิธีเพื่อแสดงโค้ดลด 5 USD จากราคาปกติ 14.99 USD เหลือ 9.99 USD",
+    shareActionsLabel: "วิธีแชร์ Capswitch", shareX: "แชร์ไปยัง X", shareThreads: "แชร์ไปยัง Threads", shareFacebook: "แชร์ไปยัง Facebook", shareBluesky: "แชร์ไปยัง Bluesky", shareLine: "แชร์ไปยัง LINE", shareOther: "แชร์ด้วยวิธีอื่น", copyLink: "คัดลอกลิงก์",
+    codeLabel: "โค้ดส่วนลด 5 USD", codeHelp: "กรอกตอนชำระเงินเพื่อลดราคาจาก 14.99 USD เหลือ 9.99 USD",
+    copyCode: "คัดลอกโค้ด", copying: "กำลังคัดลอก", copied: "คัดลอกแล้ว", copyFailed: "คัดลอกไม่ได้", checkout: "ซื้อในราคา 9.99 USD", close: "ปิด",
+    shareText: "ลองดู Capswitch!\nเปลี่ยนปุ่ม Caps Lock ที่ไม่ได้ใช้บน Mac ให้เป็นปุ่มสลับที่สะดวก!\n\n#Capswitch",
+  },
+};
+
+export type CampaignShareMethod =
+  | "x"
+  | "threads"
+  | "facebook"
+  | "bluesky"
+  | "line"
+  | "whatsapp"
+  | "linkedin"
+  | "weibo"
+  | "qq"
+  | "wechat"
+  | "naver"
+  | "kakao"
+  | "zalo"
+  | "native";
+
+export const campaignShareMethods: Record<Locale, CampaignShareMethod[]> = {
+  ja: ["x", "threads", "line", "facebook", "bluesky", "native"],
+  en: ["x", "threads", "facebook", "whatsapp", "linkedin", "bluesky", "native"],
+  de: ["whatsapp", "facebook", "linkedin", "x", "threads", "native"],
+  "zh-Hans": ["wechat", "weibo", "qq", "native"],
+  "zh-Hant": ["line", "threads", "facebook", "whatsapp", "x", "native"],
+  fr: ["whatsapp", "facebook", "linkedin", "x", "threads", "native"],
+  ko: ["kakao", "naver", "threads", "x", "facebook", "native"],
+  es: ["whatsapp", "facebook", "x", "threads", "linkedin", "native"],
+  it: ["whatsapp", "facebook", "x", "threads", "linkedin", "native"],
+  vi: ["zalo", "facebook", "whatsapp", "threads", "x", "native"],
+  th: ["line", "facebook", "whatsapp", "threads", "x", "native"],
+};
+
+export const campaignRegionalShareLabels: Record<
+  Locale,
+  Partial<Record<CampaignShareMethod, string>>
+> = {
+  ja: {},
+  en: { whatsapp: "Share on WhatsApp", linkedin: "Share on LinkedIn" },
+  de: { whatsapp: "Über WhatsApp teilen", linkedin: "Auf LinkedIn teilen" },
+  "zh-Hans": { wechat: "复制到微信", weibo: "分享到微博", qq: "分享到 QQ" },
+  "zh-Hant": { whatsapp: "分享到 WhatsApp" },
+  fr: { whatsapp: "Partager sur WhatsApp", linkedin: "Partager sur LinkedIn" },
+  ko: { kakao: "카카오톡용으로 복사", naver: "NAVER에 공유" },
+  es: { whatsapp: "Compartir en WhatsApp", linkedin: "Compartir en LinkedIn" },
+  it: { whatsapp: "Condividi su WhatsApp", linkedin: "Condividi su LinkedIn" },
+  vi: { zalo: "Sao chép cho Zalo", whatsapp: "Chia sẻ lên WhatsApp" },
+  th: { whatsapp: "แชร์ไปยัง WhatsApp" },
+};
+
 export const translations: Record<Locale, Translation> = {
   ja: {
     language: "言語",

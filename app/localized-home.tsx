@@ -1,9 +1,10 @@
 "use client";
 
 import { Fragment, useEffect } from "react";
+import { CampaignShareOffer } from "./campaign-share-offer";
 import { CapswitchDemo } from "./capswitch-demo";
 import { GoogleAnalytics } from "./google-analytics";
-import { languages, translations, type Locale } from "./i18n";
+import { campaignTranslations, languages, translations, type Locale } from "./i18n";
 
 const localeStorageKey = "capswitch-site-language";
 const checkoutUrl = "https://buy.polar.sh/polar_cl_UScYXNp1h6aIsYMRZ9aBBZagKU1JAxn0gSxpo3n24fE";
@@ -55,6 +56,7 @@ export function LocalizedHome({
 }) {
   const locale = initialLocale;
   const copy = translations[locale];
+  const campaignCopy = campaignTranslations[locale];
 
   useEffect(() => {
     document.documentElement.lang = locale;
@@ -62,7 +64,12 @@ export function LocalizedHome({
 
   function changeLocale(nextLocale: Locale) {
     window.localStorage.setItem(localeStorageKey, nextLocale);
-    window.location.assign(`${publicBasePath}/${nextLocale}/`);
+    const nextUrl = new URL(`${publicBasePath}/${nextLocale}/`, window.location.origin);
+    const preview = new URLSearchParams(window.location.search).get("preview");
+    if (process.env.NODE_ENV !== "production" && preview === "share5") {
+      nextUrl.searchParams.set("preview", preview);
+    }
+    window.location.assign(nextUrl.toString());
   }
 
   return (
@@ -251,6 +258,12 @@ export function LocalizedHome({
             <a className="button" href={checkoutUrl}>{copy.price.purchase}</a>
           </div>
         </div>
+        <CampaignShareOffer
+          copy={campaignCopy}
+          locale={locale}
+          publicBasePath={publicBasePath}
+          checkoutUrl={checkoutUrl}
+        />
       </section>
 
       <footer className="site-footer">
