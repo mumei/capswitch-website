@@ -112,11 +112,30 @@ test("server-renders a language-aware root gateway", async () => {
   assert.match(html, /hrefLang="x-default" href="https:\/\/capswitch-app\.donpok\.chatgpt\.site\/"/);
 });
 
+test("server-renders the localized user manual", async () => {
+  const response = await render("/ja/manual/");
+  assert.equal(response.status, 200);
+
+  const html = await response.text();
+  assert.match(html, /Capswitchの使い方/);
+  assert.match(html, /id="quick-start"/);
+  assert.match(html, /id="permission"/);
+  assert.match(html, /入力監視は必須ではありません/);
+  assert.match(html, /10の役割から/);
+  assert.match(html, /GitHub Issueを開く/);
+  assert.match(html, /screenshots\/ja\/capswitch-settings\.png/);
+  assert.match(html, /rel="canonical" href="https:\/\/capswitch-app\.donpok\.chatgpt\.site\/ja\/manual\/"/);
+  assert.match(html, /hrefLang="en-US" href="https:\/\/capswitch-app\.donpok\.chatgpt\.site\/en\/manual\/"/);
+});
+
 test("keeps the Hallmark and responsive contracts in source", async () => {
-  const [page, localePage, localizedHome, campaignOffer, redirect, i18n, demo, css, tokens, layout, metadata, analytics] = await Promise.all([
+  const [page, localePage, manualRoute, localizedHome, manualPage, manualI18n, campaignOffer, redirect, i18n, demo, css, tokens, layout, metadata, analytics] = await Promise.all([
     readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/[locale]/page.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/[locale]/manual/page.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/localized-home.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/manual-page.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/manual-i18n.ts", import.meta.url), "utf8"),
     readFile(new URL("../app/campaign-share-offer.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/language-redirect.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/i18n.ts", import.meta.url), "utf8"),
@@ -159,6 +178,19 @@ test("keeps the Hallmark and responsive contracts in source", async () => {
   assert.match(page, /LanguageRedirect/);
   assert.match(localePage, /LocalizedHome/);
   assert.match(localePage, /generateStaticParams/);
+  assert.match(manualRoute, /generateStaticParams/);
+  assert.match(manualRoute, /buildManualMetadata/);
+  assert.match(manualPage, /className="manual-shell"/);
+  assert.match(manualPage, /id="troubleshooting"/);
+  assert.match(manualI18n, /入力監視は必須ではありません/);
+  assert.match(manualI18n, /Input Monitoring is not required/);
+  for (const locale of ["ja", "en", "de", "fr", "ko", "es", "it", "vi", "th"]) {
+    assert.match(manualI18n, new RegExp(`(?:^|\\n)  ${locale}: \\{`));
+  }
+  assert.match(manualI18n, /"zh-Hans": \{/);
+  assert.match(manualI18n, /"zh-Hant": \{/);
+  assert.match(localizedHome, /manualTranslations/);
+  assert.match(localizedHome, /\/manual\//);
   assert.match(localizedHome, /CapswitchDemo/);
   assert.match(localizedHome, /CampaignShareOffer/);
   assert.match(campaignOffer, /const campaignCode = "SHARE5"/);
@@ -217,4 +249,8 @@ test("keeps the Hallmark and responsive contracts in source", async () => {
   assert.match(layout, /lang="en"/);
   assert.match(metadata, /alternateLocale/);
   assert.match(metadata, /"x-default"/);
+  assert.match(metadata, /buildManualMetadata/);
+  assert.match(css, /macrostructure: Narrative Workflow/);
+  assert.match(css, /\.manual-shell \{/);
+  assert.match(css, /@media \(min-width: 62rem\)[\s\S]*?\.manual-shell \{ grid-template-columns: 16rem minmax\(0, 1fr\)/);
 });

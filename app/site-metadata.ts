@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { languages, translations, type Locale } from "./i18n";
+import { manualTranslations } from "./manual-i18n";
 
 export const localeMetadata: Record<Locale, { languageTag: string; openGraphLocale: string }> = {
   ja: { languageTag: "ja-JP", openGraphLocale: "ja_JP" },
@@ -51,6 +52,44 @@ export function buildLocaleMetadata(locale: Locale): Metadata {
       url: path,
       siteName: "Capswitch",
       type: "website",
+      locale: openGraphLocale,
+      alternateLocale: languages
+        .filter(({ code }) => code !== locale)
+        .map(({ code }) => localeMetadata[code].openGraphLocale),
+      images: [{ url: "/og.png", width: 1200, height: 630, alt: title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["/og.png"],
+    },
+  };
+}
+
+export function buildManualMetadata(locale: Locale): Metadata {
+  const copy = manualTranslations[locale];
+  const title = `${copy.title} — Capswitch`;
+  const description = copy.lead;
+  const path = `/${locale}/manual/`;
+  const manualAlternates = Object.fromEntries(
+    languages.map(({ code }) => [localeMetadata[code].languageTag, `/${code}/manual/`]),
+  );
+  const { openGraphLocale } = localeMetadata[locale];
+
+  return {
+    title: { absolute: title },
+    description,
+    alternates: {
+      canonical: path,
+      languages: { ...manualAlternates, "x-default": "/en/manual/" },
+    },
+    openGraph: {
+      title,
+      description,
+      url: path,
+      siteName: "Capswitch",
+      type: "article",
       locale: openGraphLocale,
       alternateLocale: languages
         .filter(({ code }) => code !== locale)

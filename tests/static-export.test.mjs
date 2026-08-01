@@ -30,6 +30,7 @@ test("exports a GitHub Pages-ready static site", async () => {
     ...locales.flatMap((locale) => [
       access(new URL(`screenshots/${locale}/capswitch-settings.png`, output)),
       access(new URL(`screenshots/${locale}/capswitch-menu.png`, output)),
+      access(new URL(`${locale}/manual/index.html`, output)),
     ]),
     access(new URL("404.html", output)),
   ]);
@@ -43,6 +44,14 @@ test("exports a GitHub Pages-ready static site", async () => {
     assert.match(localizedHtml, /property="og:locale"/);
     assert.match(localizedHtml, /property="og:locale:alternate"/);
     assert.match(localizedHtml, /name="twitter:card" content="summary_large_image"/);
+
+    const manualHtml = await readFile(new URL(`${locale}/manual/index.html`, output), "utf8");
+    assert.match(manualHtml, new RegExp(`https://capswitch\\.suruyatu\\.com/${locale}/manual/`));
+    assert.match(manualHtml, /class="manual-shell"/);
+    assert.match(manualHtml, /id="quick-start"/);
+    assert.match(manualHtml, /id="troubleshooting"/);
+    assert.match(manualHtml, new RegExp(`/screenshots/${locale}/capswitch-settings\\.png`));
+    assert.match(manualHtml, /property="og:type" content="article"/);
 
     assert.deepEqual(
       await readPngSize(new URL(`screenshots/${locale}/capswitch-settings.png`, output)),

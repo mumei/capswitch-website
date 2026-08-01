@@ -5,6 +5,7 @@ import { CampaignShareOffer } from "./campaign-share-offer";
 import { CapswitchDemo } from "./capswitch-demo";
 import { GoogleAnalytics } from "./google-analytics";
 import { campaignTranslations, languages, translations, type Locale } from "./i18n";
+import { manualTranslations } from "./manual-i18n";
 
 const localeStorageKey = "capswitch-site-language";
 const checkoutUrl = "https://buy.polar.sh/polar_cl_UScYXNp1h6aIsYMRZ9aBBZagKU1JAxn0gSxpo3n24fE";
@@ -57,6 +58,7 @@ export function LocalizedHome({
   const locale = initialLocale;
   const copy = translations[locale];
   const campaignCopy = campaignTranslations[locale];
+  const manualCopy = manualTranslations[locale];
 
   useEffect(() => {
     document.documentElement.lang = locale;
@@ -84,6 +86,9 @@ export function LocalizedHome({
           Capswitch<span className="wordmark-dot" aria-hidden="true" />
         </a>
         <div className="nav-actions">
+          <a className="nav-manual" href={`${publicBasePath}/${locale}/manual/`}>
+            {manualCopy.navLabel}
+          </a>
           <label className="language-picker">
             <span className="sr-only">{copy.language}</span>
             <span className="language-symbol" aria-hidden="true">文</span>
@@ -268,6 +273,7 @@ export function LocalizedHome({
 
       <footer className="site-footer">
         <span>© 2026 Capswitch</span>
+        <a href={`${publicBasePath}/${locale}/manual/`}>{manualCopy.navLabel}</a>
         <a href="https://github.com/mumei/capswitch-core">Apache-2.0 Core ↗</a>
       </footer>
       <GoogleAnalytics {...copy.analytics} />
